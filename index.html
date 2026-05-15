@@ -5,113 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mamta Modern Sr. Sec. School | Official</title>
     <style>
-        /* MODERN COLOR PALETTE */
         :root { 
             --glass: rgba(255, 255, 255, 0.9);
             --midnight: #0f172a; 
             --accent: #d4af37; 
             --soft-bg: #f8fafc;
-            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', 'Segoe UI', sans-serif; }
-        body { background: var(--soft-bg); color: var(--midnight); overflow-x: hidden; }
+        body { background: var(--soft-bg); color: var(--midnight); line-height: 1.6; }
 
-        /* NEUMORPHIC HEADER */
-        .header-main { 
-            background: white; 
-            padding: 30px 20px; 
-            text-align: center; 
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
-        .logo-img { height: 85px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1)); transition: 0.4s; }
-        .logo-img:hover { transform: scale(1.05); }
-        .school-name { font-size: 2rem; font-weight: 800; letter-spacing: -0.5px; color: var(--midnight); }
-
-        /* FLOATING NAV */
-        nav { 
-            background: var(--midnight); 
-            padding: 12px; 
-            position: sticky; 
-            top: 0; 
-            z-index: 1000; 
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-        nav a { 
-            color: #cbd5e1; 
-            margin: 0 18px; 
-            text-decoration: none; 
-            font-weight: 600; 
-            font-size: 0.85rem; 
-            letter-spacing: 0.5px;
-            transition: 0.3s;
-        }
+        .header-main { background: white; padding: 30px 20px; text-align: center; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .logo-img { height: 85px; margin-bottom: 10px; }
+        
+        nav { background: var(--midnight); padding: 12px; position: sticky; top: 0; z-index: 1000; text-align: center; }
+        nav a { color: #cbd5e1; margin: 0 18px; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: 0.3s; }
         nav a:hover { color: var(--accent); }
 
         .container { max-width: 1100px; margin: 30px auto; padding: 0 20px; }
 
-        /* MODERN GRID CARDS */
-        .top-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 40px; }
-        .glass-card { 
+        /* ABOUT SECTION */
+        .about-card { 
             background: white; 
-            padding: 25px; 
-            border-radius: 20px; 
-            box-shadow: var(--shadow); 
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-        .glass-card h3 { font-size: 0.9rem; text-transform: uppercase; color: #64748b; letter-spacing: 1px; margin-bottom: 15px; }
-
-        .contact-info { font-size: 0.95rem; font-weight: 500; margin-bottom: 8px; color: var(--midnight); display: block; text-decoration: none;}
-
-        .social-row { display: flex; gap: 12px; margin-top: 15px; }
-        .modern-btn { 
-            flex: 1; text-align: center; padding: 12px; border-radius: 12px; 
-            text-decoration: none; color: white; font-weight: 700; font-size: 0.8rem;
-            transition: 0.3s;
-        }
-        .yt { background: #ef4444; } .fb { background: #3b82f6; } .ig { background: #ec4899; }
-        .modern-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.2); }
-
-        /* PRINCIPAL - THE CENTERPIECE */
-        .prin-card { 
-            background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
             padding: 40px; 
             border-radius: 24px; 
-            text-align: center;
-            box-shadow: var(--shadow);
-            margin: 40px 0;
-            cursor: pointer;
-            transition: 0.4s;
+            box-shadow: var(--shadow); 
+            margin-bottom: 40px; 
             border: 1px solid #e2e8f0;
         }
-        .prin-card:hover { transform: translateY(-5px); border-color: var(--accent); }
-        .prin-avatar { 
-            width: 120px; height: 120px; border-radius: 50%; 
-            border: 4px solid white; box-shadow: 0 0 20px rgba(0,0,0,0.1); 
-            object-fit: cover; margin-bottom: 15px; background: #cbd5e1;
-        }
-        .prin-name { font-size: 1.6rem; font-weight: 800; color: var(--midnight); }
-        .prin-tag { color: var(--accent); font-weight: 700; text-transform: uppercase; font-size: 0.85rem; }
+        .about-card h2 { color: var(--midnight); margin-bottom: 20px; font-size: 1.8rem; border-bottom: 3px solid var(--accent); display: inline-block; }
+        .about-text { font-size: 1.05rem; color: #475569; margin-bottom: 15px; text-align: justify; }
 
-        /* AWARDS PANEL */
-        #awards-panel { display: none; margin-top: 25px; animation: slideUp 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+        /* GRID CARDS */
+        .top-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 40px; }
+        .glass-card { background: white; padding: 25px; border-radius: 20px; box-shadow: var(--shadow); }
+        .modern-btn { display: inline-block; width: 48%; text-align: center; padding: 12px; border-radius: 12px; text-decoration: none; color: white; font-weight: 700; font-size: 0.8rem; transition: 0.3s; }
+        .yt { background: #ef4444; } .ig { background: #ec4899; }
+
+        /* PRINCIPAL */
+        .prin-card { background: white; padding: 40px; border-radius: 24px; text-align: center; box-shadow: var(--shadow); cursor: pointer; transition: 0.4s; margin-bottom: 40px; }
+        .prin-avatar { width: 120px; height: 120px; border-radius: 50%; border: 4px solid var(--accent); object-fit: cover; margin-bottom: 15px; }
+
+        #awards-panel { display: none; margin-top: 25px; animation: slideUp 0.5s ease; }
         .awards-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
-        .award-thumb { width: 100%; border-radius: 12px; aspect-ratio: 1/1; object-fit: cover; background: #e2e8f0; }
+        .award-thumb { width: 100%; border-radius: 12px; aspect-ratio: 1/1; background: #e2e8f0; }
 
-        /* MAP BOX */
-        .map-section { border-radius: 24px; overflow: hidden; box-shadow: var(--shadow); border: 4px solid white; height: 400px; }
-
+        .map-section { border-radius: 24px; overflow: hidden; box-shadow: var(--shadow); height: 400px; border: 4px solid white; }
         @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
-        footer { text-align: center; padding: 50px; color: #94a3b8; font-weight: 500; font-size: 0.85rem; }
+        footer { text-align: center; padding: 40px; color: #94a3b8; font-size: 0.85rem; }
     </style>
 </head>
 <body>
 
     <header class="header-main">
-        <img src="assets/people/logo.png" class="logo-img" onerror="this.src='https://via.placeholder.com/80?text=LOGO'">
-        <h1 class="school-name">MAMTA MODERN SCHOOL</h1>
+        <img src="assets/people/logo.png" class="logo-img" onerror="this.src='https://via.placeholder.com/80'">
+        <h1 style="font-weight: 800;">MAMTA MODERN SCHOOL</h1>
     </header>
 
     <nav>
@@ -122,27 +71,38 @@
     </nav>
 
     <div class="container">
+        
+        <div class="about-card">
+            <h2>Welcome to Mamta Modern Sr. Sec. School</h2>
+            <p class="about-text">
+                Established in 1973, Mamta Modern Senior Secondary School has journeyed from its humble beginnings to become one of the most prestigious institutions in West Delhi. With a steadfast commitment to excellence, the school has continuously evolved, boasting state-of-the-art infrastructure and facilities essential for modern education.
+            </p>
+            <p class="about-text">
+                Recognized by the Directorate of Education, Government of NCT, Delhi, the school achieved affiliation with the Central Board of Secondary Education (CBSE) in 1986 (Affiliation No. 2730133). Today, it offers comprehensive education in three streams: Science, Commerce, and Humanities, catering to the diverse academic interests of its students.
+            </p>
+            <p class="about-text">
+                The school was founded by the Mamta Modern Education Society, a legally registered body operating on a permanent basis under the relevant provisions of law. This foundation has been instrumental in establishing the institution’s ethos of holistic education and sustained growth over the decades.
+            </p>
+        </div>
+
         <div class="top-grid">
             <div class="glass-card">
-                <h3>Contact</h3>
-                <a href="tel:+911145614501" class="contact-info">📞 +91 11 4561 4501</a>
-                <a href="mailto:mamtamodernschool@gmail.com" class="contact-info" style="font-size: 0.8rem;">✉️ mamtamodernschool@gmail.com</a>
-                <p class="contact-info" style="font-size: 0.8rem; margin-top: 5px;">📍 Vikas Puri, New Delhi-18</p>
+                <h3 style="font-size: 0.8rem; text-transform: uppercase; color: #64748b; margin-bottom: 10px;">Contact</h3>
+                <p>📞 +91 11 4561 4501</p>
+                <p>✉️ mamtamodernschool@gmail.com</p>
             </div>
             <div class="glass-card">
-                <h3>Our Channels</h3>
-                <div class="social-row">
-                    <a href="https://www.youtube.com/@MamtaModernSchoolVikasPuri" target="_blank" class="modern-btn yt">YouTube</a>
-                    <a href="https://www.instagram.com/mamtamodernschool/" target="_blank" class="modern-btn ig">Instagram</a>
-                </div>
+                <h3 style="font-size: 0.8rem; text-transform: uppercase; color: #64748b; margin-bottom: 10px;">Socials</h3>
+                <a href="https://www.youtube.com/@MamtaModernSchoolVikasPuri" class="modern-btn yt">YouTube</a>
+                <a href="https://www.instagram.com/mamtamodernschool/" class="modern-btn ig">Instagram</a>
             </div>
         </div>
 
         <div class="prin-card" onclick="toggleAwards()">
-            <img src="assets/people/principal.jpg" class="prin-avatar" onerror="this.src='https://via.placeholder.com/120?text=P'">
-            <h2 class="prin-name">Ms. Pallavi Sharma</h2>
-            <p class="prin-tag">Principal & Visionary</p>
-            <p style="margin-top: 10px; font-size: 0.85rem; color: #64748b;">Click to view the Wall of Recognition 🏆</p>
+            <img src="assets/people/principal.jpg" class="prin-avatar" onerror="this.src='https://via.placeholder.com/120'">
+            <h2 style="font-size: 1.6rem;">Ms. Pallavi Sharma</h2>
+            <p style="color: var(--accent); font-weight: 700;">Principal</p>
+            <p style="margin-top: 10px; font-size: 0.85rem; color: #64748b;">Click to view Awards 🏆</p>
             
             <div id="awards-panel">
                 <div class="awards-grid">
@@ -156,22 +116,18 @@
         </div>
 
         <div class="map-section">
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4163.989897053249!2d77.07009878991778!3d28.64521794908334!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d04f19271981f%3A0x4386a0e4b2463d42!2sMamta%20Modern%20Senior%20Secondary%20School!5e0!3m2!1sen!2sin!4v1778838492763!5m2!1sen!2sin" 
-                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
-            </iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4163.989897053249!2d77.07009878991778!3d28.64521794908334!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d04f19271981f%3A0x4386a0e4b2463d42!2sMamta%20Modern%20Senior%20Secondary%20School!5e0!3m2!1sen!2sin!4v1778838492763!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </div>
 
     <footer>
-        <p>© 2026 Mamta Modern Sr. Sec. School. All Rights Reserved.</p>
+        <p>© 2026 Mamta Modern Sr. Sec. School | Developed by Swapneil</p>
     </footer>
 
     <script>
         function toggleAwards() {
             const panel = document.getElementById('awards-panel');
-            const isVisible = panel.style.display === 'block';
-            panel.style.display = isVisible ? 'none' : 'block';
+            panel.style.display = (panel.style.display === 'block') ? 'none' : 'block';
         }
     </script>
 </body>
