@@ -2,21 +2,59 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Suppliers | Mamta Modern School</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --midnight: #001f3f; --accent: #d4af37; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
-        .container { max-width: 1000px; margin: 40px auto; padding: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .box { background: white; padding: 30px; border-radius: 15px; border: 1px solid #ddd; text-align: center; }
-        .box h3 { color: var(--midnight); margin: 10px 0; }
-        .call-btn { display: inline-block; background: var(--midnight); color: var(--accent); padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; margin-top: 10px; }
+        /* CSS IS IDENTICAL */
+        :root { --midnight: #001f3f; --accent: #d4af37; --white: #ffffff; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial Black', sans-serif; }
+        body { background: #f4f7f6; color: #333; }
+        header { background: var(--white); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #eee; }
+        .h-left img { height: 100px; }
+        .h-center { flex-grow: 1; padding-left: 30px; }
+        .h-center h1 { color: #001f3f; font-size: 2.3rem; margin: 0; }
+        .h-center p { color: var(--accent); font-size: 0.9rem; font-weight: bold; margin-top: 8px; }
+        .h-right { text-align: right; display: flex; flex-direction: column; gap: 4px; min-width: 280px; }
+        .info-txt { font-weight: 900; color: #001f3f; font-size: 1.1rem; font-family: 'Arial', sans-serif; }
+        .soc-row { display: flex; justify-content: flex-end; gap: 15px; margin-top: 5px; }
+        .soc-row a { font-size: 1.9rem; text-decoration: none; }
+        .fa-facebook { color: #1877F2; } .fa-youtube { color: #FF0000; } .fa-instagram { color: #E4405F; }
+        nav { background: #001f3f; padding: 0 5%; display: flex; justify-content: center; position: sticky; top: 0; z-index: 1000; }
+        nav a { color: white; padding: 18px 25px; text-decoration: none; font-weight: bold; font-size: 0.85rem; text-transform: uppercase; }
+        nav a:hover { color: var(--accent); background: rgba(255,255,255,0.1); }
+
+        .container { max-width: 1100px; margin: 40px auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 0 5%; }
+        .box { background: white; padding: 30px; border-radius: 15px; text-align: center; border: 1px solid #ddd; }
+        .box h3 { color: var(--midnight); margin-bottom: 10px; }
+        .call-btn { display: inline-block; background: var(--midnight); color: var(--accent); padding: 12px 25px; border-radius: 5px; text-decoration: none; font-weight: bold; border: 2px solid var(--accent); margin-top: 15px; }
+        footer { background: #001f3f; color: white; padding: 40px; text-align: center; }
     </style>
 </head>
 <body>
+    <header>
+        <div class="h-left"><img src="../assets/people/logo.png" onerror="this.src='https://via.placeholder.com/100'"></div>
+        <div class="h-center"><h1>MAMTA MODERN SCHOOL</h1><p>NURTURING EXCELLENCE SINCE 1973</p></div>
+        <div class="h-right">
+            <div class="info-txt">+91-11-45614501</div>
+            <div class="info-txt" style="font-size: 0.85rem;">mamtamodernschool@gmail.com</div>
+            <div class="soc-row">
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="circulars.html">Circulars</a>
+        <a href="suppliers.html">Suppliers</a>
+    </nav>
     <div class="container">
-        <div class="box"><h3>Design X Knitwears</h3><p>Uniform Supplier</p><a href="tel:01145614501" class="call-btn">Call Now</a></div>
-        <div class="box"><h3>Shilpi Prakashan</h3><p>Books & Stationery</p><a href="tel:01145614501" class="call-btn">Call Now</a></div>
+        <div class="box"><h3>Design X Knitwears</h3><p>Authorized Uniform Supplier</p><a href="tel:01145614501" class="call-btn">Call Now</a></div>
+        <div class="box"><h3>Shilpi Prakashan</h3><p>Books & Stationery</p><a href="tel:9350520688" class="call-btn">Call Now</a></div>
     </div>
+    <footer><p>© 2026 Mamta Modern School | Developed by <b>Swapneil Jha</b></p></footer>
 </body>
 </html>

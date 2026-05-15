@@ -2,39 +2,61 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery | Mamta Modern School</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --midnight: #001f3f; --accent: #d4af37; }
+        /* CSS IS IDENTICAL TO INDEX.HTML */
+        :root { --midnight: #001f3f; --accent: #d4af37; --white: #ffffff; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial Black', sans-serif; }
-        header { background: #fff; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #eee; }
-        .h-left img { height: 80px; }
-        .h-right { text-align: right; }
-        .soc-row a { font-size: 1.8rem; margin-left: 10px; }
-        .fa-facebook { color: #1877F2; } .fa-youtube { color: #FF0000; }
-        nav { background: #001f3f; display: flex; justify-content: center; }
-        nav a { color: white; padding: 15px 20px; text-decoration: none; font-size: 0.8rem; text-transform: uppercase; }
-        .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; padding: 40px; }
-        .gallery img { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; border: 4px solid #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        body { background: #f4f7f6; color: #333; }
+        header { background: var(--white); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #eee; }
+        .h-left img { height: 100px; }
+        .h-center { flex-grow: 1; padding-left: 30px; }
+        .h-center h1 { color: #001f3f; font-size: 2.3rem; margin: 0; }
+        .h-center p { color: var(--accent); font-size: 0.9rem; font-weight: bold; margin-top: 8px; }
+        .h-right { text-align: right; display: flex; flex-direction: column; gap: 4px; min-width: 280px; }
+        .info-txt { font-weight: 900; color: #001f3f; font-size: 1.1rem; font-family: 'Arial', sans-serif; }
+        .soc-row { display: flex; justify-content: flex-end; gap: 15px; margin-top: 5px; }
+        .soc-row a { font-size: 1.9rem; text-decoration: none; }
+        .fa-facebook { color: #1877F2; } .fa-youtube { color: #FF0000; } .fa-instagram { color: #E4405F; }
+        nav { background: #001f3f; padding: 0 5%; display: flex; justify-content: center; position: sticky; top: 0; z-index: 1000; }
+        nav a { color: white; padding: 18px 25px; text-decoration: none; font-weight: bold; font-size: 0.85rem; text-transform: uppercase; }
+        nav a:hover { color: var(--accent); background: rgba(255,255,255,0.1); }
+
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; padding: 40px 5%; }
+        .gallery-item { border-radius: 15px; overflow: hidden; height: 250px; border: 5px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.3s; }
+        .gallery-item:hover img { transform: scale(1.1); }
+        footer { background: #001f3f; color: white; padding: 40px; text-align: center; }
     </style>
 </head>
 <body>
     <header>
-        <div class="h-left"><img src="../assets/people/logo.png"></div>
+        <div class="h-left"><img src="../assets/people/logo.png" onerror="this.src='https://via.placeholder.com/100'"></div>
+        <div class="h-center"><h1>MAMTA MODERN SCHOOL</h1><p>NURTURING EXCELLENCE SINCE 1973</p></div>
         <div class="h-right">
-            <div style="font-weight:900; color:#001f3f;">+91-11-45614501</div>
-            <div style="font-size:0.7rem; color:#666;">mamtamodernschool@gmail.com</div>
+            <div class="info-txt">+91-11-45614501</div>
+            <div class="info-txt" style="font-size: 0.85rem;">mamtamodernschool@gmail.com</div>
             <div class="soc-row">
                 <a href="#"><i class="fa-brands fa-facebook"></i></a>
                 <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
             </div>
         </div>
     </header>
-    <nav><a href="../index.html">Home</a><a href="gallery.html">Gallery</a><a href="circulars.html">Circulars</a><a href="suppliers.html">Suppliers</a></nav>
-    <div class="gallery" id="g"></div>
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="circulars.html">Circulars</a>
+        <a href="suppliers.html">Suppliers</a>
+    </nav>
+    <div class="gallery-grid" id="gallery"></div>
+    <footer><p>© 2026 Mamta Modern School | Developed by <b>Swapneil Jha</b></p></footer>
     <script>
         const imgs = ['campus.jpg', 'sports.jpg', 'award1.jpg', 'award2.jpg', 'award3.jpg', 'award4.jpg', 'award5.jpg'];
-        imgs.forEach(m => document.getElementById('g').innerHTML += `<img src="../assets/events/${m}">`);
+        const g = document.getElementById('gallery');
+        imgs.forEach(i => g.innerHTML += `<div class="gallery-item"><img src="../assets/events/${i}"></div>`);
     </script>
 </body>
 </html>
