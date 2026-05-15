@@ -15,68 +15,71 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', 'Segoe UI', sans-serif; }
         body { background: var(--soft-bg); color: var(--midnight); line-height: 1.6; }
 
-        .header-main { background: white; padding: 25px; text-align: center; border-bottom: 1px solid #e2e8f0; }
-        .logo-img { height: 75px; margin-bottom: 10px; }
+        /* THE SUPER HEADER (Logo + Name + Info) */
+        .super-header { 
+            background: white; 
+            padding: 20px 5%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            border-bottom: 1px solid #e2e8f0;
+        }
         
+        .header-left { display: flex; align-items: center; gap: 20px; }
+        .logo-img { height: 85px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1)); }
+        .school-title h1 { font-size: 1.6rem; font-weight: 800; letter-spacing: -1px; }
+        .school-title p { font-size: 0.8rem; color: var(--accent); font-weight: 700; text-transform: uppercase; }
+
+        .header-right { text-align: right; border-left: 2px solid #f1f5f9; padding-left: 25px; }
+        .header-info { display: block; font-size: 0.85rem; font-weight: 600; text-decoration: none; color: var(--midnight); margin-bottom: 4px; }
+        .header-info span { color: var(--accent); margin-right: 5px; }
+
+        /* NAV STAYS THE SAME */
         nav { background: var(--midnight); padding: 15px; position: sticky; top: 0; z-index: 1000; text-align: center; }
         nav a { color: #cbd5e1; margin: 0 15px; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: 0.3s; }
         nav a:hover { color: var(--accent); }
 
         .container { max-width: 1100px; margin: 30px auto; padding: 0 20px; }
 
-        /* PRINCIPAL MESSAGE - SIDE BY SIDE LAYOUT */
+        /* PRINCIPAL MESSAGE SECTION */
         .message-card { 
-            background: white; 
-            padding: 40px; 
-            border-radius: 24px; 
-            box-shadow: var(--shadow); 
-            margin-bottom: 40px;
-            display: flex;
-            gap: 40px;
-            align-items: flex-start;
-            border: 1px solid #e2e8f0;
+            background: white; padding: 40px; border-radius: 24px; box-shadow: var(--shadow); 
+            display: flex; gap: 40px; border: 1px solid #e2e8f0;
         }
-
-        .prin-visual { flex: 0 0 300px; text-align: center; position: sticky; top: 100px; }
-        .prin-avatar { 
-            width: 250px; height: 250px; border-radius: 20px; 
-            border: 5px solid var(--accent); object-fit: cover; 
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1); margin-bottom: 15px;
-        }
-
+        .prin-visual { flex: 0 0 280px; text-align: center; }
+        .prin-avatar { width: 100%; border-radius: 20px; border: 5px solid var(--accent); object-fit: cover; }
         .message-content { flex: 1; }
-        .message-content h2 { font-size: 1.8rem; margin-bottom: 15px; color: var(--midnight); border-left: 5px solid var(--accent); padding-left: 15px; }
-        .quote { font-style: italic; color: #64748b; margin-bottom: 20px; font-weight: 500; display: block; border-bottom: 1px solid #f1f5f9; padding-bottom: 15px; }
-        .message-text { font-size: 0.95rem; color: #334155; margin-bottom: 15px; text-align: justify; }
 
-        /* BUTTONS */
-        .btn-awards { 
-            display: inline-block; margin-top: 10px; padding: 12px 25px; 
-            background: var(--midnight); color: white; border-radius: 8px; 
-            text-decoration: none; font-weight: bold; cursor: pointer; transition: 0.3s;
+        /* RESPONSIVE FOR PHONES */
+        @media (max-width: 850px) {
+            .super-header { flex-direction: column; text-align: center; gap: 15px; }
+            .header-right { border-left: none; padding-left: 0; text-align: center; }
+            .message-card { flex-direction: column; align-items: center; padding: 25px; }
+            .prin-visual { flex: none; width: 200px; }
         }
-        .btn-awards:hover { background: var(--accent); transform: translateY(-2px); }
 
-        #awards-panel { display: none; margin-top: 25px; padding: 20px; background: #fffbeb; border-radius: 15px; border: 1px dashed var(--accent); }
+        #awards-panel { display: none; margin-top: 25px; padding: 20px; background: #fff; border-radius: 15px; border: 1px dashed var(--accent); }
         .awards-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
         .award-thumb { width: 100%; border-radius: 8px; background: #e2e8f0; aspect-ratio: 1/1; }
-
-        /* RESPONSIVE STACKING */
-        @media (max-width: 850px) {
-            .message-card { flex-direction: column; align-items: center; padding: 25px; }
-            .prin-visual { flex: none; position: static; margin-bottom: 20px; }
-            .prin-avatar { width: 200px; height: 200px; }
-        }
-
-        .map-section { border-radius: 24px; overflow: hidden; box-shadow: var(--shadow); height: 350px; margin-top: 40px; border: 4px solid white; }
+        .map-section { border-radius: 24px; overflow: hidden; height: 350px; margin-top: 40px; border: 4px solid white; box-shadow: var(--shadow); }
         footer { text-align: center; padding: 40px; color: #94a3b8; font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
-    <header class="header-main">
-        <img src="assets/people/logo.png" class="logo-img" onerror="this.src='https://via.placeholder.com/80'">
-        <h1 style="font-weight: 800; font-size: 1.8rem; letter-spacing: -1px;">MAMTA MODERN SCHOOL</h1>
+    <header class="super-header">
+        <div class="header-left">
+            <img src="assets/people/logo.png" class="logo-img" onerror="this.src='https://via.placeholder.com/80'">
+            <div class="school-title">
+                <h1>MAMTA MODERN SCHOOL</h1>
+                <p>Est. 1973 | Golden Jubilee Year</p>
+            </div>
+        </div>
+        <div class="header-right">
+            <a href="tel:+911145614501" class="header-info"><span>📞</span> +91-11-45614501</a>
+            <a href="mailto:mamtamodernschool@gmail.com" class="header-info"><span>📧</span> mamtamodernschool@gmail.com</a>
+            <span class="header-info" style="font-weight: 500; font-size: 0.75rem;">📍 Vikas Puri, New Delhi-110018</span>
+        </div>
     </header>
 
     <nav>
@@ -90,30 +93,21 @@
         
         <div class="message-card">
             <div class="prin-visual">
-                <img src="assets/people/principal.jpg" class="prin-avatar" onerror="this.src='https://via.placeholder.com/250?text=Principal'">
-                <h3 style="margin-top:10px;">Ms. Pallavi Sharma</h3>
+                <img src="assets/people/principal.jpg" class="prin-avatar" onerror="this.src='https://via.placeholder.com/250'">
+                <h3 style="margin-top:15px;">Ms. Pallavi Sharma</h3>
                 <p style="color: var(--accent); font-weight: bold; font-size: 0.8rem;">Principal & National Awardee</p>
-                <div class="btn-awards" onclick="toggleAwards()">View Wall of Honor 🏆</div>
+                <button onclick="toggleAwards()" style="margin-top: 15px; padding: 10px 20px; background: var(--midnight); color: white; border: none; border-radius: 8px; cursor: pointer;">Wall of Honor 🏆</button>
             </div>
 
             <div class="message-content">
-                <h2>Principal's Message</h2>
-                <span class="quote">“Excellence is not a destination; it is a continuous journey that never ends.” – Dr. A.P.J. Abdul Kalam</span>
-                
-                <p class="message-text">This year marks a monumental milestone for Mamta Modern Senior Secondary School as we proudly celebrate the Golden Jubilee of our inception. Adding to this momentous occasion, I am deeply honored to have been awarded the prestigious National Teachers Award.</p>
-                
-                <p class="message-text">I extend my heartfelt gratitude to the Almighty, our visionary management, supportive parents, and dedicated students for their unwavering support in making this achievement possible. This accolade is not just a personal honor but a testament to the collective dedication and efforts of our school community.</p>
-                
-                <p class="message-text">Over the years, our school has consistently excelled in various fields, with remarkable accomplishments in academics and co-curricular domains. From outstanding CBSE Board Results and Science accolades to sports achievements and victories in Zonal and Inter-Zonal Competitions, our students have demonstrated exceptional dedication and potential.</p>
-                
-                <p class="message-text">As we celebrate this remarkable recognition, we are mindful of the responsibilities it brings. We reaffirm our commitment to fostering a culture of innovation, inclusivity, and sustainability, aligning our vision with the United Nations’ Sustainable Development Goals (SDGs).</p>
-
-                <p class="message-text">To my dear students, I urge you to continue striving for excellence. Together, we will shape a future filled with promise and achievement.</p>
+                <h2 style="margin-bottom: 10px;">Principal's Message</h2>
+                <p style="font-style: italic; color: #64748b; margin-bottom: 15px;">“Excellence is not a destination; it is a continuous journey that never ends.” – Dr. A.P.J. Abdul Kalam</p>
+                <p style="font-size: 0.95rem; margin-bottom: 10px;">This year marks a monumental milestone for Mamta Modern Senior Secondary School as we proudly celebrate the Golden Jubilee of our inception. Adding to this momentous occasion, I am deeply honored to have been awarded the prestigious National Teachers Award.</p>
+                <p style="font-size: 0.95rem;">I extend my heartfelt gratitude to the Almighty, our visionary management, supportive parents, and dedicated students for their unwavering support in making this achievement possible...</p>
             </div>
         </div>
 
         <div id="awards-panel">
-            <h4 style="text-align: center; margin-bottom: 15px; text-transform: uppercase; font-size: 0.8rem;">National Recognition & Wall of Excellence</h4>
             <div class="awards-grid">
                 <img src="assets/events/award1.jpg" class="award-thumb" onerror="this.src='https://via.placeholder.com/100?text=🏆'">
                 <img src="assets/events/award2.jpg" class="award-thumb" onerror="this.src='https://via.placeholder.com/100?text=🏆'">
@@ -126,20 +120,16 @@
         <div class="map-section">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4163.989897053249!2d77.07009878991778!3d28.64521794908334!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d04f19271981f%3A0x4386a0e4b2463d42!2sMamta%20Modern%20Senior%20Secondary%20School!5e0!3m2!1sen!2sin!4v1778838492763!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
-
     </div>
 
     <footer>
-        <p>© 2026 Mamta Modern Sr. Sec. School | Golden Jubilee Year</p>
+        <p>© 2026 Mamta Modern Sr. Sec. School | Designed by Swapneil</p>
     </footer>
 
     <script>
         function toggleAwards() {
             const panel = document.getElementById('awards-panel');
             panel.style.display = (panel.style.display === 'block') ? 'none' : 'block';
-            if(panel.style.display === 'block') {
-                panel.scrollIntoView({ behavior: 'smooth' });
-            }
         }
     </script>
 </body>
