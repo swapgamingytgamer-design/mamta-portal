@@ -8,45 +8,69 @@
     <style>
         :root { --midnight: #0f172a; --accent: #d4af37; --soft-bg: #f8fafc; --white: #ffffff; --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1); }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background: var(--soft-bg); color: #334155; }
+        body { background: var(--soft-bg); color: #334155; line-height: 1.6; }
 
-        /* HEADER & NAV (Synced) */
-        .super-header { background: var(--white); padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid var(--accent); }
-        .logo-img { height: 85px; }
-        nav { background: var(--midnight); padding: 15px; text-align: center; position: sticky; top: 0; z-index: 1000; }
-        nav a { color: #cbd5e1; margin: 0 15px; text-decoration: none; font-weight: 600; font-size: 0.85rem; }
+        /* SYNCED HEADER */
+        .super-header { background: var(--white); padding: 20px 5%; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; border-bottom: 4px solid var(--accent); gap: 20px; }
+        .header-left { display: flex; align-items: center; gap: 20px; }
+        .logo-img { height: 85px; width: auto; }
+        .school-title h1 { font-size: 1.6rem; font-weight: 800; color: var(--midnight); }
+        .school-title p { font-size: 0.8rem; color: var(--accent); font-weight: 700; text-transform: uppercase; }
+        .header-right { text-align: right; min-width: 250px; }
+        .header-info { display: block; font-size: 0.85rem; font-weight: 600; text-decoration: none; color: var(--midnight); margin-bottom: 6px; }
+        .header-info i { color: var(--accent); margin-right: 10px; width: 20px; text-align: center; }
         
-        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
-        .card { background: var(--white); padding: 40px; border-radius: 24px; box-shadow: var(--shadow); border: 1px solid #e2e8f0; min-height: 400px; }
+        /* SOCIAL LINKS WITH INSTAGRAM */
+        .social-links { margin-top: 12px; display: flex; gap: 18px; justify-content: flex-end; }
+        .social-links a { text-decoration: none; font-size: 1.4rem; color: var(--midnight); transition: 0.3s; }
+        .social-links a.yt:hover { color: #FF0000; }
+        .social-links a.fb:hover { color: #1877F2; }
+        .social-links a.ig:hover { color: #E4405F; }
+
+        /* NAVIGATION */
+        nav { background: var(--midnight); padding: 15px; position: sticky; top: 0; z-index: 1000; text-align: center; }
+        nav a { color: #cbd5e1; margin: 0 15px; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: 0.3s; }
+        nav a:hover { color: var(--accent); }
+
+        /* CONTENT */
+        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+        .card { background: var(--white); padding: 40px; border-radius: 24px; box-shadow: var(--shadow); border: 1px solid #e2e8f0; min-height: 450px; }
         .card h2 { color: var(--midnight); border-left: 5px solid var(--accent); padding-left: 15px; margin-bottom: 30px; }
 
-        /* DYNAMIC LIST STYLING */
+        /* CIRCULAR LIST STYLE */
         #circular-container { display: flex; flex-direction: column; gap: 15px; }
-        .circular-card { 
+        .circular-row { 
             display: flex; justify-content: space-between; align-items: center; 
-            padding: 20px; background: #fff; border: 1px solid #f1f5f9; 
-            border-radius: 15px; transition: 0.3s ease;
+            padding: 22px; background: #fff; border: 1px solid #f1f5f9; 
+            border-radius: 18px; transition: 0.3s ease;
         }
-        .circular-card:hover { transform: translateX(8px); border-color: var(--accent); background: #fffdf5; }
-        .circular-info h3 { font-size: 1.1rem; color: var(--midnight); margin-bottom: 4px; }
-        .circular-date { font-size: 0.8rem; color: var(--accent); font-weight: 800; text-transform: uppercase; }
+        .circular-row:hover { transform: translateX(10px); border-color: var(--accent); background: #fffdf5; }
+        .c-info h3 { font-size: 1.1rem; color: var(--midnight); margin-bottom: 5px; }
+        .c-date { font-size: 0.8rem; color: var(--accent); font-weight: 800; text-transform: uppercase; }
 
-        .btn-view { 
-            background: var(--midnight); color: var(--accent); padding: 10px 20px; 
+        .btn-download { 
+            background: var(--midnight); color: var(--accent); padding: 10px 22px; 
             border-radius: 50px; text-decoration: none; font-weight: 700; 
             border: 2px solid var(--accent); font-size: 0.85rem; transition: 0.3s;
+            white-space: nowrap;
         }
-        .btn-view:hover { background: var(--accent); color: var(--midnight); }
+        .btn-download:hover { background: var(--accent); color: var(--midnight); }
 
-        .loader { text-align: center; color: #94a3b8; font-style: italic; padding: 20px; }
+        .status-msg { text-align: center; color: #94a3b8; font-style: italic; padding: 30px; }
+
+        footer { text-align: center; padding: 60px; background: var(--midnight); color: #cbd5e1; margin-top: 50px; }
+        footer b { color: var(--accent); }
+
+        @media (max-width: 700px) {
+            .circular-row { flex-direction: column; text-align: center; gap: 15px; }
+        }
     </style>
 </head>
 <body>
-    
 
     <header class="super-header">
         <div class="header-left">
-            <img src="assets/people/logo.png" class="logo-img" onerror="this.src='https://via.placeholder.com/85'">
+            <img src="../assets/people/logo.png" class="logo-img" onerror="this.src='https://via.placeholder.com/85'">
             <div class="school-title">
                 <h1>MAMTA MODERN SCHOOL</h1>
                 <p>Est. 1973 | Golden Jubilee Year</p>
@@ -62,7 +86,6 @@
             </div>
         </div>
     </header>
-        
 
     <nav>
         <a href="../index.html">HOME</a>
@@ -73,68 +96,65 @@
 
     <div class="container">
         <div class="card">
-            <h2>School Circulars & Notices</h2>
+            <h2>Official Circulars & Notices</h2>
             <div id="circular-container">
-                <div class="loader">Checking for new updates...</div>
+                <div class="status-msg">Loading circulars...</div>
             </div>
         </div>
     </div>
 
     <script>
         /**
-         * 📝 HOW TO ADD A NEW PDF:
-         * Just add a new line inside the [ ] brackets below.
-         * Format: { date: "Date", title: "Name of Circular", file: "filename.pdf" }
+         * ADD NEW CIRCULARS HERE
+         * Make sure the 'file' name matches the PDF in your /assets/circulars/ folder.
          */
-        const circularsData = [
-            { date: "May 15, 2026", title: "cir-no-002-and-003-for-self-transport-cir-for-website", file: "cir-no-002-and-003-for-self-transport-cir-for-website.pdf" },
-            { date: "May 10, 2026", title: "PTM Schedule (Classes 6-12)", file: "ptm_notice.pdf" },
-            { date: "April 28, 2026", title: "Monthly Newsletter - April", file: "newsletter_april.pdf" },
-            { date: "April 20, 2026", title: "Revised School Timings", file: "timings.pdf" }
+        const circularsList = [
+            { date: "May 15, 2026", title: "Summer Vacation Homework - 2026", file: "summer_homework_2026.pdf" },
+            { date: "May 12, 2026", title: "PTM Schedule & Timing (Classes VI-XII)", file: "ptm_schedule.pdf" },
+            { date: "May 05, 2026", title: "Annual Sports Day Participation Form", file: "sports_participation.pdf" }
         ];
 
         const container = document.getElementById('circular-container');
 
-        async function loadCirculars() {
-            container.innerHTML = ''; // Clear loader
-            let count = 0;
+        async function updateList() {
+            container.innerHTML = '';
+            let activeCount = 0;
 
-            for (const item of circularsData) {
-                const filePath = `../assets/circulars/${item.file}`;
+            for (const item of circularsList) {
+                const path = `../assets/circulars/${item.file}`;
                 
                 try {
-                    // Check if file actually exists in the folder
-                    const res = await fetch(filePath, { method: 'HEAD' });
+                    // Verifies the file actually exists before showing it
+                    const response = await fetch(path, { method: 'HEAD' });
                     
-                    if (res.ok) {
-                        const html = `
-                            <div class="circular-card">
-                                <div class="circular-info">
-                                    <p class="circular-date">${item.date}</p>
+                    if (response.ok) {
+                        container.innerHTML += `
+                            <div class="circular-row">
+                                <div class="c-info">
+                                    <p class="c-date">${item.date}</p>
                                     <h3>${item.title}</h3>
                                 </div>
-                                <a href="${filePath}" target="_blank" class="btn-view">
-                                    <i class="fa-solid fa-file-pdf"></i> VIEW PDF
+                                <a href="${path}" target="_blank" class="btn-download">
+                                    <i class="fa-solid fa-file-pdf"></i> DOWNLOAD
                                 </a>
                             </div>
                         `;
-                        container.innerHTML += html;
-                        count++;
+                        activeCount++;
                     }
-                } catch (e) { console.log("Missing file:", item.file); }
+                } catch (err) { console.warn("Circular missing:", item.file); }
             }
 
-            if (count === 0) {
-                container.innerHTML = '<div class="loader">No circulars currently available in the folder.</div>';
+            if (activeCount === 0) {
+                container.innerHTML = '<div class="status-msg">No active circulars found in the folder.</div>';
             }
         }
 
-        window.onload = loadCirculars;
+        window.onload = updateList;
     </script>
 
     <footer>
-    <p>© 2026 Mamta Modern Sr. Sec. School | Golden Jubilee Year</p>
-    <p style="margin-top: 10px;">Developed  by <b>Swapneil Jha</b></p>
-</footer>
+        <p>© 2026 Mamta Modern School | Developed  by <b>Swapneil Jha</b></p>
+    </footer>
+
 </body>
 </html>
