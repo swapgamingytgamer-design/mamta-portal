@@ -16,16 +16,52 @@
         .logo-img { height: 85px; width: auto; }
         .school-title h1 { font-size: 1.6rem; font-weight: 800; color: var(--midnight); }
         .school-title p { font-size: 0.8rem; color: var(--accent); font-weight: 700; text-transform: uppercase; }
-        .header-right { text-align: right; min-width: 250px; }
-        .header-info { display: block; font-size: 0.85rem; font-weight: 600; text-decoration: none; color: var(--midnight); margin-bottom: 6px; }
-        .header-info i { color: var(--accent); margin-right: 10px; width: 20px; text-align: center; }
-        
-        /* SOCIAL LINKS WITH INSTAGRAM */
-        .social-links { margin-top: 12px; display: flex; gap: 18px; justify-content: flex-end; }
-        .social-links a { text-decoration: none; font-size: 1.4rem; color: var(--midnight); transition: 0.3s; }
-        .social-links a.yt:hover { color: #FF0000; }
-        .social-links a.fb:hover { color: #1877F2; }
-        .social-links a.ig:hover { color: #E4405F; }
+
+        /* HEADER RIGHT ALIGNMENT (MATCHING YOUR IMAGE) */
+        .header-right { 
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end; 
+            min-width: 250px;
+        }
+
+        .contact-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 4px;
+        }
+
+        .gold-icon {
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+
+        .contact-text {
+            text-decoration: none;
+            color: #000;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+
+        .contact-text:hover { color: var(--accent); }
+
+        .social-icon-row {
+            display: flex;
+            gap: 18px;
+            margin-top: 10px;
+            padding-right: 15px;
+        }
+
+        .dark-social {
+            text-decoration: none;
+            font-size: 1.8rem;
+            color: var(--midnight);
+            transition: 0.3s;
+        }
+
+        .dark-social:hover { color: var(--accent); transform: translateY(-3px); }
 
         /* NAVIGATION */
         nav { background: var(--midnight); padding: 15px; position: sticky; top: 0; z-index: 1000; text-align: center; }
@@ -62,39 +98,42 @@
         footer b { color: var(--accent); }
 
         @media (max-width: 700px) {
+            .super-header { flex-direction: column; text-align: center; }
+            .header-right { align-items: center; }
+            .social-icon-row { padding-right: 0; }
             .circular-row { flex-direction: column; text-align: center; gap: 15px; }
         }
     </style>
 </head>
 <body>
 
-    
     <header class="super-header">
         <div class="header-left">
-            <img src="../assets/people/logo.png" class="logo-img">
+            <img src="../assets/people/logo.png" class="logo-img" onerror="this.src='https://via.placeholder.com/85'">
             <div class="school-title">
                 <h1>MAMTA MODERN SCHOOL</h1>
                 <p>Est. 1973 | Golden Jubilee Year</p>
             </div>
         </div>
         <div class="header-right">
-    <div class="contact-row">
-        <i class="fa-solid fa-phone gold-icon"></i>
-        <a href="tel:+911145614501" class="contact-text">+91-11-45614501</a>
-    </div>
-    
-    <div class="contact-row">
-        <i class="fa-solid fa-envelope gold-icon"></i>
-        <a href="mailto:mamtamodernschool@gmail.com" class="contact-text">mamtamodernschool@gmail.com</a>
-    </div>
-    
-    <div class="social-icon-row">
-        <a href="https://www.youtube.com/@MamtaModernSchoolVikasPuri" target="_blank" class="dark-social"><i class="fa-brands fa-square-youtube"></i></a>
-        <a href="https://www.facebook.com/MamtaModernSeniorSecondarySchoolVikasPuri/" target="_blank" class="dark-social"><i class="fa-brands fa-circle-facebook"></i></a>
-        <a href="https://www.instagram.com/mamtamodernschool/" target="_blank" class="dark-social"><i class="fa-brands fa-instagram"></i></a>
-    </div>
-</div>
+            <div class="contact-row">
+                <i class="fa-solid fa-phone gold-icon"></i>
+                <a href="tel:+911145614501" class="contact-text">+91-11-45614501</a>
+            </div>
+            
+            <div class="contact-row">
+                <i class="fa-solid fa-envelope gold-icon"></i>
+                <a href="mailto:mamtamodernschool@gmail.com" class="contact-text">mamtamodernschool@gmail.com</a>
+            </div>
+            
+            <div class="social-icon-row">
+                <a href="https://www.youtube.com/@MamtaModernSchoolVikasPuri" target="_blank" class="dark-social"><i class="fa-brands fa-square-youtube"></i></a>
+                <a href="https://www.facebook.com/MamtaModernSeniorSecondarySchoolVikasPuri/" target="_blank" class="dark-social"><i class="fa-brands fa-circle-facebook"></i></a>
+                <a href="https://www.instagram.com/mamtamodernschool/" target="_blank" class="dark-social"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
     </header>
+
     <nav>
         <a href="../index.html">HOME</a>
         <a href="gallery.html">GALLERY</a>
@@ -112,10 +151,6 @@
     </div>
 
     <script>
-        /**
-         * ADD NEW CIRCULARS HERE
-         * Make sure the 'file' name matches the PDF in your /assets/circulars/ folder.
-         */
         const circularsList = [
             { date: "May 15, 2026", title: "Summer Vacation Homework - 2026", file: "summer_homework_2026.pdf" },
             { date: "May 12, 2026", title: "PTM Schedule & Timing (Classes VI-XII)", file: "ptm_schedule.pdf" },
@@ -130,11 +165,8 @@
 
             for (const item of circularsList) {
                 const path = `../assets/circulars/${item.file}`;
-                
                 try {
-                    // Verifies the file actually exists before showing it
                     const response = await fetch(path, { method: 'HEAD' });
-                    
                     if (response.ok) {
                         container.innerHTML += `
                             <div class="circular-row">
@@ -156,13 +188,11 @@
                 container.innerHTML = '<div class="status-msg">No active circulars found in the folder.</div>';
             }
         }
-
         window.onload = updateList;
     </script>
 
     <footer>
-        <p>© 2026 Mamta Modern School | Developed  by <b>Swapneil Jha</b></p>
+        <p>© 2026 Mamta Modern School | Developed by <b>Swapneil Jha</b></p>
     </footer>
-
 </body>
 </html>
