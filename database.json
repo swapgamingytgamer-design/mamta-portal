@@ -1,0 +1,24 @@
+{
+    "principal": {
+        "name": "Ms. Pallavi Sharma",
+        "title": "Principal, Mamta Modern School",
+        "message": "Welcome to our vibrant learning community. Our focus is on fostering innovation and excellence in every student.",
+        "photo": "assets/people/principal.jpg",
+        "awards": [
+            { "title": "Best Principal 2025", "img": "award1.jpg" },
+            { "title": "Excellence in Education", "img": "award2.jpg" },
+            { "title": "State Leadership Award", "img": "award3.jpg" },
+            { "title": "Innovation in Teaching", "img": "award4.jpg" },
+            { "title": "Community Service Medal", "img": "award5.jpg" }
+            
+        ]
+    },
+    "circulars": [
+        "Final_Term_Datesheet_2026.pdf",
+        "Registration_Guidelines.pdf"
+    ],
+    "events": [
+        { "title": "Annual Day", "img": "annual_day.jpg" },
+        { "title": "Sports Meet", "img": "sports1.jpg" }
+    ]
+}
