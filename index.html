@@ -18,14 +18,8 @@
 
         /* --- SUPER HEADER --- */
         .super-header { 
-            background: var(--white); 
-            padding: 20px 5%; 
-            display: flex; 
-            flex-wrap: wrap; 
-            justify-content: space-between; 
-            align-items: center;
-            border-bottom: 4px solid var(--accent);
-            gap: 20px;
+            background: var(--white); padding: 20px 5%; display: flex; flex-wrap: wrap; 
+            justify-content: space-between; align-items: center; border-bottom: 4px solid var(--accent); gap: 20px;
         }
         .header-left { display: flex; align-items: center; gap: 20px; }
         .logo-img { height: 85px; width: auto; }
@@ -33,15 +27,7 @@
         .school-title p { font-size: 0.8rem; color: var(--accent); font-weight: 700; text-transform: uppercase; }
 
         .header-right { text-align: right; min-width: 250px; }
-        .header-info { 
-            display: block; 
-            font-size: 0.85rem; 
-            font-weight: 600; 
-            text-decoration: none; 
-            color: var(--midnight); 
-            margin-bottom: 6px; 
-            transition: 0.3s;
-        }
+        .header-info { display: block; font-size: 0.85rem; font-weight: 600; text-decoration: none; color: var(--midnight); margin-bottom: 6px; transition: 0.3s; }
         .header-info:hover { color: var(--accent); }
         .header-info b { color: var(--accent); margin-right: 8px; font-size: 1.1rem; }
 
@@ -49,58 +35,44 @@
         .social-links a { text-decoration: none; font-size: 1.2rem; filter: grayscale(1); transition: 0.3s; }
         .social-links a:hover { filter: grayscale(0); transform: translateY(-3px); }
 
-        /* --- NAV --- */
+        /* --- NAVIGATION --- */
         nav { background: var(--midnight); padding: 15px; position: sticky; top: 0; z-index: 1000; text-align: center; }
         nav a { color: #cbd5e1; margin: 0 15px; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: 0.3s; }
         nav a:hover { color: var(--accent); }
 
-        /* --- AUTO-SLIDESHOW HERO --- */
-        .hero-slider {
-            width: 100%; height: 500px; position: relative; overflow: hidden; background: var(--midnight); border-bottom: 6px solid var(--accent);
-        }
-        .slide {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 1.2s ease-in-out;
-            background-size: cover; background-position: center;
-        }
+        /* --- HERO SLIDER --- */
+        .hero-slider { width: 100%; height: 500px; position: relative; overflow: hidden; background: var(--midnight); border-bottom: 6px solid var(--accent); }
+        .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 1.2s ease-in-out; background-size: cover; background-position: center; }
         .slide.active { opacity: 1; }
-        .slide-overlay {
-            background: rgba(0, 0, 0, 0.4); width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; text-align: center;
-        }
+        .slide-overlay { background: rgba(0, 0, 0, 0.4); width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; text-align: center; }
         .slide-overlay h2 { font-size: 3.5rem; font-weight: 900; text-shadow: 2px 2px 15px rgba(0,0,0,0.7); }
 
-        /* --- CONTENT --- */
+        /* --- CONTENT CARDS --- */
         .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
         .card { background: var(--white); padding: 40px; border-radius: 24px; box-shadow: var(--shadow); margin-bottom: 30px; border: 1px solid #e2e8f0; }
         .card h2 { color: var(--midnight); border-left: 5px solid var(--accent); padding-left: 15px; margin-bottom: 20px; }
 
-        /* --- PRINCIPAL & WALL OF HONOR --- */
+        /* --- PRINCIPAL SECTION --- */
         .message-flex { display: flex; gap: 40px; align-items: flex-start; }
         .prin-sidebar { flex: 0 0 300px; text-align: center; }
         .prin-sidebar img { width: 100%; border-radius: 20px; border: 5px solid var(--accent); box-shadow: var(--shadow); }
-        .award-badge { background: #fffbeb; border: 2px solid var(--accent); padding: 12px; border-radius: 12px; font-weight: 800; color: #92400e; font-size: 0.9rem; margin-top: 15px; display: inline-block; }
+        .quote-box { font-style: italic; color: #475569; border-left: 4px solid var(--accent); padding-left: 20px; margin: 20px 0; font-size: 1.1rem; }
+
+        /* --- WALL OF HONOR --- */
         .awards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; margin-top: 25px; }
         .award-thumb { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 12px; border: 3px solid white; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
 
-        /* --- FIND US SECTION (MAP & CONTACT) --- */
+        /* --- MAP & CONTACT --- */
         .contact-grid { display: flex; gap: 30px; margin-top: 30px; }
         .map-wrapper { flex: 1; border-radius: 20px; overflow: hidden; border: 2px solid #e2e8f0; }
-        .map-wrapper iframe { width: 100%; display: block; }
         .contact-details { flex: 0 0 320px; background: #fffdf5; border-radius: 20px; padding: 30px; border: 1px solid #e2e8f0; }
-        .contact-details h3 { color: var(--midnight); margin-bottom: 15px; font-size: 1.2rem; }
-        .big-info { display: block; text-decoration: none; color: inherit; margin-bottom: 15px; font-weight: 600; font-size: 1.1rem; color: var(--midnight); }
-        .big-info b { color: var(--accent); margin-right: 10px; font-size: 1.3rem; }
-        .big-info:hover { color: var(--accent); }
 
         @media (max-width: 850px) {
-            .super-header { flex-direction: column; text-align: center; }
-            .header-right, .social-links { justify-content: center; text-align: center; width: 100%; }
-            .hero-slider { height: 350px; }
-            .slide-overlay h2 { font-size: 2rem; }
             .message-flex, .contact-grid { flex-direction: column; align-items: center; }
-            .prin-sidebar, .contact-details { width: 100%; max-width: 350px; flex: none; }
+            .prin-sidebar, .contact-details { width: 100%; max-width: 400px; }
         }
 
-        footer { text-align: center; padding: 60px; background: var(--midnight); color: #cbd5e1; font-size: 0.9rem; }
+        footer { text-align: center; padding: 60px; background: var(--midnight); color: #cbd5e1; }
         footer b { color: var(--accent); }
     </style>
 </head>
@@ -118,9 +90,7 @@
             <a href="tel:+911145614501" class="header-info"><b>📞</b> +91-11-45614501</a>
             <a href="mailto:mamtamodernschool@gmail.com" class="header-info"><b>📧</b> mamtamodernschool@gmail.com</a>
             <div class="social-links">
-                <a href="https://www.youtube.com/@mamtamodernschool" target="_blank" title="YouTube">🎬</a>
-                <a href="https://www.facebook.com/mamtamodernschool" target="_blank" title="Facebook">📘</a>
-                <a href="https://www.instagram.com/mamtamodernschool" target="_blank" title="Instagram">📸</a>
+                <a href="#">🎬</a> <a href="#">📘</a> <a href="#">📸</a>
             </div>
         </div>
     </header>
@@ -132,31 +102,29 @@
         <a href="pages/suppliers.html">SUPPLIERS</a>
     </nav>
 
-    <div class="hero-slider" id="heroSlider">
-        </div>
+    <div class="hero-slider" id="heroSlider"></div>
 
     <div class="container">
-        
         <div class="card message-flex">
             <div class="prin-sidebar">
-                <img src="assets/people/principal.jpg" onerror="this.src='https://via.placeholder.com/300?text=Ms.+Pallavi+Sharma'">
-                <h3 style="margin-top:15px; color: var(--midnight);">Ms. Pallavi Sharma</h3>
+                <img src="assets/people/principal.jpg" onerror="this.src='https://via.placeholder.com/300?text=Principal'">
+                <h3 style="margin-top:15px;">Ms. Pallavi Sharma</h3>
                 <p style="color:var(--accent); font-weight:bold;">Principal</p>
-                <div class="award-badge">🏆 National Teacher Awardee</div>
             </div>
-            
             <div style="flex: 1;">
                 <h2>Principal's Message</h2>
-                <p style="font-style: italic; color: #64748b; border-bottom: 1px solid #f1f5f9; padding-bottom: 10px; margin-bottom: 15px;">“Education is the most powerful weapon which you can use to change the world.”</p>
-                <p>It is with immense pride that we celebrate our Golden Jubilee. We remain committed to fostering a culture of innovative learning and moral values...</p>
-
+                <div class="quote-box">
+                    “Education is not the learning of facts, but the training of the mind to think. At Mamta Modern, we mold thinkers of tomorrow.”
+                </div>
+                <p>Welcome to our Golden Jubilee Year. Our journey of 50 years has been built on the dreams of our students and the dedication of our faculty...</p>
+                
                 <div style="margin-top:30px;">
-                    <h4 style="color: var(--midnight); font-size: 0.9rem; text-transform: uppercase;">🏅 Wall of Honor</h4>
+                    <h4>🏅 Wall of Honor</h4>
                     <div class="awards-grid">
-                        <img src="assets/events/award1.jpg" class="award-thumb" onerror="this.src='https://via.placeholder.com/130?text=Award+1'">
-                        <img src="assets/events/award2.jpg" class="award-thumb" onerror="this.src='https://via.placeholder.com/130?text=Award+2'">
-                        <img src="assets/events/award3.jpg" class="award-thumb" onerror="this.src='https://via.placeholder.com/130?text=Award+3'">
-                        <img src="assets/events/award4.jpg" class="award-thumb" onerror="this.src='https://via.placeholder.com/130?text=Award+4'">
+                        <img src="assets/events/award1.jpg" class="award-thumb" onerror="this.src='https://via.placeholder.com/130'">
+                        <img src="assets/events/award2.jpg" class="award-thumb" onerror="this.src='https://via.placeholder.com/130'">
+                        <img src="assets/events/award3.jpg" class="award-thumb" onerror="this.src='https://via.placeholder.com/130'">
+                        <img src="assets/events/award4.jpg" class="award-thumb" onerror="this.src='https://via.placeholder.com/130'">
                     </div>
                 </div>
             </div>
@@ -164,55 +132,41 @@
 
         <div class="card">
             <h2>Find Us</h2>
-            <p>Visit our campus located in West Delhi.</p>
             <div class="contact-grid">
                 <div class="map-wrapper">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14005.942979383684!2d77.073066!3d28.645171!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d04f19271981f%3A0x4386a0e4b2463d42!2sMamta%20Modern%20Senior%20Secondary%20School!5e0!3m2!1sen!2sus!4v1778849177601!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.5546!2d77.0694!3d28.6431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d046c00000001%3A0x86133066d7734185!2sMamta%20Modern%20Sr.%20Sec.%20School!5e0!3m2!1sen!2sin!4v1710000000000" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
                 <div class="contact-details">
-                    <h3>Contact Information</h3>
-                    <p style="color: #64748b; margin-bottom: 20px; font-size: 0.9rem;">Vikaspuri, New Delhi - 110018</p>
-                    <a href="tel:+911145614501" class="big-info"><b>📞</b> +91-11-45614501</a>
-                    <a href="mailto:mamtamodernschool@gmail.com" class="big-info"><b>📧</b> mamtamodernschool@gmail.com</a>
+                    <h3>Contact</h3>
+                    <p>Vikaspuri, New Delhi</p>
+                    <p><b>Phone:</b> +91-11-45614501</p>
+                    <p><b>Email:</b> mamtamodernschool@gmail.com</p>
                 </div>
             </div>
         </div>
-
     </div>
 
     <footer>
         <p>© 2026 Mamta Modern Sr. Sec. School | Golden Jubilee Year</p>
-        <p style="margin-top: 10px;">Developed with ❤️ by <b>Swapneil Jha</b></p>
+        <p>Developed with ❤️ by <b>Swapneil Jha</b></p>
     </footer>
 
     <script>
-        const photos = [
-            'assets/events/building.jpg',
-            'assets/events/award1.jpg',
-            'assets/events/award2.jpg',
-            'assets/events/award3.jpg',
-            'assets/events/award4.jpg'
-        ];
+        const photos = ['assets/events/building.jpg', 'assets/events/award1.jpg', 'assets/events/award2.jpg', 'assets/events/award3.jpg', 'assets/events/award4.jpg'];
         const slider = document.getElementById('heroSlider');
         photos.forEach((path, index) => {
             const slide = document.createElement('div');
             slide.className = `slide ${index === 0 ? 'active' : ''}`;
             slide.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('${path}')`;
-            const overlay = document.createElement('div');
-            overlay.className = 'slide-overlay';
-            overlay.innerHTML = `<h2>50 Years of Excellence</h2><p style="color:white; font-weight:bold; letter-spacing:2px;">MAMTA MODERN SCHOOL</p>`;
-            slide.appendChild(overlay);
             slider.appendChild(slide);
         });
         let current = 0;
-        const allSlides = document.querySelectorAll('.slide');
-        function playSlideshow() {
-            if(allSlides.length === 0) return;
-            allSlides[current].classList.remove('active');
-            current = (current + 1) % allSlides.length;
-            allSlides[current].classList.add('active');
-        }
-        setInterval(playSlideshow, 4500);
+        setInterval(() => {
+            const slides = document.querySelectorAll('.slide');
+            slides[current].classList.remove('active');
+            current = (current + 1) % slides.length;
+            slides[current].classList.add('active');
+        }, 4500);
     </script>
 </body>
 </html>
