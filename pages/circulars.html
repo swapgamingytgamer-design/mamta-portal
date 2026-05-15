@@ -2,205 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Circulars | Mamta Modern School</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { 
-            --midnight: #0f172a; 
-            --accent: #d4af37; 
-            --white: #ffffff; 
-            --soft-bg: #f8fafc;
-            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-
+        /* Shared Styles */
+        :root { --midnight: #0f172a; --accent: #d4af37; --white: #ffffff; --soft-bg: #f8fafc; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background: var(--soft-bg); color: #334155; line-height: 1.6; }
-
-        /* HEADER (SYNCED WITH YOUR IMAGES) */
-        .super-header { 
-            background: var(--white); 
-            padding: 20px 5%; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            border-bottom: 4px solid var(--accent);
-        }
-
-        .header-left { display: flex; align-items: center; gap: 20px; }
-        .logo-img { height: 90px; width: auto; }
-        .school-title h1 { 
-            font-size: 1.8rem; 
-            font-weight: 900; 
-            color: var(--midnight); 
-            margin: 0;
-            letter-spacing: 1px;
-        }
-        .school-title p { 
-            font-size: 0.85rem; 
-            color: var(--accent); 
-            font-weight: 700; 
-            text-transform: uppercase; 
-            margin-top: 5px;
-        }
-
-        .header-right { 
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end; 
-            gap: 8px;
-        }
-
-        .contact-row {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-            color: #000000;
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
-
-        .gold-icon { color: var(--accent); font-size: 1.1rem; }
-
-        .social-icon-row {
-            display: flex;
-            gap: 20px;
-            margin-top: 5px;
-        }
-
-        .dark-social {
-            color: var(--midnight);
-            font-size: 1.8rem;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-
-        .dark-social:hover {
-            color: var(--accent);
-            transform: translateY(-3px);
-        }
-
-        /* NAVIGATION BAR */
-        nav { 
-            background: var(--midnight); 
-            padding: 15px; 
-            position: sticky; 
-            top: 0; 
-            z-index: 1000; 
-            text-align: center; 
-            border-bottom: 2px solid var(--accent);
-        }
-
-        nav a { 
-            color: #cbd5e1; 
-            margin: 0 20px; 
-            text-decoration: none; 
-            font-weight: 700; 
-            font-size: 0.9rem; 
-            transition: 0.3s;
-        }
-
-        nav a:hover { color: var(--accent); }
-
-        /* CIRCULAR CONTENT */
-        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+        body { background: var(--soft-bg); }
+        .super-header { background: var(--white); padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid var(--accent); }
+        .header-right { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+        .social-icon-row { display: flex; gap: 20px; margin-top: 5px; }
+        .dark-social { color: var(--midnight); font-size: 1.8rem; text-decoration: none; }
+        nav { background: var(--midnight); padding: 15px; text-align: center; border-bottom: 2px solid var(--accent); }
+        nav a { color: #cbd5e1; margin: 0 20px; text-decoration: none; font-weight: 700; }
         
-        .card { 
-            background: var(--white); 
-            padding: 40px; 
-            border-radius: 24px; 
-            box-shadow: var(--shadow); 
-            border: 1px solid #e2e8f0; 
-        }
-
-        .card h2 { 
-            color: var(--midnight); 
-            border-left: 5px solid var(--accent); 
-            padding-left: 15px; 
-            margin-bottom: 30px; 
-        }
-
-        .circular-list { margin-top: 20px; }
-
-        .circular-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            border-bottom: 1px solid #f1f5f9;
-            transition: 0.3s ease;
-        }
-
-        .circular-item:hover {
-            background: #fffdf5;
-            transform: translateX(10px);
-        }
-
-        .c-info h3 { font-size: 1.1rem; color: var(--midnight); margin-bottom: 5px; }
-        .c-date { font-size: 0.85rem; color: var(--accent); font-weight: 800; text-transform: uppercase; }
-
-        .btn-download {
-            background: var(--midnight);
-            color: var(--accent);
-            padding: 10px 22px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 800;
-            font-size: 0.8rem;
-            border: 2px solid var(--accent);
-            transition: 0.3s;
-        }
-
-        .btn-download:hover {
-            background: var(--accent);
-            color: var(--midnight);
-        }
-
-        footer { 
-            text-align: center; 
-            padding: 60px; 
-            background: var(--midnight); 
-            color: #cbd5e1; 
-            margin-top: 50px; 
-        }
-        footer b { color: var(--accent); }
-
-        @media (max-width: 900px) {
-            .super-header { flex-direction: column; text-align: center; }
-            .header-right { align-items: center; margin-top: 15px; }
-            .circular-item { flex-direction: column; text-align: center; gap: 15px; }
-        }
+        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+        .card { background: var(--white); padding: 40px; border-radius: 24px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+        .circular-item { display: flex; justify-content: space-between; align-items: center; padding: 20px; border-bottom: 1px solid #f1f5f9; }
+        .btn-download { background: var(--midnight); color: var(--accent); padding: 10px 20px; border-radius: 50px; text-decoration: none; font-weight: 800; border: 2px solid var(--accent); }
+        footer { text-align: center; padding: 50px; background: var(--midnight); color: #cbd5e1; }
     </style>
 </head>
 <body>
-
     <header class="super-header">
         <div class="header-left">
-            <img src="../assets/people/logo.png" class="logo-img" onerror="this.src='https://via.placeholder.com/90'">
-            <div class="school-title">
-                <h1>MAMTA MODERN SCHOOL</h1>
-                <p>EST. 1973 | GOLDEN JUBILEE YEAR</p>
-            </div>
+            <img src="../assets/people/logo.png" height="90">
+            <div class="school-title"><h1>MAMTA MODERN SCHOOL</h1><p>EST. 1973</p></div>
         </div>
-
         <div class="header-right">
-            <div class="contact-row">
-                <i class="fa-solid fa-phone gold-icon"></i>
-                <span>+91-11-45614501</span>
-            </div>
-            <div class="contact-row">
-                <i class="fa-solid fa-envelope gold-icon"></i>
-                <span>mamtamodernschool@gmail.com</span>
-            </div>
             <div class="social-icon-row">
                 <a href="https://www.youtube.com/@MamtaModernSchoolVikasPuri" target="_blank" class="dark-social"><i class="fa-brands fa-square-youtube"></i></a>
                 <a href="https://www.facebook.com/MamtaModernSeniorSecondarySchoolVikasPuri/" target="_blank" class="dark-social"><i class="fa-brands fa-circle-facebook"></i></a>
-                <a href="https://www.instagram.com/mamtamodernschool/" target="_blank" class="dark-social"><i class="fa-brands fa-instagram"></i></a>
             </div>
         </div>
     </header>
-
     <nav>
         <a href="../index.html">HOME</a>
         <a href="gallery.html">GALLERY</a>
@@ -210,42 +45,30 @@
 
     <div class="container">
         <div class="card">
-            <h2>School Circulars & Notices</h2>
-            <div class="circular-list" id="circularList">
-                </div>
+            <h2>Official Circulars</h2>
+            <div id="circularList"></div>
         </div>
     </div>
 
     <script>
-        // ADD YOUR PDF FILES HERE
+        // Set this to [] to see the "No circulars" message
         const circularData = [
-            { date: "May 15, 2026", title: "Summer Vacation Assignments 2026-27", file: "summer_work.pdf" },
-            { date: "May 08, 2026", title: "Monthly PTM Notice - Classes VI to XII", file: "ptm_notice.pdf" },
-            { date: "April 20, 2026", title: "School Uniform & Books Update", file: "uniform_books.pdf" },
-            { date: "April 02, 2026", title: "New Academic Session Orientation", file: "orientation.pdf" }
+            { date: "May 15, 2026", title: "Summer Assignments", file: "work.pdf" }
         ];
 
-        const listContainer = document.getElementById('circularList');
-
-        circularData.forEach(item => {
-            const row = document.createElement('div');
-            row.className = 'circular-item';
-            row.innerHTML = `
-                <div class="c-info">
-                    <p class="c-date">${item.date}</p>
-                    <h3>${item.title}</h3>
-                </div>
-                <a href="../assets/circulars/${item.file}" target="_blank" class="btn-download">
-                    <i class="fa-solid fa-file-pdf"></i> DOWNLOAD
-                </a>
-            `;
-            listContainer.appendChild(row);
-        });
+        const list = document.getElementById('circularList');
+        if (circularData.length === 0) {
+            list.innerHTML = `<div style="text-align:center; padding: 40px; color: #64748b;">No circulars available at the moment.</div>`;
+        } else {
+            circularData.forEach(item => {
+                list.innerHTML += `
+                    <div class="circular-item">
+                        <div><p style="color:var(--accent); font-weight:800;">${item.date}</p><h3>${item.title}</h3></div>
+                        <a href="../assets/circulars/${item.file}" class="btn-download">DOWNLOAD</a>
+                    </div>`;
+            });
+        }
     </script>
-
-    <footer>
-        <p>© 2026 Mamta Modern School | Developed by <b>Swapneil Jha</b></p>
-    </footer>
-
+    <footer><p>© 2026 Mamta Modern School | Developed by <b>Swapneil Jha</b></p></footer>
 </body>
 </html>
