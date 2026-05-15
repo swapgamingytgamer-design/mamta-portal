@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendors | Mamta Modern School</title>
+    <style>
+        :root { 
+            --midnight: #0f172a; 
+            --accent: #d4af37; 
+            --soft-bg: #f8fafc;
+            --white: #ffffff;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', 'Segoe UI', sans-serif; }
+        body { background: var(--soft-bg); color: #334155; line-height: 1.6; }
+
+        /* SAME HEADER AS INDEX */
+        .super-header { 
+            background: var(--white); 
+            padding: 20px 5%; 
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: space-between; 
+            align-items: center;
+            border-bottom: 4px solid var(--accent);
+            gap: 20px;
+        }
+        .header-left { display: flex; align-items: center; gap: 20px; }
+        .logo-img { height: 85px; width: auto; }
+        .school-title h1 { font-size: 1.6rem; font-weight: 800; color: var(--midnight); letter-spacing: -1px; }
+        .school-title p { font-size: 0.8rem; color: var(--accent); font-weight: 700; text-transform: uppercase; }
+
+        .header-right { text-align: right; min-width: 250px; }
+        .header-info { display: block; font-size: 0.85rem; font-weight: 600; text-decoration: none; color: var(--midnight); margin-bottom: 4px; }
+        .header-info b { color: var(--accent); margin-right: 5px; }
+
+        /* SAME BUTTONS/NAV AS INDEX */
+        nav { background: var(--midnight); padding: 15px; position: sticky; top: 0; z-index: 1000; text-align: center; }
+        nav a { color: #cbd5e1; margin: 0 15px; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: 0.3s; }
+        nav a:hover { color: var(--accent); }
+
+        .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+        
+        .page-title { text-align: center; margin-bottom: 40px; }
+        .page-title h2 { font-size: 2rem; color: var(--midnight); }
+        .page-title div { width: 60px; height: 4px; background: var(--accent); margin: 10px auto; border-radius: 2px; }
+
+        /* VENDOR GRID */
+        .vendor-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 25px; 
+        }
+
+        .vendor-card { 
+            background: var(--white); 
+            padding: 30px; 
+            border-radius: 20px; 
+            box-shadow: var(--shadow); 
+            border: 1px solid #e2e8f0;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        .vendor-card:hover { transform: translateY(-5px); border-color: var(--accent); }
+
+        .vendor-tag { 
+            display: inline-block; 
+            font-size: 0.7rem; 
+            font-weight: 800; 
+            background: #f1f5f9; 
+            color: var(--accent); 
+            padding: 4px 10px; 
+            border-radius: 6px; 
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .vendor-name { font-size: 1.2rem; font-weight: 800; color: var(--midnight); margin-bottom: 10px; }
+        .vendor-detail { font-size: 0.9rem; margin-bottom: 8px; display: flex; gap: 10px; }
+        .vendor-detail b { color: var(--midnight); }
+
+        .call-btn { 
+            margin-top: auto; 
+            background: var(--midnight); 
+            color: white; 
+            text-align: center; 
+            padding: 12px; 
+            border-radius: 10px; 
+            text-decoration: none; 
+            font-weight: 700; 
+            font-size: 0.85rem;
+            transition: 0.3s;
+        }
+        .call-btn:hover { background: var(--accent); }
+
+        @media (max-width: 850px) {
+            .super-header { flex-direction: column; text-align: center; }
+            .header-right { border-top: 1px solid #f1f5f9; padding-top: 15px; width: 100%; text-align: center; }
+        }
+
+        footer { text-align: center; padding: 50px; color: #94a3b8; font-size: 0.85rem; }
+    </style>
+</head>
+<body>
+
+    <header class="super-header">
+        <div class="header-left">
+            <img src="../assets/people/logo.png" class="logo-img" onerror="this.src='https://via.placeholder.com/85'">
+            <div class="school-title">
+                <h1>MAMTA MODERN SCHOOL</h1>
+                <p>Est. 1973 | Golden Jubilee Year</p>
+            </div>
+        </div>
+        <div class="header-right">
+            <a href="tel:+911145614501" class="header-info"><b>📞</b> +91-11-45614501</a>
+            <a href="mailto:mamtamodernschool@gmail.com" class="header-info"><b>📧</b> mamtamodernschool@gmail.com</a>
+        </div>
+    </header>
+
+    <nav>
+        <a href="../index.html">HOME</a>
+        <a href="gallery.html">GALLERY</a>
+        <a href="circulars.html">CIRCULARS</a>
+        <a href="suppliers.html">SUPPLIERS</a>
+    </nav>
+
+    <div class="container">
+        <div class="page-title">
+            <h2>Authorized Vendors</h2>
+            <p>Books, Uniforms, and Stationery Suppliers</p>
+            <div></div>
+        </div>
+
+        <div class="vendor-grid">
+            <div class="vendor-card">
+                <span class="vendor-tag">Uniform Specialist</span>
+                <h3 class="vendor-name">Design X Knitwears</h3>
+                <p class="vendor-detail"><b>GST:</b> 07ACVPM5786A1Z5</p>
+                <p class="vendor-detail"><b>Address:</b> A-42/3 Mayapuri Indl Area, Phase-1, New Delhi-64</p>
+                <a href="tel:07947143622" class="call-btn">Call Vendor</a>
+            </div>
+
+            <div class="vendor-card">
+                <span class="vendor-tag">Uniforms</span>
+                <h3 class="vendor-name">Uniform Selection</h3>
+                <p class="vendor-detail"><b>Address:</b> Hari Nagar, New Delhi-110064</p>
+                <a href="tel:07947110334" class="call-btn">Call Vendor</a>
+            </div>
+
+            <div class="vendor-card">
+                <span class="vendor-tag">Uniforms & Garments</span>
+                <h3 class="vendor-name">Ahuja Garments</h3>
+                <p class="vendor-detail"><b>Address:</b> Vikas Puri, New Delhi-110018</p>
+                <a href="tel:07947108633" class="call-btn">Call Vendor</a>
+            </div>
+
+            <div class="vendor-card">
+                <span class="vendor-tag">Books & Stationery</span>
+                <h3 class="vendor-name">Shilpi Prakashan</h3>
+                <p class="vendor-detail"><b>Address:</b> Vikas Puri, New Delhi-110018</p>
+                <a href="tel:9350520688" class="call-btn">Call Vendor</a>
+            </div>
+
+            <div class="vendor-card">
+                <span class="vendor-tag">Books & Stationery</span>
+                <h3 class="vendor-name">Hello Book Depot</h3>
+                <p class="vendor-detail"><b>Address:</b> Vikas Puri, New Delhi-110018</p>
+                <a href="tel:0794751173" class="call-btn">Call Vendor</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Mamta Modern Sr. Sec. School | Golden Jubilee Year</p>
+    </footer>
+
+</body>
+</html>
