@@ -12,10 +12,11 @@
             --white: #ffffff;
             --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', 'Segoe UI', sans-serif; }
         body { background: var(--soft-bg); color: #334155; line-height: 1.6; }
 
-        /* THE UNIVERSAL SUPER HEADER */
+        /* --- SUPER HEADER --- */
         .super-header { 
             background: var(--white); 
             padding: 20px 5%; 
@@ -35,16 +36,18 @@
         .header-info { display: block; font-size: 0.85rem; font-weight: 600; text-decoration: none; color: var(--midnight); margin-bottom: 4px; }
         .header-info b { color: var(--accent); margin-right: 5px; }
 
-        /* NAV */
-        nav { background: var(--midnight); padding: 15px; position: sticky; top: 0; z-index: 1000; text-align: center; }
+        /* --- NAVIGATION --- */
+        nav { background: var(--midnight); padding: 15px; position: sticky; top: 0; z-index: 1000; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
         nav a { color: #cbd5e1; margin: 0 15px; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: 0.3s; }
         nav a:hover { color: var(--accent); }
 
-        /* HERO SECTION FOR building.jpg */
+        /* --- HERO SECTION (building.jpg) --- */
         .hero {
             width: 100%;
-            height: 450px;
-            background: linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.6)), url('assets/events/building.jpg');
+            height: 500px;
+            background-color: var(--midnight);
+            /* Ensure the path is exactly assets/events/building.jpg */
+            background-image: linear-gradient(rgba(15, 23, 42, 0.5), rgba(15, 23, 42, 0.5)), url('assets/events/building.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -52,59 +55,75 @@
             justify-content: center;
             text-align: center;
             color: white;
-            border-bottom: 5px solid var(--accent);
+            border-bottom: 6px solid var(--accent);
         }
-        .hero-content h2 { font-size: 3rem; font-weight: 900; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+        .hero-content h2 { font-size: 3.5rem; font-weight: 900; text-shadow: 3px 3px 15px rgba(0,0,0,0.6); }
 
-        .container { max-width: 1100px; margin: -50px auto 30px; padding: 0 20px; position: relative; z-index: 10; }
+        /* --- MAIN CONTENT CONTAINER --- */
+        .container { max-width: 1150px; margin: -60px auto 40px; padding: 0 20px; position: relative; z-index: 10; }
         
         .card { background: var(--white); padding: 40px; border-radius: 24px; box-shadow: var(--shadow); margin-bottom: 30px; border: 1px solid #e2e8f0; }
-        .card h2 { color: var(--midnight); border-left: 5px solid var(--accent); padding-left: 15px; margin-bottom: 20px; }
+        .card h2 { color: var(--midnight); border-left: 5px solid var(--accent); padding-left: 15px; margin-bottom: 25px; font-size: 1.8rem; }
 
-        /* PRINCIPAL SECTION */
-        .message-flex { display: flex; gap: 40px; align-items: flex-start; }
-        .prin-img { flex: 0 0 300px; text-align: center; }
-        .prin-img img { width: 100%; border-radius: 20px; border: 5px solid var(--accent); box-shadow: var(--shadow); }
+        /* --- PRINCIPAL & AWARDS LAYOUT --- */
+        .message-flex { display: flex; gap: 45px; align-items: flex-start; }
+        .prin-sidebar { flex: 0 0 320px; text-align: center; }
+        .prin-sidebar img { width: 100%; border-radius: 20px; border: 5px solid var(--accent); box-shadow: var(--shadow); margin-bottom: 15px; }
         
         .award-badge {
             background: #fffbeb;
             border: 2px solid var(--accent);
-            padding: 15px;
+            padding: 12px;
             border-radius: 12px;
-            margin-top: 15px;
-            display: inline-block;
-            font-weight: 700;
+            font-weight: 800;
             color: #92400e;
             font-size: 0.9rem;
+            display: inline-block;
+            width: 100%;
         }
 
-        /* AWARDS PANEL (WALL OF HONOR) */
+        /* --- WALL OF HONOR (ALWAYS VISIBLE) --- */
         #awards-panel { 
-            display: block; /* Forced to show now */
-            margin-top: 25px; 
-            padding: 20px; 
-            background: #fdfcf0; 
-            border-radius: 15px; 
-            border: 2px dashed var(--accent); 
+            display: block !important; 
+            margin-top: 30px; 
+            padding: 25px; 
+            background: #fdfcf4; 
+            border-radius: 18px; 
+            border: 2px solid var(--accent); 
         }
-        .awards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px; margin-top: 15px; }
-        .award-thumb { width: 100%; border-radius: 10px; border: 2px solid white; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .awards-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); 
+            gap: 15px; 
+            margin-top: 20px; 
+        }
+        .award-thumb { 
+            width: 100%; 
+            aspect-ratio: 1/1; 
+            object-fit: cover; 
+            border-radius: 12px; 
+            border: 3px solid white; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+        }
 
-        @media (max-width: 850px) {
+        /* --- RESPONSIVE FIXES --- */
+        @media (max-width: 900px) {
             .super-header { flex-direction: column; text-align: center; }
-            .header-right { text-align: center; border-top: 1px solid #f1f5f9; padding-top: 15px; width: 100%; }
+            .header-right { text-align: center; width: 100%; border-top: 1px solid #f1f5f9; padding-top: 15px; }
             .message-flex { flex-direction: column; align-items: center; }
-            .hero { height: 300px; }
-            .hero-content h2 { font-size: 1.8rem; }
+            .prin-sidebar { flex: none; width: 100%; max-width: 350px; }
+            .hero { height: 350px; }
+            .hero-content h2 { font-size: 2rem; }
         }
-        footer { text-align: center; padding: 50px; color: #94a3b8; font-weight: 600; }
+
+        footer { text-align: center; padding: 60px; color: #94a3b8; font-weight: 700; background: var(--midnight); margin-top: 50px; color: #cbd5e1; }
     </style>
 </head>
 <body>
 
     <header class="super-header">
         <div class="header-left">
-            <img src="assets/people/logo.png" class="logo-img" onerror="this.src='https://via.placeholder.com/85'">
+            <img src="assets/people/logo.png" class="logo-img" onerror="this.src='https://via.placeholder.com/85?text=LOGO'">
             <div class="school-title">
                 <h1>MAMTA MODERN SCHOOL</h1>
                 <p>Est. 1973 | Golden Jubilee Year</p>
@@ -125,48 +144,51 @@
 
     <div class="hero">
         <div class="hero-content">
-            <p style="text-transform: uppercase; letter-spacing: 3px; font-weight: 700; color: var(--accent);">Welcome to</p>
+            <p style="text-transform: uppercase; letter-spacing: 4px; font-weight: 700; color: var(--accent); margin-bottom: 10px;">Celebrating 50 Years of Excellence</p>
             <h2>MAMTA MODERN SCHOOL</h2>
         </div>
     </div>
 
     <div class="container">
+        
         <div class="card message-flex">
-            <div class="prin-img">
-                <img src="assets/people/principal.jpg" onerror="this.src='https://via.placeholder.com/300?text=Principal'">
-                <h3 style="margin-top:15px; color: var(--midnight);">Ms. Pallavi Sharma</h3>
-                <p style="color:var(--accent); font-weight:bold;">Principal</p>
-                
-                <div class="award-badge">
-                    🏆 National Teacher Awardee
-                </div>
+            <div class="prin-sidebar">
+                <img src="assets/people/principal.jpg" onerror="this.src='https://via.placeholder.com/320x400?text=Ms.+Pallavi+Sharma'">
+                <h3 style="color: var(--midnight);">Ms. Pallavi Sharma</h3>
+                <p style="color:var(--accent); font-weight:bold; margin-bottom: 10px;">Principal</p>
+                <div class="award-badge">🏆 National Teacher Awardee</div>
             </div>
-            
+
             <div style="flex: 1;">
                 <h2>Principal's Message</h2>
-                <p style="font-style: italic; color: #64748b; border-bottom: 1px solid #f1f5f9; padding-bottom: 10px; margin-bottom: 15px;">
-                    “Excellence is not a destination; it is a continuous journey.”
+                <p style="font-style: italic; color: #64748b; border-bottom: 1px solid #f1f5f9; padding-bottom: 15px; margin-bottom: 20px;">
+                    “Education is the most powerful weapon which you can use to change the world.”
                 </p>
-                <p>This year marks our Golden Jubilee. We are proud of our collective dedication which has led to our school being recognized at the National level...</p>
+                <p>It is with immense pride that we enter our Golden Jubilee year. Our journey since 1973 has been defined by the pursuit of knowledge and the character of our students. We continue to strive for a future where every child is empowered to lead.</p>
 
                 <div id="awards-panel">
-                    <h4 style="color: var(--midnight); font-size: 0.9rem; text-transform: uppercase;">🏅 Wall of Honor</h4>
+                    <h4 style="color: var(--midnight); font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; text-align: center;">🏅 Wall of Honor</h4>
                     <div class="awards-grid">
-                        <img src="assets/events/award1.jpg" class="award-thumb" onerror="this.src='https://via.placeholder.com/120?text=Award+1'">
-                        <img src="assets/events/award2.jpg" class="award-thumb" onerror="this.src='https://via.placeholder.com/120?text=Award+2'">
-                        <img src="assets/events/award3.jpg" class="award-thumb" onerror="this.src='https://via.placeholder.com/120?text=Award+3'">
+                        <img src="assets/events/award1.jpg" class="award-thumb" onerror="this.src='https://via.placeholder.com/150?text=Award+1'">
+                        <img src="assets/events/award2.jpg" class="award-thumb" onerror="this.src='https://via.placeholder.com/150?text=Award+2'">
+                        <img src="assets/events/award3.jpg" class="award-thumb" onerror="this.src='https://via.placeholder.com/150?text=Award+3'">
+                        <img src="assets/events/award4.jpg" class="award-thumb" onerror="this.src='https://via.placeholder.com/150?text=Award+4'">
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="card">
-            <h2>About Our Institution</h2>
-            <p>Established in 1973, Mamta Modern Senior Secondary School remains committed to fostering a culture of innovation and excellence...</p>
+            <h2>Our Legacy</h2>
+            <p>From its inception in 1973, Mamta Modern Senior Secondary School has stood as a beacon of learning in West Delhi. Our campus provides a modern environment equipped with advanced laboratories, smart classrooms, and extensive sports facilities to nurture the leaders of tomorrow.</p>
         </div>
+
     </div>
 
-    <footer>© 2026 Mamta Modern Sr. Sec. School | Golden Jubilee Year</footer>
+    <footer>
+        <p>© 2026 Mamta Modern Sr. Sec. School | Golden Jubilee Year</p>
+        <p style="font-size: 0.7rem; margin-top: 10px; opacity: 0.6;">Site Maintenance by Swapneil</p>
+    </footer>
 
 </body>
 </html>
