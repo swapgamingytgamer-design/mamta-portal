@@ -13,125 +13,73 @@
             --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', 'Segoe UI', sans-serif; }
-        body { background: var(--soft-bg); color: #334155; line-height: 1.6; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background: var(--soft-bg); color: #334155; }
 
-        /* --- SUPER HEADER --- */
-        .super-header { 
-            background: var(--white); 
-            padding: 20px 5%; 
-            display: flex; 
-            flex-wrap: wrap; 
-            justify-content: space-between; 
-            align-items: center; 
-            border-bottom: 4px solid var(--accent); 
-            gap: 20px; 
-        }
-        .header-left { display: flex; align-items: center; gap: 20px; }
-        .logo-img { height: 85px; width: auto; }
-        .school-title h1 { font-size: 1.6rem; font-weight: 800; color: var(--midnight); letter-spacing: -1px; }
-        .school-title p { font-size: 0.8rem; color: var(--accent); font-weight: 700; text-transform: uppercase; }
-        
-        .header-right { text-align: right; min-width: 250px; }
-        .header-info { display: block; font-size: 0.85rem; font-weight: 600; text-decoration: none; color: var(--midnight); margin-bottom: 4px; }
-        .header-info b { color: var(--accent); margin-right: 5px; }
+        /* --- HEADER & NAV (Same as before) --- */
+        .super-header { background: var(--white); padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid var(--accent); }
+        .logo-img { height: 85px; }
+        nav { background: var(--midnight); padding: 15px; position: sticky; top: 0; z-index: 1000; text-align: center; }
+        nav a { color: #cbd5e1; margin: 0 15px; text-decoration: none; font-weight: 600; font-size: 0.85rem; }
 
-        /* --- NAVIGATION --- */
-        nav { background: var(--midnight); padding: 15px; position: sticky; top: 0; z-index: 1000; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
-        nav a { color: #cbd5e1; margin: 0 15px; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: 0.3s; }
-        nav a:hover { color: var(--accent); }
-
-        /* --- HERO SECTION (building.jpg) --- */
+        /* --- HERO --- */
         .hero {
-            width: 100%;
-            height: 500px;
-            background-color: var(--midnight);
-            /* Ensure the path is exactly assets/events/building.jpg */
+            width: 100%; height: 450px;
             background-image: linear-gradient(rgba(15, 23, 42, 0.5), rgba(15, 23, 42, 0.5)), url('assets/events/building.jpg');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            border-bottom: 6px solid var(--accent);
+            background-size: cover; background-position: center;
+            display: flex; align-items: center; justify-content: center; color: white; border-bottom: 6px solid var(--accent);
         }
-        .hero-content h2 { font-size: 3.5rem; font-weight: 900; text-shadow: 3px 3px 15px rgba(0,0,0,0.6); }
 
-        /* --- MAIN CONTENT CONTAINER --- */
-        .container { max-width: 1150px; margin: -60px auto 40px; padding: 0 20px; position: relative; z-index: 10; }
-        
-        .card { background: var(--white); padding: 40px; border-radius: 24px; box-shadow: var(--shadow); margin-bottom: 30px; border: 1px solid #e2e8f0; }
-        .card h2 { color: var(--midnight); border-left: 5px solid var(--accent); padding-left: 15px; margin-bottom: 25px; font-size: 1.8rem; }
+        .container { max-width: 1100px; margin: -50px auto 40px; padding: 0 20px; }
+        .card { background: var(--white); padding: 40px; border-radius: 24px; box-shadow: var(--shadow); margin-bottom: 30px; }
 
-        /* --- PRINCIPAL & AWARDS LAYOUT --- */
-        .message-flex { display: flex; gap: 45px; align-items: flex-start; }
-        .prin-sidebar { flex: 0 0 320px; text-align: center; }
-        .prin-sidebar img { width: 100%; border-radius: 20px; border: 5px solid var(--accent); box-shadow: var(--shadow); margin-bottom: 15px; }
-        
-        .award-badge {
-            background: #fffbeb;
+        /* --- SLIDESHOW BUTTON --- */
+        .btn-slideshow {
+            background: var(--midnight);
+            color: var(--white);
             border: 2px solid var(--accent);
-            padding: 12px;
-            border-radius: 12px;
-            font-weight: 800;
-            color: #92400e;
-            font-size: 0.9rem;
-            display: inline-block;
-            width: 100%;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 20px;
         }
+        .btn-slideshow:hover { background: var(--accent); color: var(--midnight); }
 
-        /* --- WALL OF HONOR (ALWAYS VISIBLE) --- */
-        #awards-panel { 
-            display: block !important; 
-            margin-top: 30px; 
-            padding: 25px; 
-            background: #fdfcf4; 
-            border-radius: 18px; 
-            border: 2px solid var(--accent); 
+        /* --- SLIDESHOW OVERLAY (Hidden by default) --- */
+        .slideshow-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
         }
-        .awards-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); 
-            gap: 15px; 
-            margin-top: 20px; 
-        }
-        .award-thumb { 
-            width: 100%; 
-            aspect-ratio: 1/1; 
-            object-fit: cover; 
-            border-radius: 12px; 
-            border: 3px solid white; 
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
-        }
+        .slide-container { position: relative; max-width: 800px; width: 90%; }
+        .slide-img { width: 100%; border-radius: 15px; border: 5px solid var(--white); display: none; }
+        .active-slide { display: block; animation: fadeIn 0.5s; }
 
-        /* --- RESPONSIVE FIXES --- */
-        @media (max-width: 900px) {
-            .super-header { flex-direction: column; text-align: center; }
-            .header-right { text-align: center; width: 100%; border-top: 1px solid #f1f5f9; padding-top: 15px; }
-            .message-flex { flex-direction: column; align-items: center; }
-            .prin-sidebar { flex: none; width: 100%; max-width: 350px; }
-            .hero { height: 350px; }
-            .hero-content h2 { font-size: 2rem; }
-        }
+        .close-btn { position: absolute; top: -50px; right: 0; color: white; font-size: 2rem; cursor: pointer; }
+        .nav-btn { position: absolute; top: 50%; transform: translateY(-50%); background: var(--accent); color: white; border: none; padding: 15px; cursor: pointer; border-radius: 50%; }
+        .prev { left: -70px; }
+        .next { right: -70px; }
 
-        footer { text-align: center; padding: 60px; color: #94a3b8; font-weight: 700; background: var(--midnight); margin-top: 50px; color: #cbd5e1; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        footer { text-align: center; padding: 40px; background: var(--midnight); color: white; }
     </style>
 </head>
 <body>
 
     <header class="super-header">
         <div class="header-left">
-            <img src="assets/people/logo.png" class="logo-img" onerror="this.src='https://via.placeholder.com/85?text=LOGO'">
-            <div class="school-title">
-                <h1>MAMTA MODERN SCHOOL</h1>
-                <p>Est. 1973 | Golden Jubilee Year</p>
+            <img src="assets/people/logo.png" class="logo-img" onerror="this.src='https://via.placeholder.com/85'">
+            <div style="margin-left: 20px;">
+                <h1 style="color: var(--midnight);">MAMTA MODERN SCHOOL</h1>
+                <p style="color: var(--accent); font-weight: bold;">GOLDEN JUBILEE YEAR</p>
             </div>
-        </div>
-        <div class="header-right">
-            <a href="tel:+911145614501" class="header-info"><b>📞</b> +91-11-45614501</a>
-            <a href="mailto:mamtamodernschool@gmail.com" class="header-info"><b>📧</b> mamtamodernschool@gmail.com</a>
         </div>
     </header>
 
@@ -143,52 +91,58 @@
     </nav>
 
     <div class="hero">
-        <div class="hero-content">
-            <p style="text-transform: uppercase; letter-spacing: 4px; font-weight: 700; color: var(--accent); margin-bottom: 10px;">Celebrating 50 Years of Excellence</p>
-            <h2>MAMTA MODERN SCHOOL</h2>
-        </div>
+        <h2 style="font-size: 3rem;">50 Years of Excellence</h2>
     </div>
 
     <div class="container">
-        
-        <div class="card message-flex">
-            <div class="prin-sidebar">
-                <img src="assets/people/principal.jpg" onerror="this.src='https://via.placeholder.com/320x400?text=Ms.+Pallavi+Sharma'">
-                <h3 style="color: var(--midnight);">Ms. Pallavi Sharma</h3>
-                <p style="color:var(--accent); font-weight:bold; margin-bottom: 10px;">Principal</p>
-                <div class="award-badge">🏆 National Teacher Awardee</div>
-            </div>
-
-            <div style="flex: 1;">
-                <h2>Principal's Message</h2>
-                <p style="font-style: italic; color: #64748b; border-bottom: 1px solid #f1f5f9; padding-bottom: 15px; margin-bottom: 20px;">
-                    “Education is the most powerful weapon which you can use to change the world.”
-                </p>
-                <p>It is with immense pride that we enter our Golden Jubilee year. Our journey since 1973 has been defined by the pursuit of knowledge and the character of our students. We continue to strive for a future where every child is empowered to lead.</p>
-
-                <div id="awards-panel">
-                    <h4 style="color: var(--midnight); font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; text-align: center;">🏅 Wall of Honor</h4>
-                    <div class="awards-grid">
-                        <img src="assets/events/award1.jpg" class="award-thumb" onerror="this.src='https://via.placeholder.com/150?text=Award+1'">
-                        <img src="assets/events/award2.jpg" class="award-thumb" onerror="this.src='https://via.placeholder.com/150?text=Award+2'">
-                        <img src="assets/events/award3.jpg" class="award-thumb" onerror="this.src='https://via.placeholder.com/150?text=Award+3'">
-                        <img src="assets/events/award4.jpg" class="award-thumb" onerror="this.src='https://via.placeholder.com/150?text=Award+4'">
-                    </div>
-                </div>
-            </div>
+        <div class="card" style="text-align: center;">
+            <h2>Experience Our Journey</h2>
+            <p>Click the button below to view highlights from our recent school events and celebrations.</p>
+            <button class="btn-slideshow" onclick="openSlideshow()">📸 View Event Highlights</button>
         </div>
-
-        <div class="card">
-            <h2>Our Legacy</h2>
-            <p>From its inception in 1973, Mamta Modern Senior Secondary School has stood as a beacon of learning in West Delhi. Our campus provides a modern environment equipped with advanced laboratories, smart classrooms, and extensive sports facilities to nurture the leaders of tomorrow.</p>
-        </div>
-
     </div>
 
-    <footer>
-        <p>© 2026 Mamta Modern Sr. Sec. School | Golden Jubilee Year</p>
-        <p style="font-size: 0.7rem; margin-top: 10px; opacity: 0.6;">Site Maintenance by Swapneil</p>
-    </footer>
+    <div id="slideshow" class="slideshow-overlay">
+        <div class="slide-container">
+            <span class="close-btn" onclick="closeSlideshow()">&times;</span>
+            
+            <img src="assets/events/award1.jpg" class="slide-img active-slide" onerror="this.src='https://via.placeholder.com/800x500?text=Event+Photo+1'">
+            <img src="assets/events/award2.jpg" class="slide-img" onerror="this.src='https://via.placeholder.com/800x500?text=Event+Photo+2'">
+            <img src="assets/events/award3.jpg" class="slide-img" onerror="this.src='https://via.placeholder.com/800x500?text=Event+Photo+3'">
+            <img src="assets/events/building.jpg" class="slide-img" onerror="this.src='https://via.placeholder.com/800x500?text=School+Building'">
 
+            <button class="nav-btn prev" onclick="changeSlide(-1)">❮</button>
+            <button class="nav-btn next" onclick="changeSlide(1)">❯</button>
+        </div>
+    </div>
+
+    <footer>© 2026 Mamta Modern Sr. Sec. School</footer>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide-img');
+
+        function openSlideshow() {
+            document.getElementById('slideshow').style.display = 'flex';
+        }
+
+        function closeSlideshow() {
+            document.getElementById('slideshow').style.display = 'none';
+        }
+
+        function changeSlide(n) {
+            slides[currentSlide].classList.remove('active-slide');
+            currentSlide = (currentSlide + n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active-slide');
+        }
+
+        // Close if user clicks outside the image
+        window.onclick = function(event) {
+            let modal = document.getElementById('slideshow');
+            if (event.target == modal) {
+                closeSlideshow();
+            }
+        }
+    </script>
 </body>
 </html>
