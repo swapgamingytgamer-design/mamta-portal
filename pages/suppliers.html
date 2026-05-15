@@ -2,16 +2,51 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Suppliers | Mamta Modern School</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* CSS Same as index.html */
-        .supplier-item { display: flex; justify-content: space-between; align-items: center; padding: 20px; border-bottom: 1px solid #eee; }
-        .call-btn { background: var(--midnight); color: var(--accent); padding: 10px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; border: 2px solid var(--accent); }
+        :root { --midnight: #0f172a; --accent: #d4af37; --soft-bg: #f8fafc; --white: #ffffff; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background: var(--soft-bg); color: #334155; }
+        
+        /* SYNCED HEADER/NAV */
+        .super-header { background: var(--white); padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid var(--accent); }
+        .logo-img { height: 85px; }
+        nav { background: var(--midnight); padding: 15px; text-align: center; position: sticky; top: 0; z-index: 1000; }
+        nav a { color: #cbd5e1; margin: 0 15px; text-decoration: none; font-weight: 600; }
+        
+        .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+        .card { background: var(--white); padding: 40px; border-radius: 24px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .card h2 { color: var(--midnight); border-left: 5px solid var(--accent); padding-left: 15px; margin-bottom: 30px; }
+
+        /* SUPPLIER ITEM */
+        .supplier-item { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 25px; border-bottom: 1px solid #f1f5f9; transition: 0.3s;
+        }
+        .supplier-item:hover { background: #fffdf5; }
+        .sup-info h3 { color: var(--midnight); margin-bottom: 5px; font-size: 1.1rem; }
+        .sup-info p { font-size: 0.85rem; color: #64748b; }
+        .gst-tag { font-size: 0.7rem; background: #e2e8f0; padding: 2px 8px; border-radius: 4px; font-weight: bold; }
+
+        .call-btn { 
+            background: var(--midnight); color: var(--accent); padding: 10px 20px; 
+            border-radius: 50px; text-decoration: none; font-weight: 800; border: 2px solid var(--accent); 
+            transition: 0.3s; font-size: 0.9rem;
+        }
+        .call-btn:hover { background: var(--accent); color: var(--midnight); }
+
+        @media (max-width: 700px) { .supplier-item { flex-direction: column; text-align: center; gap: 15px; } }
+        footer { text-align: center; padding: 60px; background: var(--midnight); color: #cbd5e1; }
     </style>
 </head>
 <body>
-    <header class="super-header"></header>
+    <header class="super-header">
+        <img src="../assets/people/logo.png" class="logo-img">
+        <a href="tel:+911145614501" style="text-decoration:none; color:var(--midnight); font-weight:bold;"><i class="fa-solid fa-phone" style="color:var(--accent);"></i> +91-11-45614501</a>
+    </header>
+
     <nav>
         <a href="../index.html">HOME</a>
         <a href="gallery.html">GALLERY</a>
@@ -21,15 +56,48 @@
 
     <div class="container">
         <div class="card">
-            <h2>Authorized Suppliers</h2>
+            <h2>Authorized Vendors (Books, Uniform & Stationery)</h2>
+
             <div class="supplier-item">
-                <div><h3>Uniform: Sharma Garments</h3><p>H-Block Market</p></div>
-                <a href="tel:+919812345678" class="call-btn"><i class="fa-solid fa-phone"></i> Call Now</a>
+                <div class="sup-info">
+                    <h3>DESIGN X KNITWEARS <span class="gst-tag">GST: 07ACVPM5786A1Z5</span></h3>
+                    <p>A-42/3 MAYAPURI INDL, AREA PHASE-1 NEW DELHI-64</p>
+                </div>
+                <a href="tel:07947143622" class="call-btn"><i class="fa-solid fa-phone"></i> 07947143622</a>
             </div>
+
             <div class="supplier-item">
-                <div><h3>Books: Modern Stationery</h3><p>Gate 2</p></div>
-                <a href="tel:+919999888777" class="call-btn"><i class="fa-solid fa-phone"></i> Call Now</a>
+                <div class="sup-info">
+                    <h3>UNIFORM SELLECTION</h3>
+                    <p>HARI NAGAR-110064</p>
+                </div>
+                <a href="tel:07947110334" class="call-btn"><i class="fa-solid fa-phone"></i> 07947110334</a>
             </div>
+
+            <div class="supplier-item">
+                <div class="sup-info">
+                    <h3>AHUJA GARMENTS</h3>
+                    <p>VIKASH PURI, NEW DELHI-110018</p>
+                </div>
+                <a href="tel:07947108633" class="call-btn"><i class="fa-solid fa-phone"></i> 07947108633</a>
+            </div>
+
+            <div class="supplier-item">
+                <div class="sup-info">
+                    <h3>SHILPI PRAKASHAN</h3>
+                    <p>VIKASPURI, NEW DELHI-110018</p>
+                </div>
+                <a href="tel:9350520688" class="call-btn"><i class="fa-solid fa-phone"></i> 93505 20688</a>
+            </div>
+
+            <div class="supplier-item">
+                <div class="sup-info">
+                    <h3>HELLO BOOK DEPOT</h3>
+                    <p>VIKASPURI, NEW DELHI-110018</p>
+                </div>
+                <a href="tel:0794751173" class="call-btn"><i class="fa-solid fa-phone"></i> 0794751173</a>
+            </div>
+
         </div>
     </div>
     <footer><p>© 2026 Mamta Modern School | Developed by Swapneil Jha</p></footer>
