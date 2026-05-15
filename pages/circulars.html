@@ -2,67 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Circulars | Mamta Modern School</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --midnight: #0f172a; --accent: #d4af37; --white: #ffffff; --soft-bg: #f1f5f9; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background: var(--soft-bg); }
-        .main-header { background: var(--white); padding: 15px 6%; display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid var(--accent); }
-        .social-links a { font-size: 1.7rem; margin-left: 15px; transition: 0.3s; }
-        .fa-youtube { color: #FF0000; }
-        .fa-facebook { color: #1877F2; }
-        nav { background: var(--midnight); padding: 0 6%; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: center; }
-        nav a { color: #f8fafc; padding: 18px 25px; text-decoration: none; font-weight: 600; text-transform: uppercase; }
-
-        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
-        .item { background: white; padding: 20px; border-radius: 15px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-left: 5px solid var(--midnight); }
-        .btn { background: var(--midnight); color: var(--accent); padding: 10px 20px; border-radius: 50px; text-decoration: none; font-weight: 800; border: 2px solid var(--accent); }
-        footer { background: var(--midnight); color: white; padding: 40px 0; text-align: center; }
+        :root { --midnight: #001f3f; --accent: #d4af37; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
+        /* Use same header/nav styles as gallery above */
+        .container { max-width: 800px; margin: 40px auto; padding: 20px; }
+        .item { background: white; padding: 20px; border-radius: 10px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; border-left: 6px solid var(--midnight); }
+        .btn { background: var(--midnight); color: var(--accent); padding: 8px 15px; border-radius: 5px; text-decoration: none; font-weight: bold; }
     </style>
 </head>
 <body>
-    <header class="header-top">
-        <div class="header-left">
-            <img src="assets/people/logo.png" onerror="this.src='https://via.placeholder.com/100'">
-        </div>
-        <div class="header-center">
-            <h1>MAMTA MODERN SCHOOL</h1>
-            <p>NURTURING EXCELLENCE SINCE 1973</p>
-        </div>
-        <div class="header-right">
-            <div class="contact-info">+91-11-45614501</div>
-            <div class="contact-info" style="font-size: 0.85rem;">mamtamodernschool@gmail.com</div>
-            <div class="social-row">
-                <a href="https://www.facebook.com/MamtaModernSeniorSecondarySchoolVikasPuri/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-                <a href="https://www.youtube.com/@MamtaModernSchoolVikasPuri" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-                <a href="https://www.instagram.com/mamtamodernschool/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-            </div>
-        </div>
-    </header>
-
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="pages/gallery.html">Gallery</a>
-        <a href="pages/circulars.html">Circulars</a>
-        <a href="pages/suppliers.html">Suppliers</a>
-    </nav>
-
-    <div class="container" id="clist">
-        <h2 style="margin-bottom: 25px;">Latest Circulars</h2>
-    </div>
+    <div class="container" id="l"><h2>Official Circulars</h2></div>
     <script>
-        const data = [{ date: "May 15, 2026", title: "Summer Holidays Notice", file: "summer.pdf" }];
-        const list = document.getElementById('clist');
-        if(data.length === 0) {
-            list.innerHTML += `<p style="text-align:center; padding: 50px;">No circulars available.</p>`;
-        } else {
-            data.forEach(c => {
-                list.innerHTML += `<div class="item"><div><small style="color:var(--accent)">${c.date}</small><h3>${c.title}</h3></div><a href="../assets/circulars/${c.file}" class="btn">PDF</a></div>`;
-            });
-        }
+        const docs = [{ t: "School Reopening Notice", d: "May 20, 2026", f: "notice.pdf" }];
+        const l = document.getElementById('l');
+        if(docs.length === 0) l.innerHTML += "<p>No circulars available.</p>";
+        else docs.forEach(d => l.innerHTML += `<div class="item"><div><b>${d.t}</b><br><small>${d.d}</small></div><a href="../assets/circulars/${d.f}" class="btn">VIEW</a></div>`);
     </script>
-    <footer><p>© 2026 Mamta Modern School</p></footer>
 </body>
 </html>

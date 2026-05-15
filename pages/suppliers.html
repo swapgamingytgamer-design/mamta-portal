@@ -2,62 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Suppliers | Mamta Modern School</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --midnight: #0f172a; --accent: #d4af37; --white: #ffffff; --soft-bg: #f1f5f9; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background: var(--soft-bg); }
-        .main-header { background: var(--white); padding: 15px 6%; display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid var(--accent); }
-        .fa-youtube { color: #FF0000; } .fa-facebook { color: #1877F2; }
-        nav { background: var(--midnight); padding: 0 6%; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: center; }
-        nav a { color: #f8fafc; padding: 18px 25px; text-decoration: none; font-weight: 600; text-transform: uppercase; }
-
-        .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
-        .sup-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .sup-box { background: white; padding: 25px; border-radius: 20px; border: 1px solid #ddd; display: flex; flex-direction: column; justify-content: space-between; }
-        .sup-box h3 { color: var(--midnight); margin: 10px 0; }
-        .gst { font-size: 0.7rem; font-weight: 800; color: var(--accent); }
-        .call { background: var(--midnight); color: var(--accent); text-align: center; padding: 10px; border-radius: 10px; text-decoration: none; font-weight: bold; margin-top: 15px; border: 2px solid var(--accent); }
-        footer { background: var(--midnight); color: white; padding: 40px 0; text-align: center; }
+        :root { --midnight: #001f3f; --accent: #d4af37; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
+        .container { max-width: 1000px; margin: 40px auto; padding: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .box { background: white; padding: 30px; border-radius: 15px; border: 1px solid #ddd; text-align: center; }
+        .box h3 { color: var(--midnight); margin: 10px 0; }
+        .call-btn { display: inline-block; background: var(--midnight); color: var(--accent); padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; margin-top: 10px; }
     </style>
 </head>
 <body>
-    <header class="header-top">
-        <div class="header-left">
-            <img src="assets/people/logo.png" onerror="this.src='https://via.placeholder.com/100'">
-        </div>
-        <div class="header-center">
-            <h1>MAMTA MODERN SCHOOL</h1>
-            <p>NURTURING EXCELLENCE SINCE 1973</p>
-        </div>
-        <div class="header-right">
-            <div class="contact-info">+91-11-45614501</div>
-            <div class="contact-info" style="font-size: 0.85rem;">mamtamodernschool@gmail.com</div>
-            <div class="social-row">
-                <a href="https://www.facebook.com/MamtaModernSeniorSecondarySchoolVikasPuri/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-                <a href="https://www.youtube.com/@MamtaModernSchoolVikasPuri" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-                <a href="https://www.instagram.com/mamtamodernschool/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-            </div>
-        </div>
-    </header>
-
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="pages/gallery.html">Gallery</a>
-        <a href="pages/circulars.html">Circulars</a>
-        <a href="pages/suppliers.html">Suppliers</a>
-    </nav>
-
     <div class="container">
-        <h2 style="margin-bottom: 30px;">Authorized Suppliers</h2>
-        <div class="sup-grid">
-            <div class="sup-box"><div><span class="gst">GST: 07ACVPM5786A1Z5</span><h3>DESIGN X KNITWEARS</h3><p>Mayapuri Phase-1, New Delhi</p></div><a href="tel:07947143622" class="call">CALL NOW</a></div>
-            <div class="sup-box"><div><span class="gst">UNIFORM SPECIALIST</span><h3>UNIFORM SELLECTION</h3><p>Hari Nagar, New Delhi</p></div><a href="tel:07947110334" class="call">CALL NOW</a></div>
-            <div class="sup-box"><div><span class="gst">BOOKS & STATIONERY</span><h3>SHILPI PRAKASHAN</h3><p>Vikaspuri, New Delhi</p></div><a href="tel:9350520688" class="call">CALL NOW</a></div>
-        </div>
+        <div class="box"><h3>Design X Knitwears</h3><p>Uniform Supplier</p><a href="tel:01145614501" class="call-btn">Call Now</a></div>
+        <div class="box"><h3>Shilpi Prakashan</h3><p>Books & Stationery</p><a href="tel:01145614501" class="call-btn">Call Now</a></div>
     </div>
-    <footer><p>© 2026 Mamta Modern School</p></footer>
 </body>
 </html>
