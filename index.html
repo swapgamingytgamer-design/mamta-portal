@@ -17,7 +17,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', 'Segoe UI', sans-serif; }
         body { background: var(--soft-bg); color: var(--text-main); line-height: 1.6; }
 
-        /* --- 1. SUPER HEADER (Guaranteed Visibility) --- */
+        /* --- 1. SUPER HEADER (Synced with Suppliers) --- */
         .super-header { 
             background: var(--white); 
             padding: 20px 5%; 
@@ -44,7 +44,7 @@
 
         .container { max-width: 1100px; margin: 30px auto; padding: 0 20px; }
 
-        /* --- 3. ABOUT / HISTORY CARD --- */
+        /* --- 3. WELCOME SECTION --- */
         .about-card { background: var(--white); padding: 35px; border-radius: 24px; box-shadow: var(--shadow); margin-bottom: 30px; border: 1px solid #e2e8f0; }
         .about-card h2 { color: var(--midnight); margin-bottom: 20px; font-size: 1.5rem; border-left: 5px solid var(--accent); padding-left: 15px; }
         .about-text { margin-bottom: 15px; text-align: justify; font-size: 0.95rem; }
@@ -93,7 +93,7 @@
             </div>
         </div>
         <div class="header-right">
-            <a href="tel:+911145614501" class="header-info"><b>📞</b> +91-11-45614501 / 02</a>
+            <a href="tel:+911145614501" class="header-info"><b>📞</b> +91-11-45614501</a>
             <a href="mailto:mamtamodernschool@gmail.com" class="header-info"><b>📧</b> mamtamodernschool@gmail.com</a>
             <span class="header-info" style="font-weight: 500; font-size: 0.75rem;"><b>📍</b> H-Block, Vikas Puri, New Delhi-18</span>
         </div>
@@ -107,11 +107,9 @@
     </nav>
 
     <div class="container">
-        
         <div class="about-card">
             <h2>Welcome to Mamta Modern School</h2>
-            <p class="about-text">Established in 1973, Mamta Modern Senior Secondary School has journeyed from its humble beginnings to become one of the most prestigious institutions in West Delhi. Recognized by the Directorate of Education, Government of NCT, Delhi, the school achieved affiliation with the CBSE in 1986 (Affiliation No. 2730133).</p>
-            <p class="about-text">Today, it offers comprehensive education in Science, Commerce, and Humanities streams. Founded by the Mamta Modern Education Society, the school remains committed to fostering a culture of innovation, inclusivity, and sustainability.</p>
+            <p class="about-text">Established in 1973, Mamta Modern Senior Secondary School has journeyed from its humble beginnings to become one of the most prestigious institutions in West Delhi. With a steadfast commitment to excellence, the school has continuously evolved, boasting state-of-the-art infrastructure and facilities essential for modern education.</p>
         </div>
 
         <div class="message-card">
@@ -125,13 +123,12 @@
             <div class="message-content">
                 <h2 style="margin-bottom: 10px; color: var(--midnight);">Principal's Message</h2>
                 <span class="quote">“Excellence is not a destination; it is a continuous journey that never ends.” – Dr. A.P.J. Abdul Kalam</span>
-                <p class="about-text">This year marks a monumental milestone as we proudly celebrate the Golden Jubilee of our inception. I am deeply honored to have been awarded the prestigious National Teachers Award, a testament to our school's collective dedication.</p>
-                <p class="about-text">From outstanding CBSE Board Results to victories in Zonal and National competitions, our students continue to demonstrate exceptional potential. Together, we are shaping a future filled with promise and achievement.</p>
+                <p class="about-text">This year marks a monumental milestone for Mamta Modern Senior Secondary School as we proudly celebrate the Golden Jubilee of our inception. Adding to this momentous occasion, I am deeply honored to have been awarded the prestigious National Teachers Award.</p>
+                <p class="about-text">I extend my heartfelt gratitude to the Almighty, our visionary management, supportive parents, and dedicated students for their unwavering support. Together, we are shaping a future filled with promise and achievement.</p>
             </div>
         </div>
 
         <div id="awards-panel">
-            <h4 style="text-align: center; margin-bottom: 15px; font-size: 0.9rem; letter-spacing: 1px;">GOLDEN JUBILEE RECOGNITION</h4>
             <div class="awards-grid">
                 <img src="assets/events/award1.jpg" class="award-thumb" onerror="this.src='https://via.placeholder.com/100?text=🏆'">
                 <img src="assets/events/award2.jpg" class="award-thumb" onerror="this.src='https://via.placeholder.com/100?text=🏆'">
@@ -154,11 +151,7 @@
     <script>
         function toggleAwards() {
             const panel = document.getElementById('awards-panel');
-            const isVisible = panel.style.display === 'block';
-            panel.style.display = isVisible ? 'none' : 'block';
-            if (!isVisible) {
-                panel.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }
+            panel.style.display = (panel.style.display === 'block') ? 'none' : 'block';
         }
     </script>
 </body>
