@@ -16,18 +16,27 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         body { background: var(--soft-bg); color: #334155; }
 
-        /* --- HEADER & NAV (Same as before) --- */
+        /* --- HEADER & NAV --- */
         .super-header { background: var(--white); padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid var(--accent); }
         .logo-img { height: 85px; }
         nav { background: var(--midnight); padding: 15px; position: sticky; top: 0; z-index: 1000; text-align: center; }
         nav a { color: #cbd5e1; margin: 0 15px; text-decoration: none; font-weight: 600; font-size: 0.85rem; }
+        nav a:hover { color: var(--accent); }
 
-        /* --- HERO --- */
+        /* --- FIXED HERO SECTION --- */
         .hero {
-            width: 100%; height: 450px;
-            background-image: linear-gradient(rgba(15, 23, 42, 0.5), rgba(15, 23, 42, 0.5)), url('assets/events/building.jpg');
-            background-size: cover; background-position: center;
-            display: flex; align-items: center; justify-content: center; color: white; border-bottom: 6px solid var(--accent);
+            width: 100%; 
+            height: 450px;
+            background-color: #475569; /* Fallback color */
+            background-image: linear-gradient(rgba(15, 23, 42, 0.5), rgba(15, 23, 42, 0.5)), 
+                              url('./assets/events/building.jpg'); /* Added ./ for absolute root path */
+            background-size: cover; 
+            background-position: center;
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            color: white; 
+            border-bottom: 6px solid var(--accent);
         }
 
         .container { max-width: 1100px; margin: -50px auto 40px; padding: 0 20px; }
@@ -44,10 +53,13 @@
             cursor: pointer;
             transition: 0.3s;
             margin-top: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
         }
         .btn-slideshow:hover { background: var(--accent); color: var(--midnight); }
 
-        /* --- SLIDESHOW OVERLAY (Hidden by default) --- */
+        /* --- SLIDESHOW OVERLAY --- */
         .slideshow-overlay {
             display: none;
             position: fixed;
@@ -60,15 +72,20 @@
         .slide-container { position: relative; max-width: 800px; width: 90%; }
         .slide-img { width: 100%; border-radius: 15px; border: 5px solid var(--white); display: none; }
         .active-slide { display: block; animation: fadeIn 0.5s; }
-
-        .close-btn { position: absolute; top: -50px; right: 0; color: white; font-size: 2rem; cursor: pointer; }
+        .close-btn { position: absolute; top: -50px; right: 0; color: white; font-size: 2.5rem; cursor: pointer; }
         .nav-btn { position: absolute; top: 50%; transform: translateY(-50%); background: var(--accent); color: white; border: none; padding: 15px; cursor: pointer; border-radius: 50%; }
         .prev { left: -70px; }
         .next { right: -70px; }
 
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        footer { text-align: center; padding: 40px; background: var(--midnight); color: white; }
+        @media (max-width: 768px) {
+            .hero { height: 300px; }
+            .prev { left: 10px; }
+            .next { right: 10px; }
+        }
+
+        footer { text-align: center; padding: 40px; background: var(--midnight); color: white; margin-top: 50px; }
     </style>
 </head>
 <body>
@@ -77,8 +94,8 @@
         <div class="header-left">
             <img src="assets/people/logo.png" class="logo-img" onerror="this.src='https://via.placeholder.com/85'">
             <div style="margin-left: 20px;">
-                <h1 style="color: var(--midnight);">MAMTA MODERN SCHOOL</h1>
-                <p style="color: var(--accent); font-weight: bold;">GOLDEN JUBILEE YEAR</p>
+                <h1 style="color: var(--midnight); font-size: 1.5rem;">MAMTA MODERN SCHOOL</h1>
+                <p style="color: var(--accent); font-weight: bold; font-size: 0.8rem;">GOLDEN JUBILEE YEAR</p>
             </div>
         </div>
     </header>
@@ -90,15 +107,17 @@
         <a href="pages/suppliers.html">SUPPLIERS</a>
     </nav>
 
-    <div class="hero">
-        <h2 style="font-size: 3rem;">50 Years of Excellence</h2>
+    <div class="hero" id="mainHero">
+        <h2 style="font-size: 3.5rem; font-weight: 900; text-shadow: 2px 2px 10px rgba(0,0,0,0.5);">50 Years of Excellence</h2>
     </div>
 
     <div class="container">
         <div class="card" style="text-align: center;">
-            <h2>Experience Our Journey</h2>
+            <h2 style="margin-bottom: 10px;">Experience Our Journey</h2>
             <p>Click the button below to view highlights from our recent school events and celebrations.</p>
-            <button class="btn-slideshow" onclick="openSlideshow()">📸 View Event Highlights</button>
+            <button class="btn-slideshow" onclick="openSlideshow()">
+                <span>📷</span> View Event Highlights
+            </button>
         </div>
     </div>
 
@@ -106,19 +125,20 @@
         <div class="slide-container">
             <span class="close-btn" onclick="closeSlideshow()">&times;</span>
             
-            <img src="assets/events/award1.jpg" class="slide-img active-slide" onerror="this.src='https://via.placeholder.com/800x500?text=Event+Photo+1'">
-            <img src="assets/events/award2.jpg" class="slide-img" onerror="this.src='https://via.placeholder.com/800x500?text=Event+Photo+2'">
-            <img src="assets/events/award3.jpg" class="slide-img" onerror="this.src='https://via.placeholder.com/800x500?text=Event+Photo+3'">
-            <img src="assets/events/building.jpg" class="slide-img" onerror="this.src='https://via.placeholder.com/800x500?text=School+Building'">
+            <img src="assets/events/award1.jpg" class="slide-img active-slide" onerror="this.src='https://via.placeholder.com/800x500?text=Event+1'">
+            <img src="assets/events/award2.jpg" class="slide-img" onerror="this.src='https://via.placeholder.com/800x500?text=Event+2'">
+            <img src="assets/events/award3.jpg" class="slide-img" onerror="this.src='https://via.placeholder.com/800x500?text=Event+3'">
+            <img src="assets/events/building.jpg" class="slide-img" onerror="this.src='https://via.placeholder.com/800x500?text=Building'">
 
             <button class="nav-btn prev" onclick="changeSlide(-1)">❮</button>
             <button class="nav-btn next" onclick="changeSlide(1)">❯</button>
         </div>
     </div>
 
-    <footer>© 2026 Mamta Modern Sr. Sec. School</footer>
+    <footer>© 2026 Mamta Modern Sr. Sec. School | Golden Jubilee Year</footer>
 
     <script>
+        // Slideshow Logic
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide-img');
 
@@ -136,13 +156,19 @@
             slides[currentSlide].classList.add('active-slide');
         }
 
-        // Close if user clicks outside the image
+        // Close on outside click
         window.onclick = function(event) {
             let modal = document.getElementById('slideshow');
-            if (event.target == modal) {
-                closeSlideshow();
-            }
+            if (event.target == modal) closeSlideshow();
         }
+
+        // --- PATH FIXER ---
+        // This ensures the building image loads properly on first visit
+        window.addEventListener('load', () => {
+            const hero = document.getElementById('mainHero');
+            // Force reload the background image
+            hero.style.backgroundImage = "linear-gradient(rgba(15, 23, 42, 0.5), rgba(15, 23, 42, 0.5)), url('./assets/events/building.jpg')";
+        });
     </script>
 </body>
 </html>
