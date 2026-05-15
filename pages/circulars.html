@@ -14,17 +14,17 @@
             --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', 'Segoe UI', sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         body { background: var(--soft-bg); color: #334155; line-height: 1.6; }
 
-        /* --- HEADER (Synced with Home) --- */
+        /* --- SYNCED HEADER --- */
         .super-header { 
             background: var(--white); padding: 20px 5%; display: flex; flex-wrap: wrap; 
             justify-content: space-between; align-items: center; border-bottom: 4px solid var(--accent); gap: 20px;
         }
         .header-left { display: flex; align-items: center; gap: 20px; }
         .logo-img { height: 85px; width: auto; }
-        .school-title h1 { font-size: 1.6rem; font-weight: 800; color: var(--midnight); letter-spacing: -1px; }
+        .school-title h1 { font-size: 1.6rem; font-weight: 800; color: var(--midnight); }
         .school-title p { font-size: 0.8rem; color: var(--accent); font-weight: 700; text-transform: uppercase; }
 
         .header-right { text-align: right; min-width: 250px; }
@@ -33,21 +33,20 @@
 
         .social-links { margin-top: 12px; display: flex; gap: 18px; justify-content: flex-end; }
         .social-links a { text-decoration: none; font-size: 1.4rem; color: var(--midnight); transition: 0.3s; }
-        .social-links a.yt:hover { color: #FF0000; transform: translateY(-3px); }
-        .social-links a.fb:hover { color: #1877F2; transform: translateY(-3px); }
-        .social-links a.ig:hover { color: #E4405F; transform: translateY(-3px); }
+        .social-links a.yt:hover { color: #FF0000; }
+        .social-links a.fb:hover { color: #1877F2; }
+        .social-links a.ig:hover { color: #E4405F; }
 
         /* --- NAVIGATION --- */
         nav { background: var(--midnight); padding: 15px; position: sticky; top: 0; z-index: 1000; text-align: center; }
         nav a { color: #cbd5e1; margin: 0 15px; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: 0.3s; }
         nav a:hover { color: var(--accent); }
 
-        /* --- CONTENT --- */
+        /* --- CIRCULAR DESIGN --- */
         .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
         .card { background: var(--white); padding: 40px; border-radius: 24px; box-shadow: var(--shadow); border: 1px solid #e2e8f0; }
         .card h2 { color: var(--midnight); border-left: 5px solid var(--accent); padding-left: 15px; margin-bottom: 30px; }
 
-        /* --- CIRCULAR LIST STYLE --- */
         .circular-item { 
             display: flex; 
             justify-content: space-between; 
@@ -57,8 +56,9 @@
             transition: 0.2s;
         }
         .circular-item:hover { background-color: #fffdf5; }
+        
         .circular-info h3 { font-size: 1.1rem; color: var(--midnight); margin-bottom: 5px; }
-        .circular-date { font-size: 0.85rem; color: #64748b; font-weight: 600; }
+        .circular-date { font-size: 0.85rem; color: #64748b; font-weight: 700; text-transform: uppercase; }
         
         .download-btn { 
             background: var(--midnight); 
@@ -68,11 +68,10 @@
             text-decoration: none; 
             font-weight: 700; 
             border: 2px solid var(--accent);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             transition: 0.3s;
         }
         .download-btn:hover { background: var(--accent); color: var(--midnight); }
-        .download-btn i { margin-right: 8px; }
 
         @media (max-width: 850px) {
             .super-header { flex-direction: column; text-align: center; }
@@ -98,9 +97,9 @@
             <a href="tel:+911145614501" class="header-info"><i class="fa-solid fa-phone"></i> +91-11-45614501</a>
             <a href="mailto:mamtamodernschool@gmail.com" class="header-info"><i class="fa-solid fa-envelope"></i> mamtamodernschool@gmail.com</a>
             <div class="social-links">
-                <a href="https://www.youtube.com/@StoryVerseAi12P3" target="_blank" class="yt"><i class="fa-brands fa-youtube"></i></a>
-                <a href="https://www.facebook.com" target="_blank" class="fb"><i class="fa-brands fa-facebook"></i></a>
-                <a href="https://www.instagram.com" target="_blank" class="ig"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@MamtaModernSchoolVikasPuri" target="_blank" class="yt"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://www.facebook.com/MamtaModernSeniorSecondarySchoolVikasPuri/" target="_blank" class="fb"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/mamtamodernschool/" target="_blank" class="ig"><i class="fa-brands fa-instagram"></i></a>
             </div>
         </div>
     </header>
@@ -119,33 +118,32 @@
             <div class="circular-item">
                 <div class="circular-info">
                     <p class="circular-date">May 15, 2026</p>
-                    <h3>Summer Vacation Assignment - 2026</h3>
+                    <h3>Summer Vacation Homework - 2026</h3>
                 </div>
-                <a href="#" class="download-btn"><i class="fa-solid fa-file-pdf"></i> View PDF</a>
+                <a href="#" class="download-btn"><i class="fa-solid fa-file-pdf"></i> VIEW PDF</a>
             </div>
 
             <div class="circular-item">
                 <div class="circular-info">
-                    <p class="circular-date">May 10, 2026</p>
-                    <h3>Parent Teacher Meeting (PTM) Schedule</h3>
+                    <p class="circular-date">May 12, 2026</p>
+                    <h3>Uniform Change Notification</h3>
                 </div>
-                <a href="#" class="download-btn"><i class="fa-solid fa-file-pdf"></i> View PDF</a>
+                <a href="#" class="download-btn"><i class="fa-solid fa-file-pdf"></i> VIEW PDF</a>
             </div>
 
             <div class="circular-item">
                 <div class="circular-info">
-                    <p class="circular-date">April 28, 2026</p>
-                    <h3>Annual Sports Day Participation Form</h3>
+                    <p class="circular-date">April 30, 2026</p>
+                    <h3>Annual Sports Day Winners List</h3>
                 </div>
-                <a href="#" class="download-btn"><i class="fa-solid fa-file-pdf"></i> View PDF</a>
+                <a href="#" class="download-btn"><i class="fa-solid fa-file-pdf"></i> VIEW PDF</a>
             </div>
 
         </div>
     </div>
 
     <footer>
-        <p>© 2026 Mamta Modern Sr. Sec. School | Golden Jubilee Year</p>
-        <p style="margin-top: 10px;">Developed with ❤️ by <b>Swapneil Jha</b></p>
+        <p>© 2026 Mamta Modern School | Developed by <b>Swapneil Jha</b></p>
     </footer>
 
 </body>

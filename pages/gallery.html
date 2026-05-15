@@ -6,25 +6,21 @@
     <title>Gallery | Mamta Modern School</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* [Sync CSS from index.html here] */
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; margin-top: 30px; }
-        .gallery-card { border-radius: 15px; overflow: hidden; border: 4px solid white; box-shadow: var(--shadow); transition: 0.3s; }
-        .gallery-card img { width: 100%; height: 250px; object-fit: cover; display: block; }
-        .gallery-card:hover { transform: scale(1.03); border-color: var(--accent); }
+        /* CSS Same as index.html */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; padding: 20px 0; }
+        .gallery-card img { width: 100%; height: 250px; object-fit: cover; border-radius: 15px; border: 4px solid white; box-shadow: var(--shadow); }
     </style>
 </head>
 <body>
     <header class="super-header">
         <div class="header-left">
-            <img src="../assets/people/logo.png" class="logo-img" onerror="this.src='https://via.placeholder.com/85'">
-            <div class="school-title"><h1>MAMTA MODERN SCHOOL</h1><p>Est. 1973</p></div>
+            <img src="../assets/people/logo.png" class="logo-img">
+            <div class="school-title"><h1>MAMTA MODERN SCHOOL</h1></div>
         </div>
         <div class="header-right">
             <a href="tel:+911145614501" class="header-info"><i class="fa-solid fa-phone"></i> +91-11-45614501</a>
             <div class="social-links">
-                <a href="#" class="yt"><i class="fa-brands fa-youtube"></i></a>
-                <a href="#" class="fb"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#" class="ig"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@MamtaModernSchoolVikasPuri" target="_blank" class="yt"><i class="fa-brands fa-youtube"></i></a>
             </div>
         </div>
     </header>
@@ -41,12 +37,10 @@
             <h2>School Gallery</h2>
             <div class="gallery-grid">
                 <div class="gallery-card"><img src="../assets/events/award1.jpg"></div>
-                <div class="gallery-card"><img src="../assets/events/award2.jpg"></div>
                 <div class="gallery-card"><img src="../assets/events/building.jpg"></div>
             </div>
         </div>
     </div>
-
-    <footer><p>© 2026 Mamta Modern School | Developed by <b>Swapneil Jha</b></p></footer>
+    <footer><p>© 2026 Mamta Modern School | Developed by Swapneil Jha</p></footer>
 </body>
 </html>
