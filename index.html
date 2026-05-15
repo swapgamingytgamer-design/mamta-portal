@@ -10,32 +10,45 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         body { background: var(--soft-bg); }
 
+        /* HEADER SYNC */
         .super-header { background: var(--white); padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid var(--accent); }
         .header-left { display: flex; align-items: center; gap: 20px; }
         .logo-img { height: 90px; }
-        .school-title h1 { font-size: 1.8rem; font-weight: 900; color: var(--midnight); margin: 0; }
+        .school-title h1 { font-size: 1.8rem; font-weight: 900; color: var(--midnight); }
         .school-title p { font-size: 0.85rem; color: var(--accent); font-weight: 700; text-transform: uppercase; }
 
         .header-right { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
-        .contact-row { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #000; font-weight: 700; font-size: 1.1rem; }
+        .contact-row { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 1.1rem; }
         .gold-icon { color: var(--accent); }
-        .social-icon-row { display: flex; gap: 20px; margin-top: 5px; }
-        .dark-social { color: var(--midnight); font-size: 1.8rem; transition: 0.3s; }
-        .dark-social:hover { color: var(--accent); transform: translateY(-3px); }
+        .social-icon-row { display: flex; gap: 20px; }
+        .dark-social { color: var(--midnight); font-size: 1.8rem; }
 
         nav { background: var(--midnight); padding: 15px; text-align: center; position: sticky; top: 0; z-index: 1000; }
-        nav a { color: #cbd5e1; margin: 0 20px; text-decoration: none; font-weight: 700; font-size: 0.9rem; }
+        nav a { color: #cbd5e1; margin: 0 20px; text-decoration: none; font-weight: 700; }
         nav a:hover { color: var(--accent); }
 
-        .hero { width: 100%; height: 500px; background: #ddd; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        .card { background: var(--white); padding: 40px; border-radius: 24px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); margin-bottom: 30px; }
+        
+        /* PRINCIPAL SECTION */
+        .message-flex { display: flex; gap: 40px; align-items: center; }
+        .prin-img { width: 300px; border-radius: 20px; border: 5px solid var(--accent); }
+
+        /* WALL OF HONOR */
+        .honor-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
+        .honor-item { text-align: center; padding: 20px; background: #fffcf0; border: 1px solid var(--accent); border-radius: 15px; }
+        .honor-item img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 10px; border: 3px solid var(--midnight); }
+
+        /* MAP */
+        .map-container { width: 100%; height: 400px; border-radius: 20px; overflow: hidden; border: 4px solid var(--accent); }
+        
         footer { text-align: center; padding: 40px; background: var(--midnight); color: #cbd5e1; }
-        footer b { color: var(--accent); }
     </style>
 </head>
 <body>
     <header class="super-header">
         <div class="header-left">
-            <img src="assets/people/logo.png" class="logo-img" onerror="this.src='https://via.placeholder.com/90'">
+            <img src="assets/people/logo.png" class="logo-img">
             <div class="school-title"><h1>MAMTA MODERN SCHOOL</h1><p>EST. 1973 | GOLDEN JUBILEE YEAR</p></div>
         </div>
         <div class="header-right">
@@ -48,13 +61,43 @@
             </div>
         </div>
     </header>
+
     <nav>
         <a href="index.html">HOME</a>
         <a href="pages/gallery.html">GALLERY</a>
         <a href="pages/circulars.html">CIRCULARS</a>
         <a href="pages/suppliers.html">SUPPLIERS</a>
     </nav>
-    <div class="hero">Hero Slider Section</div>
+
+    <div class="container">
+        <div class="card message-flex">
+            <img src="assets/people/principal.jpg" class="prin-img" alt="Principal Pallavi Sharma">
+            <div>
+                <h2 style="border-left: 5px solid var(--accent); padding-left: 15px; margin-bottom: 15px;">Principal's Message</h2>
+                <p><b>Ms. Pallavi Sharma</b> welcomes you to Mamta Modern School. We are dedicated to nurturing young minds with a blend of traditional values and modern technology.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 style="text-align:center; margin-bottom: 30px;">Wall of Honor</h2>
+            <div class="honor-grid">
+                <div class="honor-item">
+                    <img src="assets/people/student1.jpg" alt="Topper">
+                    <h4>Student Name</h4>
+                    <p style="color:var(--accent); font-weight:bold;">98.5% - CBSE Class XII</p>
+                </div>
+                </div>
+        </div>
+
+        <div class="card">
+            <h2 style="margin-bottom: 20px;">Our Location</h2>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.812678887413!2d77.06733237550085!3d28.63538497566191!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d04da6435069b%3A0xc316147614e5f984!2sMamta%20Modern%20Sr.%20Sec.%20School!5e0!3m2!1sen!2sin!4v1715000000000!5m2!1sen!2sin" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+
     <footer><p>© 2026 Mamta Modern School | Developed by <b>Swapneil Jha</b></p></footer>
 </body>
+</html>
 </html>
