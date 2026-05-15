@@ -6,109 +6,119 @@
     <title>Mamta Modern Sr. Sec. School | Official Portal</title>
     <style>
         :root { --midnight: #0a192f; --gold: #c5a059; --white: #ffffff; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background: #f8fafc; color: #333; line-height: 1.6; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
+        body { background: #f1f5f9; color: #333; line-height: 1.6; }
 
-        /* NAVIGATION */
-        nav { background: var(--midnight); padding: 20px; position: sticky; top: 0; z-index: 1000; text-align: center; }
+        /* NAVIGATION BAR */
+        nav { background: var(--midnight); padding: 20px; position: sticky; top: 0; z-index: 1000; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
         nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; font-size: 0.9rem; transition: 0.3s; }
         nav a:hover { color: var(--gold); border-bottom: 2px solid var(--gold); }
 
-        /* HEADER */
-        .header-main { background: white; padding: 30px 10%; text-align: center; border-bottom: 3px solid var(--gold); }
-        .logo-img { height: 95px; margin-bottom: 10px; }
+        /* LOGO & HEADER */
+        .header-main { background: white; padding: 30px 5%; text-align: center; border-bottom: 4px solid var(--gold); }
+        .logo-img { height: 100px; margin-bottom: 15px; }
+        .school-title { color: var(--midnight); font-size: 2.2rem; text-transform: uppercase; letter-spacing: 1px; }
 
-        .container { max-width: 1100px; margin: 30px auto; padding: 0 20px; }
+        .container { max-width: 1200px; margin: 30px auto; padding: 0 20px; }
 
-        /* BUILDING BANNER */
-        .banner-box { width: 100%; border-radius: 15px; overflow: hidden; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid #ddd; }
+        /* BANNER IMAGE */
+        .banner-box { width: 100%; border-radius: 20px; overflow: hidden; margin-bottom: 40px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); border: 2px solid white; }
         .banner-img { width: 100%; height: 450px; object-fit: cover; display: block; }
 
-        /* CONTACT & SOCIAL GRID */
-        .info-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 25px; margin-bottom: 40px; }
-        .card { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .card h3 { color: var(--midnight); margin-bottom: 15px; border-left: 4px solid var(--gold); padding-left: 10px; }
+        /* INFO SECTIONS */
+        .main-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 30px; margin-bottom: 40px; }
+        .card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .card h3 { color: var(--midnight); margin-bottom: 20px; border-left: 5px solid var(--gold); padding-left: 15px; }
 
-        /* CONTACT DETAILS */
-        .contact-item { margin-bottom: 12px; font-size: 0.95rem; display: flex; align-items: center; gap: 10px; }
-        .contact-link { color: #2563eb; text-decoration: none; font-weight: 500; }
+        /* CONTACT LIST */
+        .contact-info p { margin-bottom: 15px; font-size: 1rem; display: flex; align-items: center; gap: 12px; }
+        .contact-info b { color: var(--midnight); min-width: 80px; display: inline-block; }
+        .contact-link { color: #1d4ed8; text-decoration: none; font-weight: 500; }
 
-        /* SOCIAL BUTTONS */
-        .social-flex { display: flex; flex-direction: column; gap: 10px; }
-        .soc-btn { 
-            display: block; padding: 12px; border-radius: 8px; text-decoration: none; 
-            color: white; font-weight: bold; text-align: center; transition: 0.3s;
+        /* SOCIAL MEDIA BUTTONS */
+        .social-stack { display: flex; flex-direction: column; gap: 12px; }
+        .btn-social { 
+            display: block; padding: 15px; border-radius: 10px; text-decoration: none; 
+            color: white; font-weight: bold; text-align: center; transition: 0.3s; transform: perspective(1px) translateZ(0);
         }
-        .yt { background: #ff0000; } .fb { background: #1877f2; } .ig { background: #e4405f; }
-        .soc-btn:hover { opacity: 0.85; transform: translateY(-2px); }
+        .btn-yt { background: #ff0000; } .btn-fb { background: #1877f2; } .btn-ig { background: #e4405f; }
+        .btn-social:hover { opacity: 0.9; transform: scale(1.02); }
 
-        /* MAP AREA */
-        .map-container { position: relative; padding-bottom: 400px; height: 0; overflow: hidden; border-radius: 12px; }
-        .map-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+        /* GOOGLE MAP EMBED */
+        .map-wrapper { margin-top: 20px; border-radius: 15px; overflow: hidden; border: 1px solid #ddd; height: 400px; width: 100%; }
+        .map-wrapper iframe { width: 100%; height: 100%; border: 0; }
 
-        footer { background: var(--midnight); color: white; text-align: center; padding: 30px; margin-top: 50px; }
+        footer { background: var(--midnight); color: #94a3b8; text-align: center; padding: 40px; margin-top: 60px; }
     </style>
 </head>
 <body>
 
     <header class="header-main">
         <img src="assets/people/logo.png" class="logo-img" onerror="this.src='https://via.placeholder.com/100?text=LOGO'">
-        <h1 style="color: var(--midnight);">MAMTA MODERN SR. SEC. SCHOOL</h1>
-        <p style="color: var(--gold); font-weight: bold; letter-spacing: 1px;">VIKAS PURI, NEW DELHI</p>
+        <h1 class="school-title">Mamta Modern Sr. Sec. School</h1>
+        <p style="color: var(--gold); font-weight: bold; font-size: 1.1rem;">Vikas Puri, New Delhi</p>
     </header>
 
     <nav>
         <a href="index.html">HOME</a>
         <a href="pages/gallery.html">GALLERY</a>
         <a href="pages/circulars.html">CIRCULARS</a>
-        <a href="pages/dress.html">SCHOOL DRESS</a>
         <a href="pages/suppliers.html">SUPPLIERS</a>
     </nav>
 
     <div class="container">
         <div class="banner-box">
-            <img src="assets/campus/building.jpg" class="banner-img" onerror="this.src='https://via.placeholder.com/1100x450?text=Mamta+Modern+School+Building'">
+            <img src="assets/campus/building.jpg" class="banner-img" onerror="this.src='https://via.placeholder.com/1200x450?text=Mamta+Modern+School+Campus'">
         </div>
 
-        <div class="info-grid">
+        <div class="main-grid">
             <div class="card">
                 <h3>Contact Information</h3>
-                <div class="contact-item">📍 <b>Address:</b> H-Block, Vikas Puri, New Delhi-110018</div>
-                <div class="contact-item">📧 <b>Email:</b> <a href="mailto:mamtamodernschool@gmail.com" class="contact-link">mamtamodernschool@gmail.com</a></div>
-                <div class="contact-item">📞 <b>Phone:</b> +91-11-45614501, 45614502</div>
-                <div class="contact-item">📠 <b>Fax:</b> 011 - 45614525</div>
-                
-                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
-                
-                <div style="display: flex; gap: 20px; align-items: center;">
-                    <img src="assets/people/principal.jpg" style="width: 80px; height: 80px; border-radius: 50%; border: 2px solid var(--gold);" onerror="this.src='https://via.placeholder.com/80?text=P'">
+                <div class="contact-info">
+                    <p>📍 <b>Address:</b> H-Block, Vikas Puri, New Delhi-110018</p>
+                    <p>📧 <b>Email:</b> <a href="mailto:mamtamodernschool@gmail.com" class="contact-link">mamtamodernschool@gmail.com</a></p>
+                    <p>📞 <b>Phones:</b> +91-11-45614501, 45614502</p>
+                    <p>📠 <b>Fax:</b> 011 - 45614525</p>
+                </div>
+
+                <div style="margin-top: 30px; padding-top: 25px; border-top: 1px solid #eee; display: flex; align-items: center; gap: 20px;">
+                    <img src="assets/people/principal.jpg" style="width: 100px; height: 100px; border-radius: 50%; border: 3px solid var(--gold); object-fit: cover;" onerror="this.src='https://via.placeholder.com/100?text=Principal'">
                     <div>
-                        <h4 style="color: var(--midnight);">Ms. Pallavi Sharma</h4>
-                        <p style="font-size: 0.8rem; color: var(--gold); font-weight: bold;">Principal</p>
+                        <h4 style="color: var(--midnight); font-size: 1.2rem;">Ms. Pallavi Sharma</h4>
+                        <p style="color: var(--gold); font-weight: bold; font-size: 0.9rem;">Principal</p>
                     </div>
                 </div>
             </div>
 
             <div class="card">
-                <h3>Official Socials</h3>
-                <div class="social-flex">
-                    <a href="https://www.youtube.com/@MamtaModernSchoolVikasPuri" target="_blank" class="soc-btn yt">YouTube Channel</a>
-                    <a href="https://www.instagram.com/mamtamodernschool/" target="_blank" class="soc-btn ig">Instagram Profile</a>
-                    <a href="https://www.facebook.com/MamtaModernSeniorSecondarySchoolVikasPuri/" target="_blank" class="soc-btn fb">Facebook Page</a>
+                <h3>Official Social Links</h3>
+                <div class="social-stack">
+                    <a href="https://www.youtube.com/@MamtaModernSchoolVikasPuri" target="_blank" class="btn-social btn-yt">YouTube Channel</a>
+                    <a href="https://www.facebook.com/MamtaModernSeniorSecondarySchoolVikasPuri/" target="_blank" class="btn-social btn-fb">Facebook Page</a>
+                    <a href="https://www.instagram.com/mamtamodernschool/" target="_blank" class="btn-social btn-ig">Instagram Profile</a>
                 </div>
             </div>
         </div>
 
         <div class="card">
-            <h3>Find Us on Map</h3>
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m12!1m3!1d3501.12781428211!2d77.070284475501!3d28.640854475659853!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d04ea778805f3%3A0xc31639c099395232!2sMamta%20Modern%20Sr.%20Sec.%20School!5e0!3m2!1sen!2sin!4v1715000000000!5m2!1sen!2sin"></iframe>
+            <h3>Find Us on Google Maps</h3>
+            <div class="map-wrapper">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.5369689886295!2d77.0691771!3d28.6436531!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d044234000001%3A0xc3f58a5e8f49553f!2sMamta%20Modern%20Senior%20Secondary%20School!5e0!3m2!1sen!2sin!4v1715000000000!5m2!1sen!2sin" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
             </div>
+            <a href="https://maps.app.goo.gl/3A3qKx8G3sWw2Dsy5" target="_blank" 
+               style="display: block; text-align: center; margin-top: 15px; color: #1d4ed8; font-weight: bold; text-decoration: none;">
+               📍 Click here to open in Google Maps App
+            </a>
         </div>
     </div>
 
     <footer>
         <p>© 2026 Mamta Modern School | Vikas Puri, Delhi</p>
+        <p style="font-size: 0.8rem; margin-top: 10px;">Created for Mamta Modern School Portal</p>
     </footer>
 
 </body>
