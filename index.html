@@ -6,11 +6,22 @@
     <title>Mamta Modern Sr. Sec. School | Home</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --midnight: #0f172a; --accent: #d4af37; --soft-bg: #f8fafc; --white: #ffffff; --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1); }
+        :root { 
+            --midnight: #0f172a; 
+            --accent: #d4af37; 
+            --soft-bg: #f8fafc;
+            --white: #ffffff;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         body { background: var(--soft-bg); color: #334155; line-height: 1.6; }
 
-        .super-header { background: var(--white); padding: 20px 5%; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; border-bottom: 4px solid var(--accent); gap: 20px; }
+        /* --- HEADER & NAVIGATION --- */
+        .super-header { 
+            background: var(--white); padding: 20px 5%; display: flex; flex-wrap: wrap; 
+            justify-content: space-between; align-items: center; border-bottom: 4px solid var(--accent); gap: 20px;
+        }
         .header-left { display: flex; align-items: center; gap: 20px; }
         .logo-img { height: 85px; width: auto; }
         .school-title h1 { font-size: 1.6rem; font-weight: 800; color: var(--midnight); }
@@ -18,55 +29,71 @@
 
         .header-right { text-align: right; min-width: 250px; }
         .header-info { display: block; font-size: 0.85rem; font-weight: 600; text-decoration: none; color: var(--midnight); margin-bottom: 6px; }
-        .header-info i { color: var(--accent); margin-right: 10px; }
+        .header-info i { color: var(--accent); margin-right: 10px; width: 20px; text-align: center; }
 
         .social-links { margin-top: 12px; display: flex; gap: 18px; justify-content: flex-end; }
         .social-links a { text-decoration: none; font-size: 1.4rem; color: var(--midnight); transition: 0.3s; }
-        .social-links a.yt:hover { color: #FF0000; } .social-links a.fb:hover { color: #1877F2; } .social-links a.ig:hover { color: #E4405F; }
+        .social-links a.yt:hover { color: #FF0000; }
+        .social-links a.fb:hover { color: #1877F2; }
+        .social-links a.ig:hover { color: #E4405F; }
 
         nav { background: var(--midnight); padding: 15px; position: sticky; top: 0; z-index: 1000; text-align: center; }
-        nav a { color: #cbd5e1; margin: 0 15px; text-decoration: none; font-weight: 600; font-size: 0.85rem; }
+        nav a { color: #cbd5e1; margin: 0 15px; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: 0.3s; }
         nav a:hover { color: var(--accent); }
 
+        /* --- CLEAN SLIDESHOW (NO TEXT) --- */
         .hero-slider { width: 100%; height: 500px; position: relative; overflow: hidden; background: var(--midnight); border-bottom: 6px solid var(--accent); }
         .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 1.5s ease-in-out; background-size: cover; background-position: center; }
         .slide.active { opacity: 1; }
 
+        /* --- CONTENT --- */
         .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
         .card { background: var(--white); padding: 40px; border-radius: 24px; box-shadow: var(--shadow); margin-bottom: 30px; border: 1px solid #e2e8f0; }
         .card h2 { color: var(--midnight); border-left: 5px solid var(--accent); padding-left: 15px; margin-bottom: 20px; }
 
+        /* --- PRINCIPAL MESSAGE --- */
         .message-flex { display: flex; gap: 40px; align-items: flex-start; }
         .prin-sidebar { flex: 0 0 300px; text-align: center; }
-        .prin-sidebar img { width: 100%; border-radius: 20px; border: 5px solid var(--accent); }
-        .quote-box { font-style: italic; color: #475569; border-left: 4px solid var(--accent); padding-left: 20px; margin: 20px 0; }
+        .prin-sidebar img { width: 100%; border-radius: 20px; border: 5px solid var(--accent); box-shadow: var(--shadow); }
+        .quote-box { font-style: italic; color: #475569; border-left: 4px solid var(--accent); padding-left: 20px; margin: 20px 0; font-size: 1.1rem; }
 
+        /* --- WALL OF HONOR --- */
         .awards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; margin-top: 25px; }
-        .award-thumb { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 12px; }
+        .award-thumb { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 12px; border: 3px solid white; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
 
+        /* --- MAP & CONTACT --- */
         .contact-grid { display: flex; gap: 30px; margin-top: 30px; }
         .map-wrapper { flex: 1; border-radius: 20px; overflow: hidden; border: 2px solid #e2e8f0; }
         .contact-details { flex: 0 0 320px; background: #fffdf5; border-radius: 20px; padding: 30px; border: 1px solid #e2e8f0; }
 
+        @media (max-width: 850px) {
+            .super-header { flex-direction: column; text-align: center; }
+            .header-right, .social-links { justify-content: center; width: 100%; }
+            .message-flex, .contact-grid { flex-direction: column; align-items: center; }
+            .prin-sidebar, .contact-details { width: 100%; max-width: 400px; }
+        }
+
         footer { text-align: center; padding: 60px; background: var(--midnight); color: #cbd5e1; }
         footer b { color: var(--accent); }
-
-        @media (max-width: 850px) { .message-flex, .contact-grid { flex-direction: column; align-items: center; } .prin-sidebar { width: 100%; } }
     </style>
 </head>
 <body>
+
     <header class="super-header">
         <div class="header-left">
             <img src="assets/people/logo.png" class="logo-img" onerror="this.src='https://via.placeholder.com/85'">
-            <div class="school-title"><h1>MAMTA MODERN SCHOOL</h1><p>Est. 1973 | Golden Jubilee Year</p></div>
+            <div class="school-title">
+                <h1>MAMTA MODERN SCHOOL</h1>
+                <p>Est. 1973 | Golden Jubilee Year</p>
+            </div>
         </div>
         <div class="header-right">
             <a href="tel:+911145614501" class="header-info"><i class="fa-solid fa-phone"></i> +91-11-45614501</a>
             <a href="mailto:mamtamodernschool@gmail.com" class="header-info"><i class="fa-solid fa-envelope"></i> mamtamodernschool@gmail.com</a>
             <div class="social-links">
                 <a href="https://www.youtube.com/@StoryVerseAi12P3" target="_blank" class="yt"><i class="fa-brands fa-youtube"></i></a>
-                <a href="https://www.facebook.com" target="_blank" class="fb"><i class="fa-brands fa-facebook"></i></a>
-                <a href="https://www.instagram.com" target="_blank" class="ig"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="fb"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" class="ig"><i class="fa-brands fa-instagram"></i></a>
             </div>
         </div>
     </header>
@@ -81,62 +108,70 @@
     <div class="hero-slider" id="heroSlider"></div>
 
     <div class="container">
+        
         <div class="card message-flex">
             <div class="prin-sidebar">
-                <img src="assets/people/principal.jpg" onerror="this.src='https://via.placeholder.com/300'">
-                <h3>Ms. Pallavi Sharma</h3><p style="color:var(--accent);">Principal</p>
+                <img src="assets/people/principal.jpg" onerror="this.src='https://via.placeholder.com/300?text=Principal'">
+                <h3 style="margin-top:15px; color: var(--midnight);">Ms. Pallavi Sharma</h3>
+                <p style="color:var(--accent); font-weight:bold;">Principal</p>
             </div>
             <div style="flex: 1;">
                 <h2>Principal's Message</h2>
-                <div class="quote-box">“Education is not the learning of facts, but the training of the mind to think.”</div>
-                <p>Welcome to our Golden Jubilee. We prioritize holistic growth and excellence...</p>
+                <div class="quote-box">
+                    “Education is not the learning of facts, but the training of the mind to think.”
+                </div>
+                <p>Welcome to our Golden Jubilee. We take pride in building a community of thinkers...</p>
+                
                 <div style="margin-top:30px;">
-                    <h4>🏅 Wall of Honor</h4>
+                    <h4 style="color: var(--midnight);">🏅 Wall of Honor</h4>
                     <div class="awards-grid">
                         <img src="assets/events/award1.jpg" class="award-thumb" onerror="this.src='https://via.placeholder.com/130'">
                         <img src="assets/events/award2.jpg" class="award-thumb" onerror="this.src='https://via.placeholder.com/130'">
+                        <img src="assets/events/award3.jpg" class="award-thumb" onerror="this.src='https://via.placeholder.com/130'">
+                        <img src="assets/events/award4.jpg" class="award-thumb" onerror="this.src='https://via.placeholder.com/130'">
                     </div>
                 </div>
             </div>
         </div>
 
-      <div class="card">
-    <h2>Find Us</h2>
-    <div class="contact-grid">
-        <div class="map-wrapper">
-            <iframe 
-                src=iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14005.942979383684!2d77.073066!3d28.645171!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d04f19271981f%3A0x4386a0e4b2463d42!2sMamta%20Modern%20Senior%20Secondary%20School!5e0!3m2!1sen!2sus!4v1778851996760!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                width="100%" 
-                height="400" 
-                style="border:0;" 
-                allowfullscreen="" 
-                loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
+        <div class="card">
+            <h2>Find Us</h2>
+            <div class="contact-grid">
+                <div class="map-wrapper">
+                    <iframe src="http://googleusercontent.com/maps.google.com/8" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="contact-details">
+                    <h3>Contact Information</h3>
+                    <p style="margin-bottom: 15px;"><b>Address:</b> H-Block, Vikaspuri, New Delhi - 110018</p>
+                    <p style="margin-bottom: 10px;"><b>Phone:</b> +91-11-45614501</p>
+                    <p><b>Email:</b> mamtamodernschool@gmail.com</p>
+                </div>
+            </div>
         </div>
-        <div class="contact-details">
-            <h3>Contact Us</h3>
-            <p><b>Address:</b> H-Block, Vikaspuri, New Delhi, 110018</p>
-            <p><b>Phone:</b> <a href="tel:+911145614501" style="text-decoration:none; color:inherit;">+91-11-45614501</a></p>
-            <p><b>Email:</b> <a href="mailto:mamtamodernschool@gmail.com" style="text-decoration:none; color:inherit;">mamtamodernschool@gmail.com</a></p>
-        </div>
-    </div>
-</div>
 
-    <footer><p>© 2026 Mamta Modern School | Developed  by <b>Swapneil Jha</b></p></footer>
+    </div>
+
+    <footer>
+        <p>© 2026 Mamta Modern Sr. Sec. School | Golden Jubilee Year</p>
+        <p style="margin-top: 10px;">Developed with ❤️ by <b>Swapneil Jha</b></p>
+    </footer>
 
     <script>
-        const photos = ['assets/events/building.jpg', 'assets/events/award1.jpg', 'assets/events/award2.jpg'];
+        const photos = ['assets/events/building.jpg', 'assets/events/award1.jpg', 'assets/events/award2.jpg', 'assets/events/award3.jpg', 'assets/events/award4.jpg'];
         const slider = document.getElementById('heroSlider');
-        photos.forEach((path, i) => {
+        photos.forEach((path, index) => {
             const slide = document.createElement('div');
-            slide.className = `slide ${i === 0 ? 'active' : ''}`;
+            slide.className = `slide ${index === 0 ? 'active' : ''}`;
             slide.style.backgroundImage = `url('${path}')`;
             slider.appendChild(slide);
         });
-        let cur = 0; setInterval(() => {
+        let current = 0;
+        setInterval(() => {
             const slides = document.querySelectorAll('.slide');
-            slides[cur].classList.remove('active'); cur = (cur + 1) % slides.length; slides[cur].classList.add('active');
+            if(slides.length === 0) return;
+            slides[current].classList.remove('active');
+            current = (current + 1) % slides.length;
+            slides[current].classList.add('active');
         }, 4500);
     </script>
 </body>
