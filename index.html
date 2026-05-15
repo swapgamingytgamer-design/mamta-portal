@@ -3,82 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mamta Modern Sr. Sec. School | Official</title>
+    <title>Mamta Modern Sr. Sec. School | Official Portal</title>
     <style>
         :root { 
             --midnight: #0f172a; 
             --accent: #d4af37; 
             --soft-bg: #f8fafc;
+            --white: #ffffff;
+            --text-main: #334155;
             --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', 'Segoe UI', sans-serif; }
-        body { background: var(--soft-bg); color: var(--midnight); line-height: 1.6; }
+        body { background: var(--soft-bg); color: var(--text-main); line-height: 1.6; }
 
-        /* THE SUPER HEADER (Logo + Name + Info) */
+        /* --- 1. SUPER HEADER (Guaranteed Visibility) --- */
         .super-header { 
-            background: white; 
+            background: var(--white); 
             padding: 20px 5%; 
             display: flex; 
+            flex-wrap: wrap; 
             justify-content: space-between; 
             align-items: center;
-            border-bottom: 1px solid #e2e8f0;
+            border-bottom: 4px solid var(--accent);
+            gap: 20px;
         }
-        
         .header-left { display: flex; align-items: center; gap: 20px; }
-        .logo-img { height: 85px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1)); }
-        .school-title h1 { font-size: 1.6rem; font-weight: 800; letter-spacing: -1px; }
+        .logo-img { height: 85px; width: auto; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1)); }
+        .school-title h1 { font-size: 1.6rem; font-weight: 800; color: var(--midnight); letter-spacing: -1px; }
         .school-title p { font-size: 0.8rem; color: var(--accent); font-weight: 700; text-transform: uppercase; }
 
-        .header-right { text-align: right; border-left: 2px solid #f1f5f9; padding-left: 25px; }
+        .header-right { text-align: right; min-width: 250px; }
         .header-info { display: block; font-size: 0.85rem; font-weight: 600; text-decoration: none; color: var(--midnight); margin-bottom: 4px; }
-        .header-info span { color: var(--accent); margin-right: 5px; }
+        .header-info b { color: var(--accent); margin-right: 5px; }
 
-        /* NAV STAYS THE SAME */
-        nav { background: var(--midnight); padding: 15px; position: sticky; top: 0; z-index: 1000; text-align: center; }
+        /* --- 2. STICKY NAVIGATION --- */
+        nav { background: var(--midnight); padding: 15px; position: sticky; top: 0; z-index: 1000; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
         nav a { color: #cbd5e1; margin: 0 15px; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: 0.3s; }
         nav a:hover { color: var(--accent); }
 
         .container { max-width: 1100px; margin: 30px auto; padding: 0 20px; }
 
-        /* PRINCIPAL MESSAGE SECTION */
+        /* --- 3. ABOUT / HISTORY CARD --- */
+        .about-card { background: var(--white); padding: 35px; border-radius: 24px; box-shadow: var(--shadow); margin-bottom: 30px; border: 1px solid #e2e8f0; }
+        .about-card h2 { color: var(--midnight); margin-bottom: 20px; font-size: 1.5rem; border-left: 5px solid var(--accent); padding-left: 15px; }
+        .about-text { margin-bottom: 15px; text-align: justify; font-size: 0.95rem; }
+
+        /* --- 4. PRINCIPAL MESSAGE (SIDE-BY-SIDE) --- */
         .message-card { 
-            background: white; padding: 40px; border-radius: 24px; box-shadow: var(--shadow); 
-            display: flex; gap: 40px; border: 1px solid #e2e8f0;
+            background: var(--white); padding: 40px; border-radius: 24px; box-shadow: var(--shadow); 
+            display: flex; gap: 40px; border: 1px solid #e2e8f0; margin-bottom: 30px;
         }
         .prin-visual { flex: 0 0 280px; text-align: center; }
-        .prin-avatar { width: 100%; border-radius: 20px; border: 5px solid var(--accent); object-fit: cover; }
+        .prin-avatar { width: 100%; border-radius: 20px; border: 5px solid var(--accent); object-fit: cover; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
         .message-content { flex: 1; }
+        .quote { font-style: italic; color: #64748b; margin-bottom: 15px; display: block; border-bottom: 1px solid #f1f5f9; padding-bottom: 10px; }
 
-        /* RESPONSIVE FOR PHONES */
+        /* --- 5. WALL OF HONOR / AWARDS --- */
+        .btn-toggle { background: var(--midnight); color: var(--white); border: none; padding: 12px 25px; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.3s; margin-top: 15px; }
+        .btn-toggle:hover { background: var(--accent); transform: translateY(-2px); }
+        
+        #awards-panel { display: none; margin-top: 20px; padding: 25px; background: #fff; border-radius: 15px; border: 2px dashed var(--accent); animation: fadeIn 0.5s ease; }
+        .awards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 15px; }
+        .award-thumb { width: 100%; border-radius: 10px; aspect-ratio: 1/1; background: #f1f5f9; border: 1px solid #e2e8f0; }
+
+        /* --- 6. LOCATION --- */
+        .map-section { border-radius: 24px; overflow: hidden; height: 400px; border: 5px solid var(--white); box-shadow: var(--shadow); }
+
+        /* --- RESPONSIVE DESIGN --- */
         @media (max-width: 850px) {
-            .super-header { flex-direction: column; text-align: center; gap: 15px; }
-            .header-right { border-left: none; padding-left: 0; text-align: center; }
+            .super-header { flex-direction: column; text-align: center; }
+            .header-right { text-align: center; border-top: 1px solid #f1f5f9; padding-top: 15px; width: 100%; }
             .message-card { flex-direction: column; align-items: center; padding: 25px; }
-            .prin-visual { flex: none; width: 200px; }
+            .prin-visual { flex: none; width: 220px; }
         }
 
-        #awards-panel { display: none; margin-top: 25px; padding: 20px; background: #fff; border-radius: 15px; border: 1px dashed var(--accent); }
-        .awards-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
-        .award-thumb { width: 100%; border-radius: 8px; background: #e2e8f0; aspect-ratio: 1/1; }
-        .map-section { border-radius: 24px; overflow: hidden; height: 350px; margin-top: 40px; border: 4px solid white; box-shadow: var(--shadow); }
-        footer { text-align: center; padding: 40px; color: #94a3b8; font-size: 0.8rem; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        footer { text-align: center; padding: 50px; color: #94a3b8; font-size: 0.85rem; font-weight: 600; }
     </style>
 </head>
 <body>
 
     <header class="super-header">
         <div class="header-left">
-            <img src="assets/people/logo.png" class="logo-img" onerror="this.src='https://via.placeholder.com/80'">
+            <img src="assets/people/logo.png" class="logo-img" onerror="this.src='https://via.placeholder.com/85?text=LOGO'">
             <div class="school-title">
                 <h1>MAMTA MODERN SCHOOL</h1>
                 <p>Est. 1973 | Golden Jubilee Year</p>
             </div>
         </div>
         <div class="header-right">
-            <a href="tel:+911145614501" class="header-info"><span>📞</span> +91-11-45614501</a>
-            <a href="mailto:mamtamodernschool@gmail.com" class="header-info"><span>📧</span> mamtamodernschool@gmail.com</a>
-            <span class="header-info" style="font-weight: 500; font-size: 0.75rem;">📍 Vikas Puri, New Delhi-110018</span>
+            <a href="tel:+911145614501" class="header-info"><b>📞</b> +91-11-45614501 / 02</a>
+            <a href="mailto:mamtamodernschool@gmail.com" class="header-info"><b>📧</b> mamtamodernschool@gmail.com</a>
+            <span class="header-info" style="font-weight: 500; font-size: 0.75rem;"><b>📍</b> H-Block, Vikas Puri, New Delhi-18</span>
         </div>
     </header>
 
@@ -91,23 +108,30 @@
 
     <div class="container">
         
+        <div class="about-card">
+            <h2>Welcome to Mamta Modern School</h2>
+            <p class="about-text">Established in 1973, Mamta Modern Senior Secondary School has journeyed from its humble beginnings to become one of the most prestigious institutions in West Delhi. Recognized by the Directorate of Education, Government of NCT, Delhi, the school achieved affiliation with the CBSE in 1986 (Affiliation No. 2730133).</p>
+            <p class="about-text">Today, it offers comprehensive education in Science, Commerce, and Humanities streams. Founded by the Mamta Modern Education Society, the school remains committed to fostering a culture of innovation, inclusivity, and sustainability.</p>
+        </div>
+
         <div class="message-card">
             <div class="prin-visual">
-                <img src="assets/people/principal.jpg" class="prin-avatar" onerror="this.src='https://via.placeholder.com/250'">
-                <h3 style="margin-top:15px;">Ms. Pallavi Sharma</h3>
-                <p style="color: var(--accent); font-weight: bold; font-size: 0.8rem;">Principal & National Awardee</p>
-                <button onclick="toggleAwards()" style="margin-top: 15px; padding: 10px 20px; background: var(--midnight); color: white; border: none; border-radius: 8px; cursor: pointer;">Wall of Honor 🏆</button>
+                <img src="assets/people/principal.jpg" class="prin-avatar" onerror="this.src='https://via.placeholder.com/280?text=Principal'">
+                <h3 style="margin-top:15px; color: var(--midnight);">Ms. Pallavi Sharma</h3>
+                <p style="color: var(--accent); font-weight: bold; font-size: 0.85rem; margin-bottom: 10px;">Principal & National Awardee</p>
+                <button class="btn-toggle" onclick="toggleAwards()">Wall of Honor 🏆</button>
             </div>
 
             <div class="message-content">
-                <h2 style="margin-bottom: 10px;">Principal's Message</h2>
-                <p style="font-style: italic; color: #64748b; margin-bottom: 15px;">“Excellence is not a destination; it is a continuous journey that never ends.” – Dr. A.P.J. Abdul Kalam</p>
-                <p style="font-size: 0.95rem; margin-bottom: 10px;">This year marks a monumental milestone for Mamta Modern Senior Secondary School as we proudly celebrate the Golden Jubilee of our inception. Adding to this momentous occasion, I am deeply honored to have been awarded the prestigious National Teachers Award.</p>
-                <p style="font-size: 0.95rem;">I extend my heartfelt gratitude to the Almighty, our visionary management, supportive parents, and dedicated students for their unwavering support in making this achievement possible...</p>
+                <h2 style="margin-bottom: 10px; color: var(--midnight);">Principal's Message</h2>
+                <span class="quote">“Excellence is not a destination; it is a continuous journey that never ends.” – Dr. A.P.J. Abdul Kalam</span>
+                <p class="about-text">This year marks a monumental milestone as we proudly celebrate the Golden Jubilee of our inception. I am deeply honored to have been awarded the prestigious National Teachers Award, a testament to our school's collective dedication.</p>
+                <p class="about-text">From outstanding CBSE Board Results to victories in Zonal and National competitions, our students continue to demonstrate exceptional potential. Together, we are shaping a future filled with promise and achievement.</p>
             </div>
         </div>
 
         <div id="awards-panel">
+            <h4 style="text-align: center; margin-bottom: 15px; font-size: 0.9rem; letter-spacing: 1px;">GOLDEN JUBILEE RECOGNITION</h4>
             <div class="awards-grid">
                 <img src="assets/events/award1.jpg" class="award-thumb" onerror="this.src='https://via.placeholder.com/100?text=🏆'">
                 <img src="assets/events/award2.jpg" class="award-thumb" onerror="this.src='https://via.placeholder.com/100?text=🏆'">
@@ -120,16 +144,21 @@
         <div class="map-section">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4163.989897053249!2d77.07009878991778!3d28.64521794908334!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d04f19271981f%3A0x4386a0e4b2463d42!2sMamta%20Modern%20Senior%20Secondary%20School!5e0!3m2!1sen!2sin!4v1778838492763!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
+
     </div>
 
     <footer>
-        <p>© 2026 Mamta Modern Sr. Sec. School | Designed by Swapneil</p>
+        <p>© 2026 Mamta Modern Sr. Sec. School | Golden Jubilee | Developed by Swapneil</p>
     </footer>
 
     <script>
         function toggleAwards() {
             const panel = document.getElementById('awards-panel');
-            panel.style.display = (panel.style.display === 'block') ? 'none' : 'block';
+            const isVisible = panel.style.display === 'block';
+            panel.style.display = isVisible ? 'none' : 'block';
+            if (!isVisible) {
+                panel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
         }
     </script>
 </body>
