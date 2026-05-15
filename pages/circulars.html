@@ -10,48 +10,44 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         body { background: var(--soft-bg); color: #334155; }
 
-        /* SYNCED HEADER/NAV */
+        /* HEADER & NAV (Synced) */
         .super-header { background: var(--white); padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid var(--accent); }
         .logo-img { height: 85px; }
         nav { background: var(--midnight); padding: 15px; text-align: center; position: sticky; top: 0; z-index: 1000; }
-        nav a { color: #cbd5e1; margin: 0 15px; text-decoration: none; font-weight: 600; }
+        nav a { color: #cbd5e1; margin: 0 15px; text-decoration: none; font-weight: 600; font-size: 0.85rem; }
         
         .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
-        .card { background: var(--white); padding: 40px; border-radius: 24px; box-shadow: var(--shadow); border: 1px solid #e2e8f0; }
+        .card { background: var(--white); padding: 40px; border-radius: 24px; box-shadow: var(--shadow); border: 1px solid #e2e8f0; min-height: 400px; }
         .card h2 { color: var(--midnight); border-left: 5px solid var(--accent); padding-left: 15px; margin-bottom: 30px; }
 
-        /* CIRCULAR LIST */
-        #circular-list { display: flex; flex-direction: column; gap: 15px; }
-        .circular-item { 
-            display: none; /* Hidden by default */
-            justify-content: space-between; 
-            align-items: center; 
-            padding: 20px; 
-            background: #fff;
-            border: 1px solid #f1f5f9;
-            border-radius: 12px;
-            transition: 0.2s;
+        /* DYNAMIC LIST STYLING */
+        #circular-container { display: flex; flex-direction: column; gap: 15px; }
+        .circular-card { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 20px; background: #fff; border: 1px solid #f1f5f9; 
+            border-radius: 15px; transition: 0.3s ease;
         }
-        .circular-item.is-visible { display: flex; }
-        .circular-item:hover { background-color: #fffdf5; transform: translateX(5px); }
-        
-        .circular-info h3 { font-size: 1.05rem; color: var(--midnight); }
-        .circular-date { font-size: 0.8rem; color: #64748b; font-weight: 700; }
-        
-        .download-btn { 
-            background: var(--midnight); color: var(--accent); padding: 8px 18px; 
-            border-radius: 50px; text-decoration: none; font-weight: 700; 
-            border: 2px solid var(--accent); font-size: 0.8rem;
-        }
+        .circular-card:hover { transform: translateX(8px); border-color: var(--accent); background: #fffdf5; }
+        .circular-info h3 { font-size: 1.1rem; color: var(--midnight); margin-bottom: 4px; }
+        .circular-date { font-size: 0.8rem; color: var(--accent); font-weight: 800; text-transform: uppercase; }
 
-        #no-circulars { text-align: center; padding: 20px; color: #94a3b8; display: none; }
+        .btn-view { 
+            background: var(--midnight); color: var(--accent); padding: 10px 20px; 
+            border-radius: 50px; text-decoration: none; font-weight: 700; 
+            border: 2px solid var(--accent); font-size: 0.85rem; transition: 0.3s;
+        }
+        .btn-view:hover { background: var(--accent); color: var(--midnight); }
+
+        .loader { text-align: center; color: #94a3b8; font-style: italic; padding: 20px; }
     </style>
 </head>
 <body>
 
     <header class="super-header">
-        <img src="../assets/people/logo.png" class="logo-img">
-        <a href="tel:+911145614501" style="text-decoration:none; color:var(--midnight);"><i class="fa-solid fa-phone"></i> +91-11-45614501</a>
+        <img src="../assets/people/logo.png" class="logo-img" onerror="this.src='https://via.placeholder.com/85'">
+        <div style="text-align:right">
+            <a href="tel:+911145614501" style="text-decoration:none; color:var(--midnight); font-weight:700;"><i class="fa-solid fa-phone"></i> +91-11-45614501</a>
+        </div>
     </header>
 
     <nav>
@@ -63,66 +59,63 @@
 
     <div class="container">
         <div class="card">
-            <h2>School Circulars</h2>
-            
-            <div id="circular-list">
-                <div class="circular-item" data-filename="summer_homework_2026.pdf">
-                    <div class="circular-info">
-                        <p class="circular-date">May 15, 2026</p>
-                        <h3>Summer Vacation Homework</h3>
-                    </div>
-                    <a href="../circulars/summer_homework_2026.pdf" class="download-btn" target="_blank">VIEW</a>
-                </div>
-
-                <div class="circular-item" data-filename="ptm_notice.pdf">
-                    <div class="circular-info">
-                        <p class="circular-date">May 10, 2026</p>
-                        <h3>PTM Notice - Classes VII to XII</h3>
-                    </div>
-                    <a href="../circulars/ptm_notice.pdf" class="download-btn" target="_blank">VIEW</a>
-                </div>
-
-                <div class="circular-item" data-filename="exam_date_sheet.pdf">
-                    <div class="circular-info">
-                        <p class="circular-date">April 25, 2026</p>
-                        <h3>Final Exam Date Sheet</h3>
-                    </div>
-                    <a href="../circulars/exam_date_sheet.pdf" class="download-btn" target="_blank">VIEW</a>
-                </div>
-
-                <div id="no-circulars">No circulars are currently available.</div>
+            <h2>School Circulars & Notices</h2>
+            <div id="circular-container">
+                <div class="loader">Checking for new updates...</div>
             </div>
         </div>
     </div>
 
     <script>
-        async function checkCirculars() {
-            const items = document.querySelectorAll('.circular-item');
-            let foundAny = false;
+        /**
+         * 📝 HOW TO ADD A NEW PDF:
+         * Just add a new line inside the [ ] brackets below.
+         * Format: { date: "Date", title: "Name of Circular", file: "filename.pdf" }
+         */
+        const circularsData = [
+            { date: "May 15, 2026", title: "Summer Vacation Homework - 2026", file: "summer_homework.pdf" },
+            { date: "May 10, 2026", title: "PTM Schedule (Classes 6-12)", file: "ptm_notice.pdf" },
+            { date: "April 28, 2026", title: "Monthly Newsletter - April", file: "newsletter_april.pdf" },
+            { date: "April 20, 2026", title: "Revised School Timings", file: "timings.pdf" }
+        ];
 
-            for (const item of items) {
-                const filename = item.getAttribute('data-filename');
-                const path = `../assets/circulars/${filename}`;
+        const container = document.getElementById('circular-container');
 
+        async function loadCirculars() {
+            container.innerHTML = ''; // Clear loader
+            let count = 0;
+
+            for (const item of circularsData) {
+                const filePath = `../assets/circulars/${item.file}`;
+                
                 try {
-                    // This checks if the file exists in the folder
-                    const response = await fetch(path, { method: 'HEAD' });
-                    if (response.ok) {
-                        item.classList.add('is-visible');
-                        foundAny = true;
+                    // Check if file actually exists in the folder
+                    const res = await fetch(filePath, { method: 'HEAD' });
+                    
+                    if (res.ok) {
+                        const html = `
+                            <div class="circular-card">
+                                <div class="circular-info">
+                                    <p class="circular-date">${item.date}</p>
+                                    <h3>${item.title}</h3>
+                                </div>
+                                <a href="${filePath}" target="_blank" class="btn-view">
+                                    <i class="fa-solid fa-file-pdf"></i> VIEW PDF
+                                </a>
+                            </div>
+                        `;
+                        container.innerHTML += html;
+                        count++;
                     }
-                } catch (error) {
-                    console.log("File not found:", filename);
-                }
+                } catch (e) { console.log("Missing file:", item.file); }
             }
 
-            if (!foundAny) {
-                document.getElementById('no-circulars').style.display = 'block';
+            if (count === 0) {
+                container.innerHTML = '<div class="loader">No circulars currently available in the folder.</div>';
             }
         }
 
-        // Run the check when the page loads
-        window.onload = checkCirculars;
+        window.onload = loadCirculars;
     </script>
 
     <footer><p>© 2026 Mamta Modern School | Developed by Swapneil Jha</p></footer>
