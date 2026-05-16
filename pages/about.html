@@ -8,49 +8,58 @@
     <style>
         :root { --midnight: #001f3f; --accent: #d4af37; --white: #ffffff; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial Black', sans-serif; }
-        body { background: #f4f7f6; color: #333; }
+        body { background: #f4f7f6; color: #333; overflow-x: hidden; line-height: 1.6; }
 
         /* UNIFIED HEADER */
         header { background: var(--white); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #eee; }
         .h-left img { height: 100px; }
         .h-center { flex-grow: 1; padding-left: 30px; }
-        .h-center h1 { color: #001f3f; font-size: 2.3rem; margin: 0; line-height: 1; text-align: left; }
-        .h-center p { color: var(--accent); font-size: 0.9rem; font-weight: bold; margin-top: 8px; text-align: left; }
+        .h-center h1 { color: #001f3f; font-size: 2.3rem; margin: 0; line-height: 1.1; }
+        .h-center p { color: var(--accent); font-size: 0.9rem; font-weight: bold; margin-top: 8px; }
         .h-right { text-align: right; display: flex; flex-direction: column; gap: 6px; min-width: 300px; }
-        .info-txt { font-weight: 900; color: #001f3f; font-size: 1.1rem; font-family: 'Arial', sans-serif; display: flex; justify-content: flex-end; align-items: center; }
+        .info-txt { font-weight: 900; color: #001f3f; font-size: 1.1rem; display: flex; justify-content: flex-end; align-items: center; }
         .info-txt a { text-decoration: none; color: inherit; }
-        .info-txt i { color: var(--midnight); margin-right: 10px; font-size: 1.2rem; }
-        
+        .info-txt i { color: var(--midnight); margin-right: 10px; }
         .soc-row { display: flex; justify-content: flex-end; gap: 15px; margin-top: 5px; }
         .soc-row a { font-size: 1.9rem; text-decoration: none; }
         .fa-facebook { color: #1877F2; } .fa-youtube { color: #FF0000; } .fa-instagram { color: #E4405F; }
 
-        /* NAV */
+        /* UNIFIED NAV */
         nav { background: #001f3f; padding: 0 5%; display: flex; justify-content: center; position: sticky; top: 0; z-index: 1000; }
         nav a { color: white; padding: 18px 25px; text-decoration: none; font-weight: bold; font-size: 0.85rem; text-transform: uppercase; }
         nav a:hover { color: var(--accent); background: rgba(255,255,255,0.1); }
 
-        /* CIRCULAR CONTENT */
-        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; min-height: 400px; }
-        .item { background: white; padding: 25px; border-radius: 15px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-left: 8px solid var(--midnight); box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        .item-info b { font-size: 1.1rem; color: var(--midnight); }
-        .item-info small { color: #666; font-family: 'Arial', sans-serif; }
-        .btn { background: var(--midnight); color: var(--accent); padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; border: 2px solid var(--accent); font-size: 0.8rem; }
+        /* CONTENT STYLING */
+        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+        .about-card { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 30px; border-top: 10px solid var(--midnight); }
         
-        /* NO CIRCULAR MESSAGE STYLE */
-        .empty-state { text-align: center; padding: 60px 20px; background: white; border-radius: 20px; border: 2px dashed #ccc; }
-        .empty-state i { font-size: 4rem; color: #ccc; margin-bottom: 20px; }
-        .empty-state h3 { color: var(--midnight); margin-bottom: 10px; }
+        h2 { color: var(--midnight); margin-bottom: 20px; border-bottom: 3px solid var(--accent); display: inline-block; padding-bottom: 5px; }
+        p { font-family: 'Arial', sans-serif; margin-bottom: 20px; font-size: 1.05rem; color: #444; text-align: justify; }
+        
+        /* TABLES */
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-family: 'Arial', sans-serif; background: white; border-radius: 10px; overflow: hidden; }
+        th { background: var(--midnight); color: white; text-align: left; padding: 15px; }
+        td { padding: 12px 15px; border-bottom: 1px solid #eee; }
+        tr:nth-child(even) { background: #f8f9fa; }
 
-        footer { background: #001f3f; color: white; padding: 40px; text-align: center; margin-top: 50px; }
+        .highlight-box { background: var(--midnight); color: white; padding: 35px; border-radius: 20px; text-align: center; margin-top: 40px; border: 2px solid var(--accent); }
+        .highlight-box h3 { color: var(--accent); font-size: 1.8rem; margin-bottom: 10px; }
+
+        /* UNIFIED FOOTER */
+        footer { background: #001f3f; color: white; padding: 40px; text-align: center; margin-top: 60px; }
         footer b { color: var(--accent); }
 
-        @media (max-width: 900px) { header { flex-direction: column; text-align: center; } .h-center { padding: 15px 0; } .h-right { text-align: center; } .soc-row, .info-txt { justify-content: center; } .item { flex-direction: column; text-align: center; gap: 15px; } }
+        @media (max-width: 800px) {
+            header { flex-direction: column; text-align: center; }
+            .h-center { padding: 15px 0; }
+            .h-right { text-align: center; width: 100%; }
+            .info-txt, .soc-row { justify-content: center; }
+        }
     </style>
 </head>
 <body>
 
-     <header>
+    <header>
         <div class="h-left"><img src="../assets/people/logo.png" onerror="this.src='https://via.placeholder.com/100'"></div>
         <div class="h-center"><h1>MAMTA MODERN SCHOOL</h1><p>NURTURING EXCELLENCE SINCE 1973</p></div>
         <div class="h-right">
@@ -65,95 +74,60 @@
     </header>
     
     <nav>
-    <a href="../index.html">Home</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="circulars.html">Circulars</a>
-    <a href="admission.html">Admissions</a>
-    <a href="complaints.html">Complaints</a>
-    <a href="suppliers.html">Suppliers</a>
-    <a href="policies.html">Policies</a>
-    <a href="about.html">About Us</a>
+        <a href="../index.html">Home</a>
+        <a href="about.html" style="color: var(--accent);">About Us</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="circulars.html">Circulars</a>
+        <a href="admission.html">Admissions</a>
+        <a href="complaints.html">Complaints</a>
     </nav>
 
     <div class="container">
         
         <section class="about-card">
-            <h2>Our Legacy</h2>
-            <p>Established in 1973, Mamta Modern School has emerged as a prestigious institution in West Delhi. Recognized by the Directorate of Education, Govt of NCT, Delhi, and affiliated with the CBSE (Affiliation No. 2730133) since 1986, we impart quality education across Science, Commerce, and Humanities streams.</p>
-            <p>The school is managed by the Mamta Modern Education Society and guided by a Managing Committee of experts. Shri Manoj Sharma serves as the present Manager of the school.</p>
+            <h2>School History & Affiliation</h2>
+            <p>The school was established in the year 1973 and it never saw behind during its journey to the present prestigious institution of West Delhi having up to date ultra modern and sufficient infrastructure needed for running a successful school.</p>
+            <p>It was recognized by the Directorate of Education, Govt of NCT, Delhi and now stands affiliated with the CBSE vide affiliation no. 2730133 since 1986. The school imparts education in 3 streams i.e. Science, Commerce and Humanities.</p>
         </section>
 
         <section class="about-card">
-            <h2>Campus & Infrastructure</h2>
-            <p>Our campus spans approximately 4 acres of DDA-allotted land, featuring a towering building and lush green lawns. We provide an environment that is both visually soothing and intellectually stimulating for our students.</p>
-            
-            <div class="grid-info">
-                <div class="info-box">
-                    <h4>Sports Facilities</h4>
-                    <p>7300 Sq. Meter playground. Proud winners of the "SUBROTO CUP" (1998). Nursery for players like Sunil Chhetri, Indian Football Team Captain.</p>
-                </div>
-                <div class="info-box">
-                    <h4>Learning Resources</h4>
-                    <p>A massive library with over 18,000 books covering History, Sports, Culture, and more to keep students and staff updated.</p>
-                </div>
-                <div class="info-box">
-                    <h4>Transport</h4>
-                    <p>A fleet of 10 self-owned and 5 hired buses, accompanied by responsible staff members to ensure student safety.</p>
-                </div>
-                <div class="info-box">
-                    <h4>Special Facilities</h4>
-                    <p>Gymnasium, Music Rooms, Dance Rooms, and comprehensive Health & Medical checkup facilities.</p>
-                </div>
-            </div>
+            <h2>Infrastructure & Campus</h2>
+            <p>The school stands on a plot of land measuring approximately 4 acres allotted by the DDA. Very spacious and towering building giving an attractive look stand on the plot. Lush green lawns dot the school premises giving soothing effect to the eyes of the students.</p>
+            <p>A very spacious Playground measuring approximately 7300 Square Meter is available. We can boast of lifting the <b>“SUBROTO CUP”</b> in the year 1998 and have given birth to International level players like <b>Sunil Chhetri</b>, the Captain of the Indian Football Team.</p>
         </section>
 
         <section class="about-card">
-            <h2>Grievance & Safety Committees</h2>
+            <h2>Management & Safety</h2>
+            <p>Shri Manoj Sharma is the present manager of the school. The school maintains a library with more than 18,000 books and specialized cells for student safety.</p>
             
             <h3>Grievance Cell</h3>
             <table>
                 <thead>
-                    <tr><th>S. No.</th><th>Member Name</th><th>Post</th></tr>
+                    <tr><th>S. NO.</th><th>MEMBERS NAME</th><th>POST</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>1</td><td>Mrs. Pallavi Sharma</td><td>Principal</td></tr>
-                    <tr><td>2</td><td>Mrs. Shalini Choudhary</td><td>Incharge</td></tr>
+                    <tr><td>1</td><td>MRS. PALLAVI SHARMA</td><td>PRINCIPAL</td></tr>
+                    <tr><td>2</td><td>MRS. SHALINI CHOUDHARY</td><td>INCHARGE</td></tr>
                 </tbody>
             </table>
 
-            <br>
             <h3>Sexual Harassment Committee</h3>
             <table>
                 <thead>
-                    <tr><th>S. No.</th><th>Member Name</th><th>Post</th></tr>
+                    <tr><th>S. NO.</th><th>MEMBERS NAME</th><th>POST</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>1</td><td>Mrs. Pallavi Sharma</td><td>Principal</td></tr>
-                    <tr><td>2</td><td>Mrs. Bharti Jain</td><td>Teacher</td></tr>
-                    <tr><td>3</td><td>Mrs. Ritu Kalra</td><td>Teacher</td></tr>
-                    <tr><td>4</td><td>Mrs. Gurpreet Kaushik</td><td>Teacher</td></tr>
+                    <tr><td>1</td><td>MRS. PALLAVI SHARMA</td><td>PRINCIPAL</td></tr>
+                    <tr><td>2</td><td>MRS. BHARTI JAIN</td><td>TEACHER</td></tr>
+                    <tr><td>3</td><td>MRS. RITU KALRA</td><td>TEACHER</td></tr>
+                    <tr><td>4</td><td>MRS. GURPREET KAUSHIK</td><td>TEACHER</td></tr>
                 </tbody>
             </table>
         </section>
 
-        <section class="about-card">
-            <h2>Academic Details</h2>
-            <div class="grid-info">
-                <div class="info-box">
-                    <h4>Academic Session</h4>
-                    <p>1st April to 31st March</p>
-                </div>
-                <div class="info-box">
-                    <h4>Vacation Period</h4>
-                    <p>Summer: 15th May to 30th June<br>Winter: 29th Dec to 12th Jan</p>
-                </div>
-            </div>
-            <p>Admission for entry-level begins from 1st January onwards, following guidelines issued by the Education Department.</p>
-        </section>
-
         <div class="highlight-box">
-            <h3>"WE BUILD THOSE, WHO BUILD THE NATION"</h3>
-            <p>Our commitment is to provide quality education and inculcate a strong sense of ethics in every student.</p>
+            <h3>“WE BUILD THOSE, WHO BUILD THE NATION”</h3>
+            <p>Our commitment is to provide quality education and inculcate the right code of conduct.</p>
         </div>
 
     </div>
