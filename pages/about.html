@@ -6,44 +6,46 @@
     <title>About Us | Mamta Modern School</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --midnight: #001f3f; --accent: #d4af37; --white: #ffffff; --bg: #f4f7f6; }
+        :root { --midnight: #001f3f; --accent: #d4af37; --white: #ffffff; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial Black', sans-serif; }
-        body { background: var(--bg); color: #333; line-height: 1.6; }
+        body { background: #f4f7f6; color: #333; }
 
-        /* HEADER & NAV */
+        /* UNIFIED HEADER */
         header { background: var(--white); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #eee; }
         .h-left img { height: 100px; }
-        .h-center h1 { color: var(--midnight); font-size: 2.3rem; margin: 0; }
-        .h-center p { color: var(--accent); font-size: 0.9rem; font-weight: bold; }
+        .h-center { flex-grow: 1; padding-left: 30px; }
+        .h-center h1 { color: #001f3f; font-size: 2.3rem; margin: 0; line-height: 1; text-align: left; }
+        .h-center p { color: var(--accent); font-size: 0.9rem; font-weight: bold; margin-top: 8px; text-align: left; }
+        .h-right { text-align: right; display: flex; flex-direction: column; gap: 6px; min-width: 300px; }
+        .info-txt { font-weight: 900; color: #001f3f; font-size: 1.1rem; font-family: 'Arial', sans-serif; display: flex; justify-content: flex-end; align-items: center; }
+        .info-txt a { text-decoration: none; color: inherit; }
+        .info-txt i { color: var(--midnight); margin-right: 10px; font-size: 1.2rem; }
         
-        nav { background: var(--midnight); padding: 0 5%; display: flex; justify-content: center; position: sticky; top: 0; z-index: 1000; }
-        nav a { color: white; padding: 18px 20px; text-decoration: none; font-weight: bold; font-size: 0.85rem; text-transform: uppercase; }
-        nav a:hover { color: var(--accent); }
+        .soc-row { display: flex; justify-content: flex-end; gap: 15px; margin-top: 5px; }
+        .soc-row a { font-size: 1.9rem; text-decoration: none; }
+        .fa-facebook { color: #1877F2; } .fa-youtube { color: #FF0000; } .fa-instagram { color: #E4405F; }
 
-        /* CONTENT STYLING */
-        .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
-        .about-card { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 30px; border-top: 8px solid var(--midnight); }
+        /* NAV */
+        nav { background: #001f3f; padding: 0 5%; display: flex; justify-content: center; position: sticky; top: 0; z-index: 1000; }
+        nav a { color: white; padding: 18px 25px; text-decoration: none; font-weight: bold; font-size: 0.85rem; text-transform: uppercase; }
+        nav a:hover { color: var(--accent); background: rgba(255,255,255,0.1); }
+
+        /* CIRCULAR CONTENT */
+        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; min-height: 400px; }
+        .item { background: white; padding: 25px; border-radius: 15px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-left: 8px solid var(--midnight); box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .item-info b { font-size: 1.1rem; color: var(--midnight); }
+        .item-info small { color: #666; font-family: 'Arial', sans-serif; }
+        .btn { background: var(--midnight); color: var(--accent); padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; border: 2px solid var(--accent); font-size: 0.8rem; }
         
-        h2 { color: var(--midnight); margin-bottom: 20px; border-bottom: 2px solid var(--accent); display: inline-block; padding-bottom: 5px; }
-        p { font-family: 'Arial', sans-serif; margin-bottom: 20px; font-size: 1.05rem; color: #444; text-align: justify; }
-        
-        .grid-info { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 30px 0; }
-        .info-box { background: #f9fbff; padding: 25px; border-radius: 15px; border-left: 5px solid var(--accent); }
-        .info-box h4 { color: var(--midnight); margin-bottom: 10px; text-transform: uppercase; font-size: 0.9rem; }
+        /* NO CIRCULAR MESSAGE STYLE */
+        .empty-state { text-align: center; padding: 60px 20px; background: white; border-radius: 20px; border: 2px dashed #ccc; }
+        .empty-state i { font-size: 4rem; color: #ccc; margin-bottom: 20px; }
+        .empty-state h3 { color: var(--midnight); margin-bottom: 10px; }
 
-        /* TABLE STYLING */
-        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-family: 'Arial', sans-serif; background: white; border-radius: 10px; overflow: hidden; }
-        th { background: var(--midnight); color: white; text-align: left; padding: 15px; }
-        td { padding: 12px 15px; border-bottom: 1px solid #eee; }
-        tr:nth-child(even) { background: #f8f9fa; }
-
-        .highlight-box { background: var(--midnight); color: white; padding: 30px; border-radius: 20px; margin-top: 40px; text-align: center; }
-        .highlight-box h3 { color: var(--accent); font-size: 1.8rem; margin-bottom: 10px; }
-
-        footer { background: var(--midnight); color: white; padding: 40px; text-align: center; margin-top: 50px; }
+        footer { background: #001f3f; color: white; padding: 40px; text-align: center; margin-top: 50px; }
         footer b { color: var(--accent); }
 
-        @media (max-width: 768px) { .grid-info { grid-template-columns: 1fr; } header { flex-direction: column; text-align: center; } }
+        @media (max-width: 900px) { header { flex-direction: column; text-align: center; } .h-center { padding: 15px 0; } .h-right { text-align: center; } .soc-row, .info-txt { justify-content: center; } .item { flex-direction: column; text-align: center; gap: 15px; } }
     </style>
 </head>
 <body>
