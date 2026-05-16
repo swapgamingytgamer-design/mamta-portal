@@ -3,87 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery | Mamta Modern School</title>
+    <title>Photo Gallery | Mamta Modern School</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root { --midnight: #001f3f; --gold: #d4af37; --white: #ffffff; --silver: #f4f7f6; --text: #333; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, sans-serif; }
-        
-        /* HEADER (Matches Index) */
-        header { background: var(--white); padding: 10px 6%; display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid var(--midnight); box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .logo-area img { height: 90px; }
-        .header-actions { text-align: right; }
-        .contact-row a { text-decoration: none; color: var(--midnight); font-weight: 700; margin-left: 20px; font-size: 0.95rem; display: inline-flex; align-items: center; }
-        .contact-row i { color: var(--gold); margin-right: 8px; }
-        .social-row { display: flex; justify-content: flex-end; gap: 15px; margin-top: 10px; }
-        .social-row a { color: var(--midnight); font-size: 1.3rem; transition: 0.3s; }
-        .social-row a:hover { color: var(--gold); }
+        body { background-color: var(--white); color: var(--text); }
 
-        /* NAVIGATION (Matches Index) */
+        /* HEADER (Master Design) */
+        header { background: var(--white); padding: 10px 6%; display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid var(--midnight); box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .logo-main img { height: 90px; }
+        .header-center { text-align: center; flex-grow: 1; }
+        .header-center h1 { color: var(--midnight); font-size: 2.2rem; letter-spacing: 2px; font-weight: 800; text-transform: uppercase; margin: 0; }
+        .header-center p { color: var(--gold); font-weight: 600; font-size: 0.9rem; letter-spacing: 3px; margin-top: 5px; }
+        .header-actions { text-align: right; }
+        .contact-row a { text-decoration: none; color: var(--midnight); font-weight: 700; margin-left: 20px; font-size: 0.9rem; display: inline-flex; align-items: center; }
+        .social-row { display: flex; justify-content: flex-end; align-items: center; gap: 15px; margin-top: 10px; }
+        .branch-logo { height: 40px; width: 40px; border-radius: 50%; border: 2px solid var(--gold); cursor: pointer; }
+
+        /* NAVIGATION */
         nav { background: var(--midnight); display: flex; justify-content: center; position: sticky; top: 0; z-index: 1000; }
         nav a { color: white; padding: 20px 25px; text-decoration: none; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; }
         nav a:hover { background: var(--gold); color: var(--midnight); }
 
         /* GALLERY CONTENT */
-        .gallery-container { padding: 60px 8%; background: var(--white); }
-        .gallery-header { text-align: center; margin-bottom: 50px; }
-        .gallery-header h2 { color: var(--midnight); font-size: 2.5rem; text-transform: uppercase; }
-        .gallery-header div { width: 80px; height: 4px; background: var(--gold); margin: 15px auto; }
+        .gallery-container { padding: 60px 10%; }
+        .section-header { text-align: center; margin-bottom: 50px; }
+        .section-header h2 { color: var(--midnight); font-size: 2.5rem; text-transform: uppercase; }
+        .section-header div { width: 60px; height: 4px; background: var(--gold); margin: 15px auto; }
 
-        .gallery-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
-            gap: 20px; 
-            grid-auto-rows: 250px;
-        }
-
-        .gallery-item { position: relative; overflow: hidden; border-radius: 12px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-        .gallery-item:hover img { transform: scale(1.1); }
+        /* ALBUM GRID */
+        .album-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; }
+        .album-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.1); cursor: pointer; transition: 0.3s; position: relative; border: 1px solid #eee; }
+        .album-card:hover { transform: translateY(-10px); }
         
-        /* Image Overlay */
-        .overlay { 
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
-            background: rgba(0, 31, 63, 0.7); color: white; display: flex; 
-            align-items: center; justify-content: center; opacity: 0; 
-            transition: 0.4s; text-align: center; padding: 20px;
-        }
-        .gallery-item:hover .overlay { opacity: 1; }
-        .overlay h3 { font-size: 1.1rem; border-bottom: 2px solid var(--gold); display: inline-block; padding-bottom: 5px; }
+        .album-img { width: 100%; height: 220px; position: relative; overflow: hidden; }
+        .album-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .album-card:hover .album-img img { transform: scale(1.1); }
+        
+        .photo-count { position: absolute; top: 15px; right: 15px; background: rgba(0,31,63,0.85); color: var(--gold); padding: 5px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; }
+        
+        .album-info { padding: 20px; text-align: center; }
+        .album-info h3 { color: var(--midnight); font-size: 1.1rem; text-transform: uppercase; margin-bottom: 8px; }
+        .album-info p { color: #777; font-size: 0.85rem; font-weight: 600; letter-spacing: 1px; }
 
-        /* FOOTER (Matches Index) */
-        .master-footer { background: var(--midnight); color: white; padding: 70px 6% 30px 6%; margin-top: 50px; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 50px; }
-        .footer-col h4 { color: var(--gold); margin-bottom: 20px; text-transform: uppercase; letter-spacing: 2px; position: relative; padding-bottom: 10px; }
-        .footer-col h4::after { content: ''; position: absolute; left: 0; bottom: 0; width: 40px; height: 2px; background: var(--gold); }
-        .footer-map-container { height: 280px; border-radius: 12px; overflow: hidden; border: 2px solid rgba(212, 175, 55, 0.3); margin-top: 15px; }
-        .message-box { background: rgba(255,255,255,0.03); padding: 30px; border-radius: 15px; border-left: 5px solid var(--gold); }
-        .p-profile { display: flex; align-items: center; gap: 20px; margin-bottom: 20px; }
-        .p-profile img { width: 90px; height: 120px; border-radius: 8px; border: 2px solid var(--gold); object-fit: cover; }
-        .p-name b { color: var(--gold); font-size: 1.2rem; display: block; }
-        .bottom-credits { text-align: center; margin-top: 60px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; color: #aaa; }
+        /* FOOTER (Master Design) */
+        footer { background: var(--midnight); color: white; padding: 50px 10% 20px 10%; text-align: center; margin-top: 60px; }
+        .footer-line { width: 100%; height: 1px; background: rgba(255,255,255,0.1); margin: 30px 0; }
+        .credits { font-size: 0.9rem; color: #aaa; }
+        .credits b { color: var(--gold); }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="logo-area">
-        <img src="../assets/people/logo.png" alt="Mamta Modern School Logo">
+    <div class="logo-main"><img src="../assets/people/logo.png" alt="MMS Logo"></div>
+    <div class="header-center">
+        <h1>MAMTA MODERN SCHOOL</h1>
+        <p>WE CREATE CONFIDENT FACES</p>
     </div>
     <div class="header-actions">
         <div class="contact-row">
             <a href="tel:01145614561"><i class="fa-solid fa-phone-flip"></i> 011-45614561</a>
-            <a href="mailto:mamtamodernschool@gmail.com"><i class="fa-solid fa-paper-plane"></i> Email Us</a>
+            <a href="mailto:mamtamodernschool@gmail.com"><i class="fa-solid fa-envelope"></i> Email Us</a>
         </div>
         <div class="social-row">
-            <a href="https://www.youtube.com/@MamtaModernSchoolVikasPuri" target="_blank" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
-            <a href="https://www.facebook.com/MamtaModernSeniorSecondarySchoolVikasPuri/" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/mamtamodernschool/" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@mamtamordernschoolvikaspuri" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://www.presidencyinternationalschool.com" target="_blank">
+                <img src="assets/people/branch_logo.png" alt="Branch" class="branch-logo" onerror="this.src='assets/people/logo.png'">
+            </a>
+            <a href="https://www.facebook.com/MamtaModernSeniorSecondarySchoolVikasPuri" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/mamtamodernschool/" title="Instagram" target="_blank"><i class="fa-brands fa-instagram"></i></a>
         </div>
     </div>
 </header>
 
-<nav>
+    <nav>
         <a href="../index.html">Home</a>
         <a href="about.html">About Us</a>
         <a href="gallery.html">Gallery</a>
@@ -91,81 +86,89 @@
         <a href="suppliers.html">Suppliers</a>
         <a href="circulars.html">Circulars</a>
         <a href="admission.html">Admissions</a>
-        <a href="creativecanvas.html"></a>
+        <a href="creativecanvas.html">Poem Submission</a>
         <a href="complaints.html">Complaints</a>
-    </nav
+    </nav>
+
 <div class="gallery-container">
-    <div class="gallery-header">
-        <h2>School Life Gallery</h2>
+    <div class="section-header">
+        <h2>School Image Gallery</h2>
         <div></div>
     </div>
 
-    <div class="gallery-grid">
-        <div class="gallery-item">
-            <img src="../assets/campus/building.jpg" onerror="this.src='https://via.placeholder.com/600x400?text=School+Building'">
-            <div class="overlay"><h3>Our Prestigious Campus</h3></div>
+    <div class="album-grid">
+        <div class="album-card">
+            <div class="album-img">
+                <span class="photo-count">44 Photos</span>
+                <img src="../assets/gallery/annual_day.jpg" alt="Rhapsody Annual Day" onerror="this.src='https://via.placeholder.com/400x300?text=Annual+Day+Rhapsody'">
+            </div>
+            <div class="album-info">
+                <h3>Rhapsody Annual Day</h3>
+                <p>2024-25 Celebration</p>
+            </div>
         </div>
 
-        <div class="gallery-item">
-            <img src="../assets/campus/ground.jpg" onerror="this.src='https://via.placeholder.com/600x400?text=Sports+Ground'">
-            <div class="overlay"><h3>Athletic Excellence</h3></div>
+        <div class="album-card">
+            <div class="album-img">
+                <span class="photo-count">23 Photos</span>
+                <img src="../assets/gallery/volleyball.jpg" alt="Sports Meet" onerror="this.src='https://via.placeholder.com/400x300?text=CBSE+Cluster+Volleyball'">
+            </div>
+            <div class="album-info">
+                <h3>CBSE Cluster Sports</h3>
+                <p>Volleyball Tournament</p>
+            </div>
         </div>
 
-        <div class="gallery-item">
-            <img src="../assets/campus/classroom.jpg" onerror="this.src='https://via.placeholder.com/600x400?text=Classroom'">
-            <div class="overlay"><h3>Digital Classrooms</h3></div>
+        <div class="album-card">
+            <div class="album-img">
+                <span class="photo-count">30 Photos</span>
+                <img src="../assets/gallery/fete.jpg" alt="School Fete" onerror="this.src='https://via.placeholder.com/400x300?text=Annual+School+Fete'">
+            </div>
+            <div class="album-info">
+                <h3>Annual School Fete</h3>
+                <p>Joy and Festivity</p>
+            </div>
         </div>
 
-        <div class="gallery-item">
-            <img src="../assets/campus/lab.jpg" onerror="this.src='https://via.placeholder.com/600x400?text=Science+Lab'">
-            <div class="overlay"><h3>Innovation & Science</h3></div>
+        <div class="album-card">
+            <div class="album-img">
+                <span class="photo-count">15 Photos</span>
+                <img src="../assets/gallery/globe_trot.jpg" alt="Globe Trot" onerror="this.src='https://via.placeholder.com/400x300?text=Let%27s+Globe+Trot'">
+            </div>
+            <div class="album-info">
+                <h3>Let's Globe Trot</h3>
+                <p>Exhibition 2024</p>
+            </div>
         </div>
 
-        <div class="gallery-item">
-            <img src="../assets/campus/library.jpg" onerror="this.src='https://via.placeholder.com/600x400?text=Library'">
-            <div class="overlay"><h3>18,000+ Book Library</h3></div>
+        <div class="album-card">
+            <div class="album-img">
+                <span class="photo-count">12 Photos</span>
+                <img src="../assets/gallery/navy_day.jpg" alt="Navy Day" onerror="this.src='https://via.placeholder.com/400x300?text=Indian+Navy+Day'">
+            </div>
+            <div class="album-info">
+                <h3>Indian Navy Day</h3>
+                <p>Patriotic Observance</p>
+            </div>
         </div>
 
-        <div class="gallery-item">
-            <img src="../assets/campus/event.jpg" onerror="this.src='https://via.placeholder.com/600x400?text=Cultural+Event'">
-            <div class="overlay"><h3>Cultural Festivities</h3></div>
+        <div class="album-card">
+            <div class="album-img">
+                <span class="photo-count">16 Photos</span>
+                <img src="../assets/gallery/caring.jpg" alt="Social Service" onerror="this.src='https://via.placeholder.com/400x300?text=Caring+and+Sharing'">
+            </div>
+            <div class="album-info">
+                <h3>Caring & Sharing</h3>
+                <p>Visit to Apna Ghar</p>
+            </div>
         </div>
     </div>
 </div>
 
-<footer class="master-footer">
-    <div class="footer-grid">
-        <div class="footer-col">
-            <h4>Reach Us</h4>
-            <p><i class="fa-solid fa-map-pin" style="color:var(--gold); margin-right:10px;"></i> H-Block, Vikaspuri, New Delhi - 110018</p>
-            <div class="footer-map-container">
-                <iframe 
-                    src="https://www.google.com/maps/place//data=!3m4!1e2!3m2!1sCIHM0ogKEICAgICkv8nImQE!2e10!4m2!3m1!1s0x390d04f19271981f:0x4386a0e4b2463d42" 
-                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
-                </iframe>
-            </div>
-        </div>
-
-        <div class="footer-col">
-            <h4>From the Principal's Desk</h4>
-            <div class="message-box">
-                <div class="p-profile">
-                    <img src="../assets/people/principal.jpg" alt="Principal">
-                    <div class="p-name">
-                        <b>Ms. Pallavi Sharma</b>
-                        <span>National Awardee Principal</span>
-                    </div>
-                </div>
-                <div class="p-text">
-                    <p style="color:var(--gold); font-weight:bold; font-style:italic; margin-bottom:10px;">“Excellence is not a destination...”</p>
-                    <p>Capturing the memories of our <b>Golden Jubilee</b> journey. Contact us at <b>mamtamodernschool@gmail.com</b>.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="bottom-credits">
-        © 2026 Mamta Modern School | Designed & Developed by <b>Swapneil Jha</b>
-    </div>
+<footer>
+    <p>H-Block, Vikaspuri, New Delhi - 110018 | Phone: 011-45614561</p>
+    <div class="footer-line"></div>
+    <p class="credits">© 2026 Mamta Modern School | Developed by <b>Swapneil Jha</b></p>
 </footer>
 
 </body>

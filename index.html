@@ -3,77 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mamta Modern School | Celebrating 50 Years of Excellence</title>
+    <title>Mamta Modern School | Golden Jubilee 2026</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root { --midnight: #001f3f; --gold: #d4af37; --white: #ffffff; --silver: #f4f7f6; --text: #333; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
-        
-        /* TOP UTILITY BAR & HEADER */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, sans-serif; }
+        body { background-color: var(--white); color: var(--text); overflow-x: hidden; }
+
+        /* HEADER SECTION */
         header { background: var(--white); padding: 10px 6%; display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid var(--midnight); box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .logo-area img { height: 90px; transition: 0.3s; }
+        .logo-main img { height: 90px; }
+        .header-center { text-align: center; flex-grow: 1; }
+        .header-center h1 { color: var(--midnight); font-size: 2.2rem; letter-spacing: 2px; font-weight: 800; text-transform: uppercase; margin: 0; }
+        .header-center p { color: var(--gold); font-weight: 600; font-size: 0.9rem; letter-spacing: 3px; margin-top: 5px; }
         
         .header-actions { text-align: right; }
-        .contact-row { margin-bottom: 10px; }
-        .contact-row a { text-decoration: none; color: var(--midnight); font-weight: 700; margin-left: 20px; font-size: 0.95rem; display: inline-flex; align-items: center; }
-        .contact-row i { color: var(--gold); margin-right: 8px; font-size: 1.1rem; }
-        
-        .social-row { display: flex; justify-content: flex-end; gap: 15px; }
-        .social-row a { color: var(--midnight); font-size: 1.3rem; transition: 0.3s; }
-        .social-row a:hover { color: var(--gold); transform: translateY(-3px); }
+        .contact-row a { text-decoration: none; color: var(--midnight); font-weight: 700; margin-left: 20px; font-size: 0.9rem; display: inline-flex; align-items: center; }
+        .contact-row i { color: var(--gold); margin-right: 8px; }
+        .social-row { display: flex; justify-content: flex-end; align-items: center; gap: 15px; margin-top: 10px; }
+        .social-row a i { color: var(--midnight); font-size: 1.3rem; transition: 0.3s; }
+        .social-row a:hover i { color: var(--gold); }
+        .branch-logo { height: 40px; width: 40px; border-radius: 50%; border: 2px solid var(--gold); cursor: pointer; transition: 0.3s; }
+        .branch-logo:hover { transform: scale(1.1); box-shadow: 0 0 10px var(--gold); }
 
         /* NAVIGATION */
-        nav { background: var(--midnight); display: flex; justify-content: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        nav { background: var(--midnight); display: flex; justify-content: center; position: sticky; top: 0; z-index: 1000; }
         nav a { color: white; padding: 20px 25px; text-decoration: none; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
         nav a:hover { background: var(--gold); color: var(--midnight); }
 
-        /* DYNAMIC SLIDESHOW */
-        .slideshow-container { width: 100%; height: 600px; background: #000; position: relative; overflow: hidden; }
-        .mySlides { display: none; height: 100%; width: 100%; animation: fade 1.5s; }
-        @keyframes fade { from {opacity: .4} to {opacity: 1} }
-        .mySlides img { width: 100%; height: 100%; object-fit: cover; }
-        #player { width: 100%; height: 100%; }
+        /* SLIDESHOW / HERO SECTION */
+        .slider-container { position: relative; width: 100%; height: 600px; overflow: hidden; background: #000; }
+        .slide { position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 1s ease-in-out; display: flex; align-items: center; justify-content: center; }
+        .slide.active { opacity: 1; }
+        .slide video, .slide img { width: 100%; height: 100%; object-fit: cover; filter: brightness(60%); }
+        .slide-content { position: absolute; text-align: center; color: white; z-index: 5; padding: 0 20px; }
+        .slide-content h2 { font-size: 3.5rem; text-transform: uppercase; margin-bottom: 15px; text-shadow: 2px 2px 15px rgba(0,0,0,0.7); }
+        .slide-content p { font-size: 1.4rem; color: var(--gold); font-weight: 500; }
 
-        /* THE MASTER FOOTER */
-        .master-footer { background: var(--midnight); color: white; padding: 70px 6% 30px 6%; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 50px; }
+        /* PRINCIPAL & MAP SECTION */
+        .main-content { padding: 80px 10%; display: grid; grid-template-columns: 1.5fr 1fr; gap: 50px; background: var(--white); }
         
-        /* Footer Columns */
-        .footer-col h4 { color: var(--gold); margin-bottom: 20px; font-size: 1.2rem; letter-spacing: 2px; text-transform: uppercase; position: relative; padding-bottom: 10px; }
-        .footer-col h4::after { content: ''; position: absolute; left: 0; bottom: 0; width: 40px; height: 2px; background: var(--gold); }
-        
-        .footer-map-container { height: 280px; border-radius: 12px; overflow: hidden; border: 2px solid rgba(212, 175, 55, 0.3); margin-top: 15px; }
-        
-        /* Principal Message Styling */
-        .message-box { background: rgba(255,255,255,0.03); padding: 30px; border-radius: 15px; border-left: 5px solid var(--gold); }
-        .p-profile { display: flex; align-items: center; gap: 20px; margin-bottom: 20px; }
-        .p-profile img { width: 90px; height: 120px; border-radius: 8px; border: 2px solid var(--gold); object-fit: cover; }
-        .p-name b { color: var(--gold); font-size: 1.2rem; display: block; }
-        .p-name span { font-size: 0.85rem; opacity: 0.8; }
-        
-        .p-text { font-size: 0.9rem; line-height: 1.8; color: #e0e0e0; }
-        .kalam-quote { font-weight: 700; color: var(--gold); font-style: italic; display: block; margin-bottom: 15px; font-size: 1rem; }
+        .principal-card { background: var(--silver); padding: 40px; border-radius: 20px; border-left: 8px solid var(--gold); position: relative; }
+        .principal-header { display: flex; align-items: center; gap: 25px; margin-bottom: 25px; }
+        .principal-header img { width: 150px; height: 190px; border-radius: 10px; border: 3px solid var(--midnight); object-fit: cover; }
+        .principal-title h3 { color: var(--midnight); font-size: 1.8rem; }
+        .principal-title span { color: var(--gold); font-weight: 700; font-size: 0.9rem; text-transform: uppercase; }
+        .quote { font-style: italic; font-size: 1.1rem; line-height: 1.8; color: #444; position: relative; padding-left: 30px; }
+        .quote::before { content: '“'; position: absolute; left: 0; top: -10px; font-size: 4rem; color: var(--gold); opacity: 0.3; }
 
-        /* DEVELOPER CREDITS */
-        .bottom-credits { text-align: center; margin-top: 60px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; color: #aaa; }
-        .bottom-credits b { color: var(--gold); font-weight: 600; }
+        .map-box h4 { color: var(--midnight); margin-bottom: 20px; font-size: 1.5rem; text-transform: uppercase; border-bottom: 2px solid var(--gold); display: inline-block; }
+        .map-container { width: 100%; height: 350px; border-radius: 15px; overflow: hidden; border: 4px solid var(--silver); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+
+        /* FOOTER */
+        footer { background: var(--midnight); color: white; padding: 50px 10% 20px 10%; text-align: center; }
+        .footer-line { width: 100%; height: 1px; background: rgba(255,255,255,0.1); margin: 30px 0; }
+        .credits { font-size: 0.9rem; color: #aaa; }
+        .credits b { color: var(--gold); }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="logo-area">
-        <img src="assets/people/logo.png" alt="Mamta Modern School">
+    <div class="logo-main"><img src="assets/people/logo.png" alt="MMS Logo"></div>
+    <div class="header-center">
+        <h1>MAMTA MODERN SCHOOL</h1>
+        <p>WE CREATE CONFIDENT FACES</p>
     </div>
     <div class="header-actions">
         <div class="contact-row">
             <a href="tel:01145614561"><i class="fa-solid fa-phone-flip"></i> 011-45614561</a>
-            <a href="mailto:mamtamodernschool@gmail.com"><i class="fa-solid fa-paper-plane"></i> Email Us</a>
+            <a href="mailto:mamtamodernschool@gmail.com"><i class="fa-solid fa-envelope"></i> Email Us</a>
         </div>
         <div class="social-row">
-            <a href="https://www.youtube.com/@MamtaModernSchoolVikasPuri" target="_blank" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
-            <a href="https://www.facebook.com/MamtaModernSeniorSecondarySchoolVikasPuri/" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/mamtamodernschool/" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@mamtamordernschoolvikaspuri" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://www.presidencyinternationalschool.com" target="_blank">
+                <img src="assets/people/branch_logo.png" alt="Branch" class="branch-logo" onerror="this.src='assets/people/logo.png'">
+            </a>
+            <a href="https://www.facebook.com/MamtaModernSeniorSecondarySchoolVikasPuri" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/mamtamodernschool/" title="Instagram" target="_blank"><i class="fa-brands fa-instagram"></i></a>
         </div>
     </div>
 </header>
@@ -89,101 +96,66 @@
         <a href="pages/creativecanvas.html">Poem Submission</a>
         <a href="pages/complaints.html">Complaints</a>
     </nav>
-<div class="slideshow-container">
-    <div class="mySlides">
-        <div id="player"></div>
+
+<div class="slider-container">
+    <div class="slide active">
+        <video autoplay muted loop playsinline>
+            <source src="assets/campus/school_video.mp4" type="video/mp4">
+        </video>
+        <div class="slide-content">
+            <h2>Golden Jubilee Year</h2>
+            <p>1976 - 2026: Half a Century of Excellence</p>
+        </div>
     </div>
-    <div class="mySlides">
-        <img src="assets/campus/building.jpg" alt="Main School Building">
-    </div>
-    <div class="mySlides">
-        <img src="assets/campus/ground.jpg" alt="School Sports Ground">
+    <div class="slide">
+        <img src="assets/campus/campus_view.jpg" alt="Campus">
+        <div class="slide-content">
+            <h2>Modern Infrastructure</h2>
+            <p>Providing the Best Learning Environment in West Delhi</p>
+        </div>
     </div>
 </div>
 
-<footer class="master-footer">
-    <div class="footer-grid">
-        
-        <div class="footer-col">
-            <h4>Find Us</h4>
-            <p style="font-size: 0.95rem; margin-bottom: 5px;">
-                <i class="fa-solid fa-map-pin" style="color:var(--gold); margin-right:10px;"></i>
-                H-Block, Vikaspuri, New Delhi - 110018
-            </p>
-            <div class="footer-map-container">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.554316828456!2d77.07223787550119!3d28.643124575659!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d02f19271981f%3A0x4386a0e4b2463d42!2sMamta%20Modern%20Sr.%20Sec.%20School!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
-                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
+<div class="main-content">
+    <section class="principal-card">
+        <div class="principal-header">
+            <img src="assets/people/principal.jpg" alt="Principal">
+            <div class="principal-title">
+                <span>National Awardee Principal</span>
+                <h3>Ms. Pallavi Sharma</h3>
             </div>
         </div>
-
-        <div class="footer-col">
-            <h4>From the Principal's Desk</h4>
-            <div class="message-box">
-                <div class="p-profile">
-                    <img src="assets/people/principal.jpg" alt="Principal Pallavi Sharma">
-                    <div class="p-name">
-                        <b>Ms. Pallavi Sharma</b>
-                        <span>National Awardee Principal</span>
-                    </div>
-                </div>
-                <div class="p-text">
-                    <span class="kalam-quote">“Excellence is not a destination; it is a continuous journey that never ends.” – Dr. A.P.J. Abdul Kalam</span>
-                    <p>This year marks a monumental milestone as we celebrate our <b>Golden Jubilee</b>. Adding to this occasion, I am honored to have received the <b>National Teachers Award</b>.</p>
-                    <p style="margin-top: 12px;">This accolade is a testament to the collective efforts of our visionary management, staff, parents, and students.</p>
-                </div>
-            </div>
+        <div class="quote">
+            Education is not just about academic brilliance; it is about building character, fostering creativity, and nurturing confident faces that are ready to lead the world. As we celebrate our 50th year, we renew our commitment to excellence.
         </div>
+    </section>
 
-    </div>
+    <section class="map-box">
+        <h4>Find Our Campus</h4>
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.5543144865187!2d77.06558117550114!3d28.64311897565863!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d04600109d43d%3A0xc3910f135b91b9a9!2sMamta%20Modern%20Senior%20Secondary%20School!5e0!3m2!1sen!2sin!4v1715865000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+</div>
 
-    <div class="bottom-credits">
-        &copy; 2026 Mamta Modern School | Designed & Engineered by <b>Swapneil Jha</b>
-    </div>
+<footer>
+    <p>H-Block, Vikaspuri, New Delhi - 110018 | Phone: 011-45614561</p>
+    <div class="footer-line"></div>
+    <p class="credits">© 2026 Mamta Modern School | Designed & Developed by <b>Swapneil Jha</b></p>
 </footer>
 
-<script src="https://www.youtube.com/iframe_api"></script>
 <script>
-    var player;
-    var slideIndex = 0;
+    // Slideshow Logic
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
 
-    // Initialize YouTube Video
-    function onYouTubeIframeAPIReady() {
-        player = new YT.Player('player', {
-            videoId: 'CiXLm0kgI_U',
-            playerVars: { 
-                'autoplay': 1, 
-                'mute': 1, 
-                'controls': 0, 
-                'loop': 1, 
-                'playlist': 'CiXLm0kgI_U',
-                'modestbranding': 1,
-                'rel': 0 
-            },
-            events: { 'onReady': onPlayerReady }
-        });
+    function nextSlide() {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
     }
 
-    function onPlayerReady(event) {
-        showSlides();
-    }
-
-    // Main Slideshow Logic
-    function showSlides() {
-        let slides = document.getElementsByClassName("mySlides");
-        for (let i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        slideIndex++;
-        if (slideIndex > slides.length) { slideIndex = 1; }
-        
-        slides[slideIndex-1].style.display = "block";
-
-        // Timing: 40 seconds for video slide, 6 seconds for image slides
-        let time = (slideIndex === 1) ? 40000 : 2000; 
-        setTimeout(showSlides, time);
-    }
+    setInterval(nextSlide, 2000); // Change slide every 6 seconds
 </script>
 
 </body>
