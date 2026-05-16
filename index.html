@@ -3,128 +3,220 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mamta Modern School | Home</title>
+    <title>Mamta Modern School | Excellence Since 1973</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --midnight: #001f3f; --accent: #d4af37; --white: #ffffff; }
+        :root { --midnight: #001f3f; --accent: #d4af37; --white: #ffffff; --silver: #f4f7f6; }
+        
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial Black', sans-serif; }
-        body { background: #f4f7f6; color: #333; overflow-x: hidden; }
+        body { background: var(--silver); color: #333; overflow-x: hidden; }
 
         /* HEADER */
-        header { background: var(--white); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #eee; }
-        .h-left img { height: 100px; }
+        header { background: var(--white); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid var(--midnight); }
+        .h-left img { height: 110px; }
         .h-center { flex-grow: 1; padding-left: 30px; }
-        .h-center h1 { color: #001f3f; font-size: 2.3rem; margin: 0; line-height: 1.1; }
-        .h-center p { color: var(--accent); font-size: 0.9rem; font-weight: bold; margin-top: 8px; }
-        .h-right { text-align: right; display: flex; flex-direction: column; gap: 6px; min-width: 300px; }
-        .info-txt { font-weight: 900; color: #001f3f; font-size: 1.1rem; display: flex; justify-content: flex-end; align-items: center; }
-        .info-txt a { text-decoration: none; color: inherit; }
-        .info-txt i { color: var(--midnight); margin-right: 10px; font-size: 1.2rem; }
-        .soc-row { display: flex; justify-content: flex-end; gap: 15px; margin-top: 5px; }
-        .soc-row a { font-size: 1.9rem; text-decoration: none; }
-        .fa-facebook { color: #1877F2; } .fa-youtube { color: #FF0000; } .fa-instagram { color: #E4405F; }
+        .h-center h1 { color: var(--midnight); font-size: 2.3rem; margin: 0; line-height: 1.1; }
+        .h-center p { color: var(--accent); font-size: 0.95rem; font-weight: bold; margin-top: 5px; }
+        .h-right { text-align: right; display: flex; flex-direction: column; gap: 8px; min-width: 280px; }
+        .info-txt { font-weight: 900; color: var(--midnight); font-size: 1rem; font-family: 'Arial', sans-serif; }
+        .info-txt i { color: var(--accent); margin-right: 8px; }
 
         /* NAVIGATION */
-        nav { background: #001f3f; padding: 0 5%; display: flex; justify-content: center; position: sticky; top: 0; z-index: 1000; }
-        nav a { color: white; padding: 18px 25px; text-decoration: none; font-weight: bold; font-size: 0.85rem; text-transform: uppercase; }
+        nav { background: var(--midnight); padding: 0 5%; display: flex; justify-content: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+        nav a { color: white; padding: 20px 18px; text-decoration: none; font-weight: bold; font-size: 0.8rem; text-transform: uppercase; transition: 0.3s; }
         nav a:hover { color: var(--accent); background: rgba(255,255,255,0.1); }
 
-        /* SLIDESHOW & CONTENT */
-        .hero { position: relative; height: 500px; background: #000; overflow: hidden; }
-        .slide { position: absolute; inset: 0; opacity: 0; transition: 1s ease-in-out; }
-        .slide.active { opacity: 1; }
-        .slide img { width: 100%; height: 100%; object-fit: cover; }
+        /* NEWS TICKER */
+        .ticker { background: var(--accent); color: var(--midnight); padding: 12px 0; overflow: hidden; white-space: nowrap; font-size: 0.9rem; font-weight: bold; border-bottom: 2px solid var(--midnight); }
+        .ticker-text { display: inline-block; animation: marquee 25s linear infinite; padding-left: 100%; }
+        @keyframes marquee { 0% { transform: translate(0, 0); } 100% { transform: translate(-100%, 0); } }
 
-        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
-        .card { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); display: flex; gap: 40px; align-items: center; margin-bottom: 40px; }
-        .prin-img { width: 280px; border-radius: 15px; border: 5px solid #001f3f; }
+        /* HERO SLIDESHOW */
+        .slideshow-container { width: 100%; height: 550px; position: relative; overflow: hidden; background: #000; }
+        .mySlides { display: none; height: 100%; }
+        .mySlides img { width: 100%; height: 100%; object-fit: cover; filter: brightness(70%); }
+        #player { width: 100%; height: 100%; pointer-events: none; } /* pointer-events: none makes it feel like a background video */
+        
+        .caption { position: absolute; bottom: 60px; left: 5%; color: white; text-shadow: 2px 2px 15px rgba(0,0,0,0.9); z-index: 10; }
+        .caption h2 { font-size: 2.8rem; text-transform: uppercase; border-left: 10px solid var(--accent); padding-left: 20px; line-height: 1; }
 
-        /* LOCATION SECTION */
-        .location-section { display: flex; gap: 30px; align-items: stretch; margin-top: 40px; }
-        .address-box { flex: 1; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-left: 10px solid var(--midnight); }
-        .address-box h2 { color: var(--midnight); margin-bottom: 20px; font-size: 1.8rem; }
-        .address-details p { font-family: 'Arial', sans-serif; line-height: 1.8; color: #444; margin-bottom: 15px; display: flex; align-items: center; }
-        .address-details i { color: var(--accent); margin-right: 15px; min-width: 25px; font-size: 1.2rem; }
+        /* WELCOME SECTION */
+        .welcome { padding: 80px 10%; text-align: center; background: white; border-bottom: 1px solid #eee; }
+        .welcome h2 { color: var(--midnight); font-size: 2.5rem; margin-bottom: 25px; }
+        .welcome p { font-family: 'Arial', sans-serif; font-size: 1.15rem; line-height: 1.8; color: #444; max-width: 900px; margin: 0 auto; }
 
-        .map-box { flex: 1.5; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 5px solid white; min-height: 450px; }
+        /* ACHIEVEMENTS GRID */
+        .achievements { padding: 80px 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; background: var(--silver); }
+        .card { background: white; padding: 40px 30px; border-radius: 20px; text-align: center; box-shadow: 0 15px 35px rgba(0,0,0,0.05); border-bottom: 6px solid var(--accent); transition: 0.4s; }
+        .card:hover { transform: translateY(-15px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .card i { font-size: 3.5rem; color: var(--midnight); margin-bottom: 20px; }
+        .card h3 { color: var(--midnight); font-size: 1.4rem; margin-bottom: 15px; }
+        .card p { font-family: 'Arial', sans-serif; color: #666; font-size: 1rem; }
 
-        footer { background: #001f3f; color: white; padding: 40px; text-align: center; margin-top: 50px; }
+        /* FOOTER */
+        footer { background: var(--midnight); color: white; padding: 60px 5%; text-align: center; }
         footer b { color: var(--accent); }
+        .footer-soc { margin-bottom: 25px; display: flex; justify-content: center; gap: 30px; }
+        .footer-soc a { color: white; font-size: 2rem; transition: 0.3s; }
+        .footer-soc a:hover { color: var(--accent); transform: scale(1.2); }
 
-        @media (max-width: 900px) { 
-            header { flex-direction: column; text-align: center; } 
-            .h-right { text-align: center; } 
-            .soc-row, .info-txt { justify-content: center; } 
-            .card, .location-section { flex-direction: column; }
+        /* FADE ANIMATION */
+        .fade { animation: fadeEffect 1.5s; }
+        @keyframes fadeEffect { from {opacity: 0.4} to {opacity: 1} }
+
+        @media (max-width: 900px) {
+            header { flex-direction: column; text-align: center; padding: 20px; }
+            .h-center { padding: 20px 0; }
+            .h-right { display: none; }
+            nav { flex-wrap: wrap; padding: 10px; }
+            nav a { padding: 10px; font-size: 0.75rem; }
+            .slideshow-container { height: 400px; }
+            .caption h2 { font-size: 1.6rem; }
         }
     </style>
 </head>
 <body>
+
     <header>
-        <div class="h-left"><img src="assets/people/logo.png"></div>
-        <div class="h-center"><h1>MAMTA MODERN SCHOOL</h1><p>NURTURING EXCELLENCE SINCE 1973</p></div>
+        <div class="h-left"><img src="assets/people/logo.png" onerror="this.src='https://via.placeholder.com/110'"></div>
+        <div class="h-center">
+            <h1>MAMTA MODERN SCHOOL</h1>
+            <p>NURTURING EXCELLENCE • ESTD. 1973</p>
+        </div>
         <div class="h-right">
-            <div class="info-txt"><a href="tel:+911145614501"><i class="fa-solid fa-phone"></i>+91-11-45614501</a></div>
-            <div class="info-txt" style="font-size: 0.85rem;"><a href="mailto:mamtamodernschool@gmail.com"><i class="fa-solid fa-envelope"></i>mamtamodernschool@gmail.com</a></div>
-            <div class="soc-row">
-                <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            </div>
+            <div class="info-txt"><i class="fa-solid fa-phone"></i> +91-11-45614501</div>
+            <div class="info-txt"><i class="fa-solid fa-envelope"></i> mamtamodernschool@gmail.com</div>
         </div>
     </header>
-    
+
+    <div class="ticker">
+        <div class="ticker-text">
+            ★ ADMISSIONS OPEN FOR 2026-27 ★ LATEST: DOWNLOAD SELF-TRANSPORT CIRCULAR NO. 002 & 003 ★ CONGRATULATIONS TO PRINCIPAL MS. PALLAVI SHARMA ON NATIONAL TEACHERS AWARD 2024 ★
+        </div>
+    </div>
+
     <nav>
-    <a href="index.html">Home</a>
-    <a href="pages/gallery.html">Gallery</a>
-    <a href="pages/circulars.html">Circulars</a>
-    <a href="pages/admission.html">Admissions</a>
-    <a href="pages/complaints.html">Complaints</a>
-    <a href="pages/suppliers.html">Suppliers</a>
-    <a href="pages/policies.html">Policies</a>
-    <a href="pages/about.html">About Us</a>
-    <a href="pages/showcase.html">Showcase</a>
+        <a href="index.html" style="color: var(--accent);">Home</a>
+        <a href="pages/about.html">About Us</a>
+        <a href="pages/gallery.html">Gallery</a>
+        <a href="pages/circulars.html">Circulars</a>
+        <a href="pages/admission.html">Admissions</a>
+        <a href="pages/showcase.html">Student Showcase</a>
+        <a href="pages/complaints.html">Grievance Cell</a>
+        <a href="pages/suppliers.html">Suppliers</a>
+        <a href="pages/policies.html">Policies</a>
     </nav>
-    <div class="hero">
-        <div class="slide active"><img src="assets/events/campus.jpg"></div>
-        <div class="slide"><img src="assets/events/sports.jpg"></div>
-        <div class="slide"><img src="assets/events/award1.jpg"></div>
+
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <img src="assets/campus/building.jpg" onerror="this.src='https://via.placeholder.com/1200x550?text=Campus+Image'">
+            <div class="caption"><h2>Modern Infrastructure<br>for Modern Minds</h2></div>
+        </div>
+
+        <div class="mySlides fade">
+            <div id="player"></div> 
+            <div class="caption"><h2>National Teachers Award 2024</h2></div>
+        </div>
+
+        <div class="mySlides fade">
+            <img src="assets/campus/ground.jpg" onerror="this.src='https://via.placeholder.com/1200x550?text=Sports+Image'">
+            <div class="caption"><h2>Home of Champions<br>Subroto Cup Winners</h2></div>
+        </div>
     </div>
 
-    <div class="container">
+    <section class="welcome">
+        <h2>Building the Leaders of Tomorrow</h2>
+        <p>Mamta Modern School is a premier institution dedicated to academic rigor and holistic development. With a 4-acre lush green campus and a legacy spanning over five decades, we provide our students with the tools to excel in Science, Commerce, and the Arts.</p>
+    </section>
+
+    <section class="achievements">
         <div class="card">
-            <img src="assets/people/principal.jpg" class="prin-img">
-            <div>
-                <h2 style="color:#001f3f; margin-bottom:15px; font-size: 1.8rem;">Principal's Message</h2>
-                <p style="font-family: Arial, sans-serif; line-height: 1.6; font-size: 1.1rem; color: #555;">Welcome to Mamta Modern School. We are dedicated to providing a holistic education that empowers students to reach their full potential.</p>
-            </div>
+            <i class="fa-solid fa-award"></i>
+            <h3>National Excellence</h3>
+            <p>Recipient of the National Teachers Award 2024, recognizing our commitment to innovative education.</p>
         </div>
-
-        <div class="location-section">
-            <div class="address-box">
-                <h2>Visit Us</h2>
-                <div class="address-details">
-                    <p><i class="fa-solid fa-location-dot"></i> H-Block, Vikaspuri, <br>New Delhi - 110018</p>
-                    <p><i class="fa-solid fa-phone"></i> +91-11-45614501</p>
-                    <p><i class="fa-solid fa-envelope"></i> mamtamodernschool@gmail.com</p>
-                    <p><i class="fa-solid fa-clock"></i> Mon - Sat: 8:00 AM - 2:00 PM</p>
-                </div>
-            </div>
-
-            <div class="map-box">
-                <iframe 
-                    src="https://www.google.com/maps?q=Mamta+Modern+Senior+Secondary+School+Vikaspuri&output=embed" 
-                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-            </div>
+        <div class="card">
+            <i class="fa-solid fa-futbol"></i>
+            <h3>Sports Legacy</h3>
+            <p>First Delhi school to win the Subroto Cup. Proud nursery for Indian Captain Sunil Chhetri.</p>
         </div>
-    </div>
+        <div class="card">
+            <i class="fa-solid fa-microchip"></i>
+            <h3>Future Ready</h3>
+            <p>Equipped with state-of-the-art Atal Tinkering Labs and Khelo India Sports centers.</p>
+        </div>
+    </section>
 
-    <footer><p>© 2026 Mamta Modern School | Developed by <b>Swapneil Jha</b></p></footer>
+    <footer>
+        <div class="footer-soc">
+            <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+        <p>© 2026 Mamta Modern School | Designed & Developed by <b>Swapneil Jha</b></p>
+    </footer>
 
     <script>
-        let idx = 0; const slides = document.querySelectorAll('.slide');
-        setInterval(() => { slides[idx].classList.remove('active'); idx = (idx + 1) % slides.length; slides[idx].classList.add('active'); }, 4000);
+        // 1. YouTube API Setup
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        var player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                videoId: 'CiXLm0kgI_U', 
+                playerVars: {
+                    'autoplay': 1,
+                    'mute': 1,
+                    'controls': 0,
+                    'rel': 0,
+                    'loop': 1,
+                    'playlist': 'CiXLm0kgI_U',
+                    'showinfo': 0,
+                    'modestbranding': 1
+                },
+                events: { 'onReady': onPlayerReady }
+            });
+        }
+
+        function onPlayerReady(event) {
+            event.target.mute();
+            event.target.playVideo();
+        }
+
+        // 2. Slideshow Logic
+        let slideIndex = 0;
+        let slideTimer;
+        
+        function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            slides[slideIndex-1].style.display = "block";
+
+            // If video slide is active (Slide 2)
+            if (slideIndex === 2) {
+                if (player && player.playVideo) { player.playVideo(); }
+                slideTimer = setTimeout(showSlides, 20000); // Video shows for 20s
+            } else {
+                if (player && player.pauseVideo) { player.pauseVideo(); }
+                slideTimer = setTimeout(showSlides, 4500); // Images show for 4.5s
+            }
+        }
+
+        // Start the slideshow
+        window.onload = function() {
+            showSlides();
+        };
     </script>
+
 </body>
 </html>
