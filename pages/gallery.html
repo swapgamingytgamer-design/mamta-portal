@@ -10,7 +10,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, sans-serif; }
         body { background-color: var(--white); color: var(--text); }
 
-        /* HEADER (Master Design) */
+        /* HEADER (Matching Index) */
         header { background: var(--white); padding: 10px 6%; display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid var(--midnight); box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         .logo-main img { height: 90px; }
         .header-center { text-align: center; flex-grow: 1; }
@@ -30,7 +30,6 @@
         .gallery-container { padding: 60px 10%; }
         .section-header { text-align: center; margin-bottom: 50px; }
         .section-header h2 { color: var(--midnight); font-size: 2.5rem; text-transform: uppercase; letter-spacing: 1px; }
-        .section-header p { color: #666; margin-top: 10px; font-weight: 500; }
         .section-header div { width: 80px; height: 4px; background: var(--gold); margin: 15px auto; }
 
         /* GRID LAYOUT */
@@ -39,7 +38,7 @@
         .album-card:hover { transform: translateY(-8px); border-color: var(--gold); }
         
         .album-img { width: 100%; height: 200px; overflow: hidden; background: #eee; }
-        .album-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .album-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; object-position: top; }
         .album-card:hover .album-img img { transform: scale(1.1); }
         
         .album-info { padding: 15px; text-align: center; }
@@ -54,11 +53,16 @@
 
         @keyframes zoomIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 
-        /* FOOTER (Master Design) */
+        /* FOOTER */
         footer { background: var(--midnight); color: white; padding: 50px 10% 20px 10%; text-align: center; margin-top: 60px; }
         .footer-line { width: 100%; height: 1px; background: rgba(255,255,255,0.1); margin: 30px 0; }
         .credits { font-size: 0.9rem; color: #aaa; }
         .credits b { color: var(--gold); }
+
+        @media (max-width: 768px) {
+            .header-center h1 { font-size: 1.5rem; }
+            .gallery-container { padding: 40px 5%; }
+        }
     </style>
 </head>
 <body>
@@ -93,7 +97,7 @@
         <a href="suppliers.html">Suppliers</a>
         <a href="circulars.html">Circulars</a>
         <a href="admission.html">Admissions</a>
-        <a href="creativecanvas.html">Poem Submission</a>
+        <a href="creativecanvas.html">poem submmision</a>
         <a href="complaints.html">Complaints</a>
     </nav>
 
@@ -123,13 +127,16 @@
     const grid = document.getElementById('photo-grid');
     const totalPhotos = 44;
 
-    // Generate 44 Annual Function photo cards
+    // Automatically generate 44 Annual Function photo cards
     for (let i = 1; i <= totalPhotos; i++) {
+        // Path matches the naming list provided: annual_function_1.jpg to annual_function_44.jpg
         const photoPath = `../assets/gallery/annual_function_${i}.jpg`;
+        
         const card = `
             <div class="album-card" onclick="openLightbox('${photoPath}', 'Annual Function - Moment ${i}')">
                 <div class="album-img">
-                    <img src="${photoPath}" alt="Annual Function ${i}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300?text=Photo+${i}'">
+                    <img src="${photoPath}" alt="Annual Function ${i}" loading="lazy" 
+                         onerror="this.src='https://via.placeholder.com/400x300?text=Annual+Function+${i}'">
                 </div>
                 <div class="album-info">
                     <h3>Annual Function</h3>
@@ -146,12 +153,12 @@
         document.getElementById('lightbox-img').src = src;
         document.getElementById('lightbox-caption').innerText = title;
         lightbox.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
+        document.body.style.overflow = 'hidden'; // Stop scrolling background
     }
 
     function closeLightbox() {
         document.getElementById('lightbox').style.display = 'none';
-        document.body.style.overflow = 'auto';
+        document.body.style.overflow = 'auto'; // Re-enable scrolling
     }
 </script>
 
