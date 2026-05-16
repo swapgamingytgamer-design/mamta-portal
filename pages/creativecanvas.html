@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creative Canvas | Mamta Modern School</title>
+    <title>Creative Canvas Submission | Mamta Modern School</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root { --midnight: #001f3f; --gold: #d4af37; --white: #ffffff; --silver: #f4f7f6; --text: #333; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, sans-serif; }
         body { background-color: var(--white); color: var(--text); }
 
-        /* HEADER (Matches Master Design) */
+        /* HEADER (Master Design) */
         header { background: var(--white); padding: 10px 6%; display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid var(--midnight); box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         .logo-main img { height: 90px; }
         .header-center { text-align: center; flex-grow: 1; }
@@ -19,39 +19,37 @@
         .header-actions { text-align: right; }
         .contact-row a { text-decoration: none; color: var(--midnight); font-weight: 700; margin-left: 20px; font-size: 0.9rem; display: inline-flex; align-items: center; }
         .social-row { display: flex; justify-content: flex-end; align-items: center; gap: 15px; margin-top: 10px; }
-        .social-row a i { color: var(--midnight); font-size: 1.3rem; transition: 0.3s; }
-        .social-row a:hover i { color: var(--gold); }
-        .branch-logo { height: 40px; width: 40px; border-radius: 50%; border: 2px solid var(--gold); cursor: pointer; transition: 0.3s; }
+        .branch-logo { height: 40px; width: 40px; border-radius: 50%; border: 2px solid var(--gold); }
 
         /* NAVIGATION */
         nav { background: var(--midnight); display: flex; justify-content: center; position: sticky; top: 0; z-index: 1000; }
         nav a { color: white; padding: 20px 25px; text-decoration: none; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
         nav a:hover { background: var(--gold); color: var(--midnight); }
 
-        /* CREATIVE CANVAS CONTENT */
-        .canvas-container { padding: 60px 10%; }
-        .section-header { text-align: center; margin-bottom: 50px; }
-        .section-header h2 { color: var(--midnight); font-size: 2.5rem; text-transform: uppercase; letter-spacing: 2px; }
-        .section-header p { color: #666; font-style: italic; margin-top: 10px; font-size: 1.1rem; }
-        .section-header div { width: 100px; height: 4px; background: var(--gold); margin: 15px auto; }
+        /* FORM CONTAINER */
+        .submission-section { padding: 60px 10%; background: var(--white); }
+        .section-header { text-align: center; margin-bottom: 40px; }
+        .section-header h2 { color: var(--midnight); font-size: 2.5rem; text-transform: uppercase; }
+        .section-header div { width: 80px; height: 4px; background: var(--gold); margin: 15px auto; }
+        .section-header p { color: #666; font-style: italic; }
 
-        /* MASONRY GALLERY LAYOUT */
-        .art-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; }
-        .art-item { position: relative; overflow: hidden; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); height: 350px; background: var(--silver); transition: transform 0.4s ease; }
-        .art-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-        
-        .art-overlay { position: absolute; bottom: -100%; left: 0; width: 100%; background: rgba(0, 31, 63, 0.9); color: white; padding: 20px; transition: 0.4s ease-in-out; }
-        .art-item:hover .art-overlay { bottom: 0; }
-        .art-item:hover img { transform: scale(1.1); filter: brightness(50%); }
-        
-        .art-title { color: var(--gold); font-weight: 800; font-size: 1.2rem; display: block; margin-bottom: 5px; }
-        .art-artist { font-size: 0.9rem; font-weight: 500; opacity: 0.9; }
+        .canvas-form { max-width: 700px; margin: 0 auto; background: var(--silver); padding: 40px; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); border-top: 8px solid var(--gold); }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-weight: 700; color: var(--midnight); margin-bottom: 8px; font-size: 0.9rem; text-transform: uppercase; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 1rem; }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--midnight); outline: none; }
 
-        /* FOOTER (Matches Master) */
+        .submit-btn { width: 100%; background: var(--midnight); color: white; padding: 18px; border: none; border-radius: 10px; font-weight: 800; font-size: 1.1rem; cursor: pointer; transition: 0.3s; text-transform: uppercase; letter-spacing: 2px; }
+        .submit-btn:hover { background: var(--gold); color: var(--midnight); transform: translateY(-3px); }
+
+        /* FOOTER (Master Design) */
         footer { background: var(--midnight); color: white; padding: 50px 10% 20px 10%; text-align: center; margin-top: 60px; }
         .footer-line { width: 100%; height: 1px; background: rgba(255,255,255,0.1); margin: 30px 0; }
         .credits { font-size: 0.9rem; color: #aaa; }
         .credits b { color: var(--gold); }
+
+        @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -88,64 +86,55 @@
         <a href="admission.html">Admissions</a>
         <a href="creativecanvas.html">poem submmision</a>
         <a href="complaints.html">Complaints</a>
-    </nav>
+</nav>
 
-<div class="canvas-container">
+
+<div class="submission-section">
     <div class="section-header">
-        <h2>Creative Canvas</h2>
-        <p>"Every child is an artist. The problem is how to remain an artist once we grow up."</p>
+        <h2>Creative Canvas Submission</h2>
+        <p>Showcase your talent. Submit your art, poems, or stories below.</p>
         <div></div>
     </div>
 
-    <div class="art-gallery">
-        <div class="art-item">
-            <img src="../assets/art/painting1.jpg" alt="Student Artwork" onerror="this.src='https://via.placeholder.com/400x500?text=Student+Painting'">
-            <div class="art-overlay">
-                <span class="art-title">The Golden Jubilee Tribute</span>
-                <p class="art-artist">by Aryan Sharma, Class VIII-C</p>
+    <form action="https://api.web3forms.com/submit" method="POST" class="canvas-form">
+        <input type="hidden" name="access_key" value="6984aa09-04d4-4a31-98ff-65cb3209cf62">
+        <input type="hidden" name="subject" value="New Creative Canvas Entry">
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>Student Name *</label>
+                <input type="text" name="student_name" placeholder="Full Name" required>
+            </div>
+            <div class="form-group">
+                <label>Class & Section *</label>
+                <input type="text" name="class_section" placeholder="e.g. VII-A" required>
             </div>
         </div>
 
-        <div class="art-item">
-            <img src="../assets/art/sketch1.jpg" alt="Student Sketch" onerror="this.src='https://via.placeholder.com/400x500?text=Pencil+Sketch'">
-            <div class="art-overlay">
-                <span class="art-title">Nature's Serenity</span>
-                <p class="art-artist">by Diya Verma, Class X-A</p>
-            </div>
+        <div class="form-group">
+            <label>Submission Category *</label>
+            <select name="category" required>
+                <option value="" disabled selected>Select Category</option>
+                <option value="Painting/Sketching">Painting/Sketching</option>
+                <option value="Poem">Poem</option>
+                <option value="Short Story">Short Story</option>
+                <option value="Digital Art">Digital Art</option>
+                <option value="Photography">Photography</option>
+            </select>
         </div>
 
-        <div class="art-item">
-            <img src="../assets/art/digital_art.jpg" alt="Digital Art" onerror="this.src='https://via.placeholder.com/400x500?text=Digital+Art'">
-            <div class="art-overlay">
-                <span class="art-title">Future Horizons</span>
-                <p class="art-artist">by Swapneil Jha, Class VII</p>
-            </div>
+        <div class="form-group">
+            <label>Work Title *</label>
+            <input type="text" name="work_title" placeholder="Give your work a title" required>
         </div>
 
-        <div class="art-item">
-            <img src="../assets/art/craft1.jpg" alt="3D Model" onerror="this.src='https://via.placeholder.com/400x500?text=Craft+Project'">
-            <div class="art-overlay">
-                <span class="art-title">Historical Architecture</span>
-                <p class="art-artist">by Ananya Singh, Class VI-B</p>
-            </div>
+        <div class="form-group">
+            <label>Your Content / Description *</label>
+            <textarea name="content" rows="8" placeholder="Type your poem/story here, or describe your artwork in detail..." required></textarea>
         </div>
 
-        <div class="art-item">
-            <img src="../assets/art/painting2.jpg" alt="Acrylic Painting" onerror="this.src='https://via.placeholder.com/400x500?text=Acrylic+Art'">
-            <div class="art-overlay">
-                <span class="art-title">Colors of India</span>
-                <p class="art-artist">by Rahul Kapoor, Class XII-B</p>
-            </div>
-        </div>
-
-        <div class="art-item">
-            <img src="../assets/art/photography1.jpg" alt="Student Photography" onerror="this.src='https://via.placeholder.com/400x500?text=Photography'">
-            <div class="art-overlay">
-                <span class="art-title">Sunset over Vikaspuri</span>
-                <p class="art-artist">by Ishaan Gupta, Class XI-S</p>
-            </div>
-        </div>
-    </div>
+        <button type="submit" class="submit-btn">Submit to Creative Cell</button>
+    </form>
 </div>
 
 <footer>
