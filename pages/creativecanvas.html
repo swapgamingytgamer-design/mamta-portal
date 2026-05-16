@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Canvas | Mamta Modern School</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --midnight: #001f3f; --gold: #d4af37; --white: #ffffff; --silver: #f4f7f6; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        
+        header { background: var(--white); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid var(--midnight); }
+        .h-left img { height: 90px; }
+        .h-right-principal img { height: 85px; width: 70px; border: 2px solid var(--gold); border-radius: 8px; object-fit: cover; }
+        
+        nav { background: var(--midnight); display: flex; justify-content: center; position: sticky; top: 0; z-index: 1000; }
+        nav a { color: white; padding: 18px 20px; text-decoration: none; font-weight: bold; font-size: 0.8rem; text-transform: uppercase; }
+        nav a:hover { color: var(--gold); }
+
+        .hero-banner { background: linear-gradient(rgba(0,31,63,0.85), rgba(0,31,63,0.85)), url('../assets/campus/creative.jpg'); background-size: cover; padding: 80px 10%; text-align: center; color: white; }
+        .hero-banner h1 { font-size: 2.8rem; margin-bottom: 10px; }
+
+        /* ART GALLERY SECTION */
+        .section-title { text-align: center; padding-top: 50px; color: var(--midnight); font-size: 2rem; position: relative; }
+        .section-title::after { content: ''; display: block; width: 50px; height: 3px; background: var(--gold); margin: 10px auto; }
+
+        .art-grid { padding: 30px 10% 50px 10%; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; background: white; }
+        .art-card { background: var(--silver); border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .art-img { height: 250px; background: #000; }
+        .art-img img { width: 100%; height: 100%; object-fit: contain; }
+        .art-info { padding: 20px; text-align: center; }
+        .art-info p { color: var(--gold); font-weight: bold; margin-top: 5px; }
+
+        /* POETRY CORNER SECTION */
+        .poetry-section { background: var(--silver); padding: 60px 10%; }
+        .poem-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+        
+        .poem-card { 
+            background: #fffdf5; /* Paper Color */
+            padding: 40px; 
+            border: 1px solid #e0d9c0;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.05);
+            position: relative;
+            line-height: 1.8;
+            font-style: italic;
+        }
+        .poem-card::before { 
+            content: "\f10d"; font-family: "Font Awesome 6 Free"; font-weight: 900;
+            position: absolute; top: 20px; left: 20px; color: #ddd; font-size: 2rem;
+        }
+        .poem-card h3 { font-style: normal; color: var(--midnight); margin-bottom: 15px; border-bottom: 1px solid var(--gold); padding-bottom: 5px; }
+        .poem-author { margin-top: 20px; font-weight: bold; color: var(--midnight); font-style: normal; text-align: right; }
+
+        .submit-section { background: var(--midnight); color: white; padding: 50px 10%; text-align: center; }
+        .btn-submit { background: var(--gold); color: var(--midnight); padding: 15px 35px; text-decoration: none; font-weight: bold; border-radius: 50px; display: inline-block; margin-top: 20px; }
+
+        footer { background: var(--midnight); color: white; text-align: center; padding: 30px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="h-left"><img src="../assets/people/logo.png"></div>
+    <div class="h-right-principal"><img src="../assets/people/principal.jpg"></div>
+</header>
+
+<nav>
+        <a href="../index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="policies.html">Policies</a>
+        <a href="suppliers.html">Suppliers</a>
+        <a href="circulars.html">Circulars</a>
+        <a href="admission.html">Admissions</a>
+        <a href="creativecanvas.html">Creative Canvas</a>
+        <a href="complaints.html">Complaints</a>
+    </nav>
+
+<div class="hero-banner">
+    <h1>The Creative Canvas</h1>
+    <p>Where Art Meets Soul at Mamta Modern School</p>
+</div>
+
+<h2 class="section-title">Visual Masterpieces</h2>
+<div class="art-grid">
+    <div class="art-card">
+        <div class="art-img"><img src="../assets/art/art1.jpg" onerror="this.src='https://via.placeholder.com/300x250?text=Student+Artwork'"></div>
+        <div class="art-info"><h3>"The Modern Vision"</h3><p>By Grade 9 Students</p></div>
+    </div>
+    <div class="art-card">
+        <div class="art-img"><img src="../assets/art/art2.jpg" onerror="this.src='https://via.placeholder.com/300x250?text=Student+Artwork'"></div>
+        <div class="art-info"><h3>"Cultural Roots"</h3><p>By Grade 12 Students</p></div>
+    </div>
+</div>
+
+<div class="poetry-section">
+    <h2 class="section-title">The Poetry Corner</h2>
+    <div class="poem-container">
+        
+        <div class="poem-card">
+            <h3>We Build the Nation</h3>
+            <p>From the roots of seventy-three,<br>
+               A journey of excellence, for all to see.<br>
+               In the green lawns where dreams take flight,<br>
+               We learn to lead with all our might.<br>
+               With books in hand and a goal in view,<br>
+               We build the nation, bold and new.</p>
+            <div class="poem-author">— By A Senior Student</div>
+        </div>
+
+        <div class="poem-card">
+            <h3>On the Field of Gold</h3>
+            <p>Seven thousand meters of green and wide,<br>
+               Where champions play with heart and pride.<br>
+               From Subroto's win to Chhetri's name,<br>
+               We play for love, we play for fame.<br>
+               Under the gold and midnight blue,<br>
+               Every Mamta student stays true.</p>
+            <div class="poem-author">— By Junior Literary Club</div>
+        </div>
+
+    </div>
+</div>
+
+<div class="submit-section">
+    <h2>Share Your Voice</h2>
+    <p>Whether it is a sketch, a poem, or a digital project—your creativity belongs here.</p>
+    <a href="complaints.html" class="btn-submit">Submit Your Contribution</a>
+</div>
+
+<footer><p>© 2026 Mamta Modern School | Developed by <b>Swapneil Jha</b></p></footer>
+
+</body>
+</html>
