@@ -149,6 +149,90 @@ nav a:hover {
     height: 100%; 
     border: none; 
 }
+/* PRINCIPAL SECTION STYLES */
+.principal-section {
+    padding: 80px 10%;
+    background-color: var(--white);
+}
+
+.principal-container {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+    background: var(--silver);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.principal-image {
+    flex: 1;
+    position: relative;
+    max-width: 400px;
+}
+
+.principal-image img {
+    width: 100%;
+    border-radius: 15px;
+    border: 5px solid var(--white);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.principal-name {
+    background: var(--midnight);
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: -30px;
+    position: relative;
+    z-index: 5;
+    border-bottom: 3px solid var(--gold);
+}
+
+.principal-name h3 { font-size: 1.2rem; text-transform: uppercase; }
+.principal-name p { font-size: 0.8rem; color: var(--gold); font-weight: 600; }
+
+.principal-text { flex: 2; }
+
+.quote-box {
+    background: var(--white);
+    padding: 20px;
+    border-left: 5px solid var(--gold);
+    margin-bottom: 25px;
+    border-radius: 0 10px 10px 0;
+}
+
+.quote-box p { font-style: italic; color: #555; font-size: 1.1rem; }
+.quote-box span { display: block; margin-top: 10px; font-weight: 700; color: var(--midnight); }
+
+.principal-text h2 { 
+    color: var(--midnight); 
+    font-size: 2.2rem; 
+    margin-bottom: 20px; 
+    text-transform: uppercase;
+}
+
+.message-content p {
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 15px;
+    font-size: 1.05rem;
+}
+
+.closing {
+    font-weight: 700;
+    color: var(--midnight);
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
+}
+
+/* Responsive adjustment */
+@media (max-width: 992px) {
+    .principal-container { flex-direction: column; align-items: center; }
+    .principal-text { text-align: center; }
+    .quote-box { text-align: left; }
+}
 
 /* MAP & CONTACT GRID */
 .contact-map-section { 
@@ -313,6 +397,38 @@ footer {
 <section class="welcome">
     <h2>Welcome to Mamta Modern School</h2>
     <p>Established with a vision to nurture confident and creative minds, we provide a holistic learning environment in the heart of Vikaspuri. From academic excellence to vibrant extracurriculars, we ensure every child shines.</p>
+</section>
+<section class="principal-section">
+    <div class="principal-container">
+        <div class="principal-image">
+            <img src="assets/people/principal.jpg" alt="Ms. Pallavi Sharma - Principal" onerror="this.src='https://via.placeholder.com/400x500?text=Principal+Photo'">
+            <div class="principal-name">
+                <h3>Ms. Pallavi Sharma</h3>
+                <p>Principal & National Awardee</p>
+            </div>
+        </div>
+
+        <div class="principal-text">
+            <div class="quote-box">
+                <i class="fa-solid fa-quote-left"></i>
+                <p>Excellence is not a destination; it is a continuous journey that never ends.</p>
+                <span>– Dr. A.P.J. Abdul Kalam</span>
+            </div>
+            
+            <h2>Principal's Message</h2>
+            <div class="message-content">
+                <p>This year marks a monumental milestone for Mamta Modern Senior Secondary School as we proudly celebrate the <strong>Golden Jubilee</strong> of our inception. Adding to this momentous occasion, I am deeply honored to have been awarded the prestigious <strong>National Teachers Award</strong>.</p>
+                
+                <p>I extend my heartfelt gratitude to the Almighty, our visionary management, supportive parents, and dedicated students for their unwavering support. This accolade is a testament to the collective dedication of our school community.</p>
+                
+                <p>Over the years, our school has consistently excelled—from outstanding CBSE Board Results to victories in Zonal and Inter-Zonal Competitions. As we celebrate, we reaffirm our commitment to fostering innovation and sustainability, aligning our vision with the UN’s Sustainable Development Goals (SDGs).</p>
+                
+                <p>To my dear students, I urge you to continue striving for excellence. Together, we will shape a future filled with promise and achievement.</p>
+                
+                <p class="closing">Best wishes for an extraordinary year ahead!</p>
+            </div>
+        </div>
+    </div>
 </section>
 
 <section class="contact-map-section">
