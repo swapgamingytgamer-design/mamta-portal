@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Mamta Modern School</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --midnight: #001f3f; --accent: #d4af37; --white: #ffffff; --bg: #f4f7f6; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial Black', sans-serif; }
+        body { background: var(--bg); color: #333; line-height: 1.6; }
+
+        /* HEADER & NAV */
+        header { background: var(--white); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #eee; }
+        .h-left img { height: 100px; }
+        .h-center h1 { color: var(--midnight); font-size: 2.3rem; margin: 0; }
+        .h-center p { color: var(--accent); font-size: 0.9rem; font-weight: bold; }
+        
+        nav { background: var(--midnight); padding: 0 5%; display: flex; justify-content: center; position: sticky; top: 0; z-index: 1000; }
+        nav a { color: white; padding: 18px 20px; text-decoration: none; font-weight: bold; font-size: 0.85rem; text-transform: uppercase; }
+        nav a:hover { color: var(--accent); }
+
+        /* CONTENT STYLING */
+        .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+        .about-card { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 30px; border-top: 8px solid var(--midnight); }
+        
+        h2 { color: var(--midnight); margin-bottom: 20px; border-bottom: 2px solid var(--accent); display: inline-block; padding-bottom: 5px; }
+        p { font-family: 'Arial', sans-serif; margin-bottom: 20px; font-size: 1.05rem; color: #444; text-align: justify; }
+        
+        .grid-info { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 30px 0; }
+        .info-box { background: #f9fbff; padding: 25px; border-radius: 15px; border-left: 5px solid var(--accent); }
+        .info-box h4 { color: var(--midnight); margin-bottom: 10px; text-transform: uppercase; font-size: 0.9rem; }
+
+        /* TABLE STYLING */
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-family: 'Arial', sans-serif; background: white; border-radius: 10px; overflow: hidden; }
+        th { background: var(--midnight); color: white; text-align: left; padding: 15px; }
+        td { padding: 12px 15px; border-bottom: 1px solid #eee; }
+        tr:nth-child(even) { background: #f8f9fa; }
+
+        .highlight-box { background: var(--midnight); color: white; padding: 30px; border-radius: 20px; margin-top: 40px; text-align: center; }
+        .highlight-box h3 { color: var(--accent); font-size: 1.8rem; margin-bottom: 10px; }
+
+        footer { background: var(--midnight); color: white; padding: 40px; text-align: center; margin-top: 50px; }
+        footer b { color: var(--accent); }
+
+        @media (max-width: 768px) { .grid-info { grid-template-columns: 1fr; } header { flex-direction: column; text-align: center; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="h-left"><img src="../assets/people/logo.png" onerror="this.src='https://via.placeholder.com/100'"></div>
+        <div class="h-center"><h1>MAMTA MODERN SCHOOL</h1><p>NURTURING EXCELLENCE SINCE 1973</p></div>
+        <div class="h-right"></div>
+    </header>
+    
+    <nav>
+    <a href="../index.html">Home</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="circulars.html">Circulars</a>
+    <a href="admission.html">Admissions</a>
+    <a href="complaints.html">Complaints</a>
+    <a href="suppliers.html">Suppliers</a>
+    <a href="policies.html">Policies</a>
+    <a href="pages/about.html">About Us</a>
+    </nav>
+
+    <div class="container">
+        
+        <section class="about-card">
+            <h2>Our Legacy</h2>
+            <p>Established in 1973, Mamta Modern School has emerged as a prestigious institution in West Delhi. Recognized by the Directorate of Education, Govt of NCT, Delhi, and affiliated with the CBSE (Affiliation No. 2730133) since 1986, we impart quality education across Science, Commerce, and Humanities streams.</p>
+            <p>The school is managed by the Mamta Modern Education Society and guided by a Managing Committee of experts. Shri Manoj Sharma serves as the present Manager of the school.</p>
+        </section>
+
+        <section class="about-card">
+            <h2>Campus & Infrastructure</h2>
+            <p>Our campus spans approximately 4 acres of DDA-allotted land, featuring a towering building and lush green lawns. We provide an environment that is both visually soothing and intellectually stimulating for our students.</p>
+            
+            <div class="grid-info">
+                <div class="info-box">
+                    <h4>Sports Facilities</h4>
+                    <p>7300 Sq. Meter playground. Proud winners of the "SUBROTO CUP" (1998). Nursery for players like Sunil Chhetri, Indian Football Team Captain.</p>
+                </div>
+                <div class="info-box">
+                    <h4>Learning Resources</h4>
+                    <p>A massive library with over 18,000 books covering History, Sports, Culture, and more to keep students and staff updated.</p>
+                </div>
+                <div class="info-box">
+                    <h4>Transport</h4>
+                    <p>A fleet of 10 self-owned and 5 hired buses, accompanied by responsible staff members to ensure student safety.</p>
+                </div>
+                <div class="info-box">
+                    <h4>Special Facilities</h4>
+                    <p>Gymnasium, Music Rooms, Dance Rooms, and comprehensive Health & Medical checkup facilities.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-card">
+            <h2>Grievance & Safety Committees</h2>
+            
+            <h3>Grievance Cell</h3>
+            <table>
+                <thead>
+                    <tr><th>S. No.</th><th>Member Name</th><th>Post</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>Mrs. Pallavi Sharma</td><td>Principal</td></tr>
+                    <tr><td>2</td><td>Mrs. Shalini Choudhary</td><td>Incharge</td></tr>
+                </tbody>
+            </table>
+
+            <br>
+            <h3>Sexual Harassment Committee</h3>
+            <table>
+                <thead>
+                    <tr><th>S. No.</th><th>Member Name</th><th>Post</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>Mrs. Pallavi Sharma</td><td>Principal</td></tr>
+                    <tr><td>2</td><td>Mrs. Bharti Jain</td><td>Teacher</td></tr>
+                    <tr><td>3</td><td>Mrs. Ritu Kalra</td><td>Teacher</td></tr>
+                    <tr><td>4</td><td>Mrs. Gurpreet Kaushik</td><td>Teacher</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="about-card">
+            <h2>Academic Details</h2>
+            <div class="grid-info">
+                <div class="info-box">
+                    <h4>Academic Session</h4>
+                    <p>1st April to 31st March</p>
+                </div>
+                <div class="info-box">
+                    <h4>Vacation Period</h4>
+                    <p>Summer: 15th May to 30th June<br>Winter: 29th Dec to 12th Jan</p>
+                </div>
+            </div>
+            <p>Admission for entry-level begins from 1st January onwards, following guidelines issued by the Education Department.</p>
+        </section>
+
+        <div class="highlight-box">
+            <h3>"WE BUILD THOSE, WHO BUILD THE NATION"</h3>
+            <p>Our commitment is to provide quality education and inculcate a strong sense of ethics in every student.</p>
+        </div>
+
+    </div>
+
+    <footer><p>© 2026 Mamta Modern School | Developed by <b>Swapneil Jha</b></p></footer>
+
+</body>
+</html>
