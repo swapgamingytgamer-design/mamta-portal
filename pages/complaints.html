@@ -3,148 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Complaints & Suggestions | Mamta Modern School</title>
+    <title>Grievance Cell | Mamta Modern School</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --midnight: #001f3f; --accent: #d4af37; --white: #ffffff; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial Black', sans-serif; }
-        body { background: #f4f7f6; color: #333; overflow-x: hidden; }
-
-        /* HEADER */
-        header { background: var(--white); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #eee; }
-        .h-left img { height: 100px; }
-        .h-center { flex-grow: 1; padding-left: 30px; }
-        .h-center h1 { color: #001f3f; font-size: 2.3rem; margin: 0; line-height: 1.1; }
-        .h-center p { color: var(--accent); font-size: 0.9rem; font-weight: bold; margin-top: 8px; }
-        .h-right { text-align: right; display: flex; flex-direction: column; gap: 6px; min-width: 300px; }
-        .info-txt { font-weight: 900; color: #001f3f; font-size: 1.1rem; display: flex; justify-content: flex-end; align-items: center; }
-        .info-txt a { text-decoration: none; color: inherit; }
-        .info-txt i { color: var(--midnight); margin-right: 10px; font-size: 1.2rem; }
-        .soc-row { display: flex; justify-content: flex-end; gap: 15px; margin-top: 5px; }
-        .soc-row a { font-size: 1.9rem; text-decoration: none; transition: 0.3s; }
-        .fa-facebook { color: #1877F2; } .fa-youtube { color: #FF0000; } .fa-instagram { color: #E4405F; }
-
-        /* NAVIGATION */
-        nav { background: #001f3f; padding: 0 5%; display: flex; justify-content: center; position: sticky; top: 0; z-index: 1000; }
-        nav a { color: white; padding: 18px 25px; text-decoration: none; font-weight: bold; font-size: 0.85rem; text-transform: uppercase; }
-        nav a:hover { color: var(--accent); background: rgba(255,255,255,0.1); }
-
-        /* FORM CONTAINER */
-        .container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
-        .form-card { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 12px solid var(--midnight); }
-        .form-card h2 { color: var(--midnight); margin-bottom: 10px; text-align: center; font-size: 2rem; }
-        .form-card p.intro { text-align: center; font-family: 'Arial', sans-serif; color: #666; margin-bottom: 35px; }
-
-        /* FORM ELEMENTS */
-        .form-group { margin-bottom: 22px; text-align: left; }
-        .form-group label { display: block; margin-bottom: 8px; color: var(--midnight); font-size: 0.95rem; font-weight: bold; }
-        .required-star { color: #ff4d4d; margin-left: 3px; }
-        
-        .form-group input, .form-group select, .form-group textarea {
-            width: 100%; padding: 14px; border: 2px solid #e1e1e1; border-radius: 10px; font-family: 'Arial', sans-serif; font-size: 1rem; outline: none; transition: 0.3s;
-        }
-        .form-group input:focus, .form-group textarea:focus { border-color: var(--midnight); background: #f9fbff; box-shadow: 0 0 8px rgba(0,31,63,0.1); }
-        
-        .submit-btn { 
-            background: var(--midnight); color: var(--accent); width: 100%; padding: 18px; border: 2px solid var(--accent); 
-            border-radius: 12px; font-weight: bold; font-size: 1.2rem; cursor: pointer; transition: 0.4s; margin-top: 15px;
-            text-transform: uppercase; letter-spacing: 1px;
-        }
-        .submit-btn:hover { background: var(--accent); color: var(--midnight); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(212,175,55,0.3); }
-
-        footer { background: #001f3f; color: white; padding: 40px; text-align: center; margin-top: 60px; }
-        footer b { color: var(--accent); }
-
-        /* MOBILE RESPONSIVENESS */
-        @media (max-width: 800px) {
-            header { flex-direction: column; text-align: center; }
-            .h-center { padding: 15px 0; }
-            .h-right { text-align: center; width: 100%; }
-            .info-txt, .soc-row { justify-content: center; }
-            .form-card { padding: 25px; }
-        }
+        :root { --midnight: #001f3f; --gold: #d4af37; --white: #ffffff; --silver: #f4f7f6; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        header { background: var(--white); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid var(--midnight); }
+        .h-left img { height: 90px; }
+        .h-right-principal img { height: 85px; width: 70px; border: 2px solid var(--gold); border-radius: 8px; object-fit: cover; }
+        nav { background: var(--midnight); display: flex; justify-content: center; position: sticky; top: 0; z-index: 1000; }
+        nav a { color: white; padding: 18px 20px; text-decoration: none; font-weight: bold; font-size: 0.8rem; text-transform: uppercase; }
+        .content { padding: 60px 10%; background: white; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 40px; }
+        th, td { border: 1px solid #ddd; padding: 15px; text-align: left; }
+        th { background: var(--midnight); color: white; }
+        .form-box { background: var(--silver); padding: 30px; border-radius: 10px; margin-top: 40px; }
+        input, textarea, button { width: 100%; padding: 12px; margin-top: 10px; border-radius: 5px; border: 1px solid #ccc; }
+        button { background: var(--midnight); color: white; font-weight: bold; cursor: pointer; }
+        footer { background: var(--midnight); color: white; text-align: center; padding: 30px; }
     </style>
 </head>
 <body>
     <header>
-        <div class="h-left"><img src="../assets/people/logo.png" onerror="this.src='https://via.placeholder.com/100'"></div>
-        <div class="h-center"><h1>MAMTA MODERN SCHOOL</h1><p>NURTURING EXCELLENCE SINCE 1973</p></div>
-        <div class="h-right">
-            <div class="info-txt"><a href="tel:+911145614501"><i class="fa-solid fa-phone"></i>+91-11-45614501</a></div>
-            <div class="info-txt" style="font-size: 0.85rem;"><a href="mailto:mamtamodernschool@gmail.com"><i class="fa-solid fa-envelope"></i>mamtamodernschool@gmail.com</a></div>
-            <div class="soc-row">
-                <a href="https://www.facebook.com/MamtaModernSeniorSecondarySchoolVikasPuri/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-                <a href="https://www.youtube.com/@MamtaModernSchoolVikasPuri" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-                <a href="https://www.instagram.com/mamtamodernschool/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-            </div>
-        </div>
+        <div class="h-left"><img src="../assets/people/logo.png"></div>
+        <div class="h-right-principal"><img src="../assets/people/principal.jpg"></div>
     </header>
-    
     <nav>
-    <a href="../index.html">Home</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="circulars.html">Circulars</a>
-    <a href="admission.html">Admissions</a>
-    <a href="complaints.html">Complaints</a>
-    <a href="suppliers.html">Suppliers</a>
-    <a href="policies.html">Policies</a>
-    <a href="about.html">About Us</a>
-    <a href="showcase.html">Showcase</a>
+        <a href="../index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="complaints.html" style="color:var(--gold);">Grievance</a>
+        <a href="admission.html">Admissions</a>
     </nav>
 
-    <div class="container">
-        <div class="form-card">
-            <h2>Grievance & Feedback</h2>
-            <p class="intro">Your voice matters to us. Please fill in the details below accurately.</p>
-            
+    <div class="content">
+        <h2>Grievance Cell</h2>
+        <table>
+            <tr><th>S.No</th><th>Member Name</th><th>Post</th></tr>
+            <tr><td>1</td><td>Mrs. Pallavi Sharma</td><td>Principal</td></tr>
+            <tr><td>2</td><td>Mrs. Shalini Choudhary</td><td>Incharge</td></tr>
+        </table>
+
+        <h2>Sexual Harassment Committee</h2>
+        <table>
+            <tr><th>S.No</th><th>Member Name</th><th>Post</th></tr>
+            <tr><td>1</td><td>Mrs. Pallavi Sharma</td><td>Principal</td></tr>
+            <tr><td>2</td><td>Mrs. Bharti Jain</td><td>Teacher</td></tr>
+            <tr><td>3</td><td>Mrs. Ritu Kalra</td><td>Teacher</td></tr>
+            <tr><td>4</td><td>Mrs. Gurpreet Kaushik</td><td>Teacher</td></tr>
+        </table>
+
+        <div class="form-box">
+            <h3>Submit a Complaint/Grievance</h3>
+            <p>All grievances are patiently heard and resolved by our senior staff.</p>
             <form action="https://api.web3forms.com/submit" method="POST">
-                <input type="hidden" name="access_key" value="6984aa09-04d4-4a31-98ff-65cb3209cf62">
-                <input type="hidden" name="subject" value="New Website Grievance Entry">
-                <input type="hidden" name="from_name" value="Mamta Modern Portal">
-
-                <div class="form-group">
-                    <label>Full Name <span class="required-star">*</span></label>
-                    <input type="text" name="name" placeholder="Enter student or parent name" required>
-                </div>
-
-                <div class="form-group">
-                    <label>Class & Section <span class="required-star">*</span></label>
-                    <input type="text" name="class_section" placeholder="e.g. 7th - B" required>
-                </div>
-
-                <div class="form-group">
-                    <label>Parent's Contact Number <span class="required-star">*</span></label>
-                    <input 
-                        type="tel" 
-                        name="phone" 
-                        placeholder="10-digit mobile number" 
-                        pattern="[0-9]{10}" 
-                        title="Please enter exactly 10 digits" 
-                        required
-                    >
-                </div>
-
-                <div class="form-group">
-                    <label>Nature of Submission</label>
-                    <select name="entry_type">
-                        <option value="Complaint">Complaint</option>
-                        <option value="Suggestion">Suggestion</option>
-                        <option value="General Feedback">General Feedback</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label>Message/Complaint Details <span class="required-star">*</span></label>
-                    <textarea name="message" rows="6" placeholder="Describe your concern or suggestion in detail..." required></textarea>
-                </div>
-
-                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-
-                <button type="submit" class="submit-btn">Submit to School Office</button>
+                <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea rows="5" placeholder="Describe your grievance..."></textarea>
+                <button type="submit">Submit to Grievance Cell</button>
             </form>
         </div>
     </div>
-
     <footer><p>© 2026 Mamta Modern School | Developed by <b>Swapneil Jha</b></p></footer>
 </body>
 </html>

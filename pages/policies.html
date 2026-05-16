@@ -3,105 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Policies | Mamta Modern School</title>
+    <title>Privacy & Fee Policies | Mamta Modern School</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --midnight: #001f3f; --accent: #d4af37; --white: #ffffff; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial Black', sans-serif; }
-        body { background: #f4f7f6; color: #333; }
-
-        /* UNIFIED HEADER */
-        header { background: var(--white); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #eee; }
-        .h-left img { height: 100px; }
-        .h-center { flex-grow: 1; padding-left: 30px; }
-        .h-center h1 { color: #001f3f; font-size: 2.3rem; margin: 0; line-height: 1; text-align: left; }
-        .h-center p { color: var(--accent); font-size: 0.9rem; font-weight: bold; margin-top: 8px; text-align: left; }
-        .h-right { text-align: right; display: flex; flex-direction: column; gap: 6px; min-width: 300px; }
-        .info-txt { font-weight: 900; color: #001f3f; font-size: 1.1rem; font-family: 'Arial', sans-serif; display: flex; justify-content: flex-end; align-items: center; }
-        .info-txt a { text-decoration: none; color: inherit; }
-        .info-txt i { color: var(--midnight); margin-right: 10px; font-size: 1.2rem; }
-        
-        .soc-row { display: flex; justify-content: flex-end; gap: 15px; margin-top: 5px; }
-        .soc-row a { font-size: 1.9rem; text-decoration: none; }
-        .fa-facebook { color: #1877F2; } .fa-youtube { color: #FF0000; } .fa-instagram { color: #E4405F; }
-
-        /* NAV */
-        nav { background: #001f3f; padding: 0 5%; display: flex; justify-content: center; position: sticky; top: 0; z-index: 1000; }
-        nav a { color: white; padding: 18px 25px; text-decoration: none; font-weight: bold; font-size: 0.85rem; text-transform: uppercase; }
-        nav a:hover { color: var(--accent); background: rgba(255,255,255,0.1); }
-
-        /* POLICY CONTENT */
-        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
-        .p-card { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 30px; }
-        .p-card h2 { color: var(--midnight); border-left: 6px solid var(--accent); padding-left: 15px; margin-bottom: 20px; }
-        .p-card p, .p-card li { font-family: 'Arial', sans-serif; font-weight: normal; line-height: 1.7; color: #444; margin-bottom: 12px; }
-        .p-card ul { margin-left: 20px; list-style-type: square; }
-        .p-card b { color: var(--midnight); }
-
-        footer { background: #001f3f; color: white; padding: 40px; text-align: center; margin-top: 50px; }
-        footer b { color: var(--accent); }
-
-        @media (max-width: 900px) { header { flex-direction: column; text-align: center; } .h-center { padding: 15px 0; } .h-right { text-align: center; } .soc-row, .info-txt { justify-content: center; } }
+        :root { --midnight: #001f3f; --gold: #d4af37; --white: #ffffff; --silver: #f4f7f6; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        header { background: var(--white); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid var(--midnight); }
+        .h-left img { height: 90px; }
+        .h-right-principal img { height: 85px; width: 70px; border: 2px solid var(--gold); border-radius: 8px; object-fit: cover; }
+        nav { background: var(--midnight); display: flex; justify-content: center; position: sticky; top: 0; z-index: 1000; }
+        nav a { color: white; padding: 18px 20px; text-decoration: none; font-weight: bold; font-size: 0.8rem; text-transform: uppercase; }
+        .content { padding: 60px 10%; background: white; line-height: 1.6; color: #333; }
+        .policy-section { margin-bottom: 40px; padding: 30px; border: 1px solid #eee; border-radius: 10px; background: #fff; }
+        .policy-section h2 { color: var(--midnight); margin-bottom: 20px; border-bottom: 2px solid var(--gold); display: inline-block; }
+        .policy-section h3 { color: var(--midnight); margin-top: 20px; margin-bottom: 10px; font-size: 1.1rem; }
+        ul { margin-left: 20px; margin-top: 10px; }
+        li { margin-bottom: 10px; }
+        footer { background: var(--midnight); color: white; text-align: center; padding: 30px; }
     </style>
 </head>
 <body>
     <header>
-        <div class="h-left"><img src="../assets/people/logo.png" onerror="this.src='https://via.placeholder.com/100'"></div>
-        <div class="h-center"><h1>MAMTA MODERN SCHOOL</h1><p>NURTURING EXCELLENCE SINCE 1973</p></div>
-        <div class="h-right">
-            <div class="info-txt"><a href="tel:+911145614501"><i class="fa-solid fa-phone"></i>+91-11-45614501</a></div>
-            <div class="info-txt" style="font-size: 0.85rem;"><a href="mailto:mamtamodernschool@gmail.com"><i class="fa-solid fa-envelope"></i>mamtamodernschool@gmail.com</a></div>
-            <div class="soc-row">
-                <a href="https://www.facebook.com/MamtaModernSeniorSecondarySchoolVikasPuri/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-                <a href="https://www.youtube.com/@MamtaModernSchoolVikasPuri" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-                <a href="https://www.instagram.com/mamtamodernschool/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-            </div>
+        <div class="h-left"><img src="../assets/people/logo.png"></div>
+        <div class="h-right-principal">
+            <div class="p-info" style="text-align:right; margin-right:10px;"><b>Ms. Pallavi Sharma</b><small style="color:var(--gold); font-size:10px; font-weight:bold; display:block;">NATIONAL AWARDEE</small></div>
+            <img src="../assets/people/principal.jpg">
         </div>
     </header>
     <nav>
-    <a href="../index.html">Home</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="circulars.html">Circulars</a>
-    <a href="admission.html">Admissions</a>
-    <a href="complaints.html">Complaints</a>
-    <a href="suppliers.html">Suppliers</a>
-    <a href="policies.html">Policies</a>
-    <a href="about.html">About Us</a>
-    <a href="showcase.html">Showcase</a>
+        <a href="../index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="policies.html" style="color:var(--gold);">Policies</a>
+        <a href="suppliers.html">Suppliers</a>
     </nav>
 
-    <div class="container">
-        <div class="p-card">
-            <h2>Terms & Conditions</h2>
-            <p>By using the online fee payment service, you agree to the following:</p>
-            <ul>
-                <li>Fees once paid through the <b>ICICI payment gateway</b> shall be considered final, subject to school policies.</li>
-                <li>The school is not responsible for transaction failures due to network issues, bank server problems, or technical errors.</li>
-                <li>Users must ensure correct entry of student details before making payment.</li>
-                <li>Any applicable transaction charges imposed by the bank/payment gateway shall be borne by the user.</li>
-                <li>The school reserves the right to update terms without prior notice.</li>
-            </ul>
-        </div>
-
-        <div class="p-card">
+    <div class="content">
+        <div class="policy-section">
             <h2>Privacy Policy</h2>
-            <p>Mamta Modern Sr. Sec. School respects your privacy and ensures the protection of your personal information.</p>
+            <p>Mamta Modern Sr. Sec. School respects your privacy and ensures the protection of your personal information. We collect basic details such as student name, parent name, contact number, and payment details for fee processing.</p>
             <ul>
-                <li>We collect basic details such as student name, parent name, contact number, and payment details for fee processing.</li>
-                <li>All online payments are processed through a secure ICICI Bank payment gateway, ensuring encrypted transactions.</li>
+                <li>All online payments are processed through a secure <b>ICICI Bank payment gateway</b>, ensuring encrypted transactions.</li>
                 <li>We do not store any sensitive payment details such as card numbers, CVV, or net banking credentials.</li>
                 <li>Personal information will not be shared with third parties except as required for payment processing or legal compliance.</li>
-                <li>The website uses appropriate security measures to safeguard user data.</li>
             </ul>
         </div>
 
-        <div class="p-card">
-            <h2>Refund & Cancellation Policy</h2>
+        <div class="policy-section">
+            <h2>Online Fee Terms & Conditions</h2>
+            <p>By using the online fee payment service, you agree to the following:</p>
             <ul>
-                <li>Fee payments once made are <b>non-refundable</b>, except in exceptional cases as per school management approval.</li>
-                <li>In case of duplicate payment or failed transaction with deducted amount, the issue must be reported to the school office with proof of transaction.</li>
-                <li>Approved refunds, if any, will be processed through the original mode of payment within a reasonable time.</li>
-                <li>No cancellation is allowed once the payment is successfully processed.</li>
+                <li>Fees once paid through the ICICI payment gateway shall be considered final, subject to school policies.</li>
+                <li>The school is not responsible for transaction failures due to network issues, bank server problems, or technical errors.</li>
+                <li>Any applicable transaction charges imposed by the bank shall be borne by the user.</li>
+                <li><b>Refunds:</b> Fee payments are non-refundable, except in exceptional cases as per school management approval. Approved refunds will be processed through the original mode of payment.</li>
             </ul>
         </div>
     </div>

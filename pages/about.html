@@ -6,136 +6,63 @@
     <title>About Us | Mamta Modern School</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --midnight: #001f3f; --accent: #d4af37; --white: #ffffff; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial Black', sans-serif; }
-        body { background: #f4f7f6; color: #333; overflow-x: hidden; line-height: 1.6; }
-
-        /* UNIFIED HEADER */
-        header { background: var(--white); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #eee; }
-        .h-left img { height: 100px; }
-        .h-center { flex-grow: 1; padding-left: 30px; }
-        .h-center h1 { color: #001f3f; font-size: 2.3rem; margin: 0; line-height: 1.1; }
-        .h-center p { color: var(--accent); font-size: 0.9rem; font-weight: bold; margin-top: 8px; }
-        .h-right { text-align: right; display: flex; flex-direction: column; gap: 6px; min-width: 300px; }
-        .info-txt { font-weight: 900; color: #001f3f; font-size: 1.1rem; display: flex; justify-content: flex-end; align-items: center; }
-        .info-txt a { text-decoration: none; color: inherit; }
-        .info-txt i { color: var(--midnight); margin-right: 10px; }
-        .soc-row { display: flex; justify-content: flex-end; gap: 15px; margin-top: 5px; }
-        .soc-row a { font-size: 1.9rem; text-decoration: none; }
-        .fa-facebook { color: #1877F2; } .fa-youtube { color: #FF0000; } .fa-instagram { color: #E4405F; }
-
-        /* UNIFIED NAV */
-        nav { background: #001f3f; padding: 0 5%; display: flex; justify-content: center; position: sticky; top: 0; z-index: 1000; }
-        nav a { color: white; padding: 18px 25px; text-decoration: none; font-weight: bold; font-size: 0.85rem; text-transform: uppercase; }
-        nav a:hover { color: var(--accent); background: rgba(255,255,255,0.1); }
-
-        /* CONTENT STYLING */
-        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
-        .about-card { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 30px; border-top: 10px solid var(--midnight); }
-        
-        h2 { color: var(--midnight); margin-bottom: 20px; border-bottom: 3px solid var(--accent); display: inline-block; padding-bottom: 5px; }
-        p { font-family: 'Arial', sans-serif; margin-bottom: 20px; font-size: 1.05rem; color: #444; text-align: justify; }
-        
-        /* TABLES */
-        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-family: 'Arial', sans-serif; background: white; border-radius: 10px; overflow: hidden; }
-        th { background: var(--midnight); color: white; text-align: left; padding: 15px; }
-        td { padding: 12px 15px; border-bottom: 1px solid #eee; }
-        tr:nth-child(even) { background: #f8f9fa; }
-
-        .highlight-box { background: var(--midnight); color: white; padding: 35px; border-radius: 20px; text-align: center; margin-top: 40px; border: 2px solid var(--accent); }
-        .highlight-box h3 { color: var(--accent); font-size: 1.8rem; margin-bottom: 10px; }
-
-        /* UNIFIED FOOTER */
-        footer { background: #001f3f; color: white; padding: 40px; text-align: center; margin-top: 60px; }
-        footer b { color: var(--accent); }
-
-        @media (max-width: 800px) {
-            header { flex-direction: column; text-align: center; }
-            .h-center { padding: 15px 0; }
-            .h-right { text-align: center; width: 100%; }
-            .info-txt, .soc-row { justify-content: center; }
-        }
+        :root { --midnight: #001f3f; --gold: #d4af37; --white: #ffffff; --silver: #f4f7f6; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        header { background: var(--white); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid var(--midnight); }
+        .h-left img { height: 90px; }
+        .h-right-principal img { height: 85px; width: 70px; border: 2px solid var(--gold); border-radius: 8px; object-fit: cover; }
+        nav { background: var(--midnight); display: flex; justify-content: center; position: sticky; top: 0; z-index: 1000; }
+        nav a { color: white; padding: 18px 20px; text-decoration: none; font-weight: bold; font-size: 0.8rem; text-transform: uppercase; }
+        .content { padding: 50px 10%; background: white; line-height: 1.8; color: #333; }
+        .highlight-box { background: var(--silver); padding: 30px; border-left: 5px solid var(--gold); margin: 30px 0; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 40px 0; text-align: center; }
+        .stat-card { padding: 20px; background: var(--midnight); color: white; border-radius: 10px; }
+        .stat-card h3 { color: var(--gold); font-size: 2rem; }
+        footer { background: var(--midnight); color: white; text-align: center; padding: 30px; }
     </style>
 </head>
 <body>
-
     <header>
-        <div class="h-left"><img src="../assets/people/logo.png" onerror="this.src='https://via.placeholder.com/100'"></div>
-        <div class="h-center"><h1>MAMTA MODERN SCHOOL</h1><p>NURTURING EXCELLENCE SINCE 1973</p></div>
-        <div class="h-right">
-            <div class="info-txt"><a href="tel:+911145614501"><i class="fa-solid fa-phone"></i>+91-11-45614501</a></div>
-            <div class="info-txt" style="font-size: 0.85rem;"><a href="mailto:mamtamodernschool@gmail.com"><i class="fa-solid fa-envelope"></i>mamtamodernschool@gmail.com</a></div>
-            <div class="soc-row">
-                <a href="https://www.facebook.com/MamtaModernSeniorSecondarySchoolVikasPuri/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-                <a href="https://www.youtube.com/@MamtaModernSchoolVikasPuri" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-                <a href="https://www.instagram.com/mamtamodernschool/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-            </div>
-        </div>
+        <div class="h-left"><img src="../assets/people/logo.png"></div>
+        <div class="h-right-principal"><div class="p-info" style="text-align:right; margin-right:10px;"><b>Ms. Pallavi Sharma</b><small style="color:var(--gold); font-size:10px; font-weight:bold; display:block;">PRINCIPAL</small></div><img src="../assets/people/principal.jpg"></div>
     </header>
-    
     <nav>
         <a href="../index.html">Home</a>
-        <a href="about.html" style="color: var(--accent);">About Us</a>
+        <a href="about.html" style="color:var(--gold);">About Us</a>
         <a href="gallery.html">Gallery</a>
-        <a href="circulars.html">Circulars</a>
-        <a href="suppliers.html">Suppliers</a>
-        <a href="policies.html">Policies</a>
-        <a href="admission.html">Admissions</a>
-        <a href="complaints.html">Complaints</a>
         <a href="showcase.html">Showcase</a>
+        <a href="complaints.html">Grievance</a>
     </nav>
 
-    <div class="container">
+    <div class="content">
+        <h2 style="color:var(--midnight); margin-bottom:20px;">Our Heritage Since 1973</h2>
+        <p>Established in 1973, Mamta Modern Senior Secondary School has evolved into a prestigious institution in West Delhi. Affiliated with the CBSE (Affiliation No. 2730133) since 1986, we impart education across <b>Science, Commerce, and Humanities</b>.</p>
         
-        <section class="about-card">
-            <h2>School History & Affiliation</h2>
-            <p>The school was established in the year 1973 and it never saw behind during its journey to the present prestigious institution of West Delhi having up to date ultra modern and sufficient infrastructure needed for running a successful school.</p>
-            <p>It was recognized by the Directorate of Education, Govt of NCT, Delhi and now stands affiliated with the CBSE vide affiliation no. 2730133 since 1986. The school imparts education in 3 streams i.e. Science, Commerce and Humanities.</p>
-        </section>
-
-        <section class="about-card">
-            <h2>Infrastructure & Campus</h2>
-            <p>The school stands on a plot of land measuring approximately 4 acres allotted by the DDA. Very spacious and towering building giving an attractive look stand on the plot. Lush green lawns dot the school premises giving soothing effect to the eyes of the students.</p>
-            <p>A very spacious Playground measuring approximately 7300 Square Meter is available. We can boast of lifting the <b>“SUBROTO CUP”</b> in the year 1998 and have given birth to International level players like <b>Sunil Chhetri</b>, the Captain of the Indian Football Team.</p>
-        </section>
-
-        <section class="about-card">
-            <h2>Management & Safety</h2>
-            <p>Shri Manoj Sharma is the present manager of the school. The school maintains a library with more than 18,000 books and specialized cells for student safety.</p>
-            
-            <h3>Grievance Cell</h3>
-            <table>
-                <thead>
-                    <tr><th>S. NO.</th><th>MEMBERS NAME</th><th>POST</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>1</td><td>MRS. PALLAVI SHARMA</td><td>PRINCIPAL</td></tr>
-                    <tr><td>2</td><td>MRS. SHALINI CHOUDHARY</td><td>INCHARGE</td></tr>
-                </tbody>
-            </table>
-
-            <h3>Sexual Harassment Committee</h3>
-            <table>
-                <thead>
-                    <tr><th>S. NO.</th><th>MEMBERS NAME</th><th>POST</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>1</td><td>MRS. PALLAVI SHARMA</td><td>PRINCIPAL</td></tr>
-                    <tr><td>2</td><td>MRS. BHARTI JAIN</td><td>TEACHER</td></tr>
-                    <tr><td>3</td><td>MRS. RITU KALRA</td><td>TEACHER</td></tr>
-                    <tr><td>4</td><td>MRS. GURPREET KAUSHIK</td><td>TEACHER</td></tr>
-                </tbody>
-            </table>
-        </section>
-
-        <div class="highlight-box">
-            <h3>“WE BUILD THOSE, WHO BUILD THE NATION”</h3>
-            <p>Our commitment is to provide quality education and inculcate the right code of conduct.</p>
+        <div class="stats-grid">
+            <div class="stat-card"><h3>4 Acres</h3><p>Campus Area</p></div>
+            <div class="stat-card"><h3>7300sqm</h3><p>Play Ground</p></div>
+            <div class="stat-card"><h3>18000+</h3><p>Library Books</p></div>
+            <div class="stat-card"><h3>15</h3><p>Fleet of Buses</p></div>
         </div>
 
+        <h3>Visionary Leadership</h3>
+        <p>Managed by the Mamta Modern Education Society, the school thrives under the guidance of educationists. <b>Shri Manoj Sharma</b> serves as the Manager, ensuring the school maintains its ultra-modern infrastructure.</p>
+
+        <div class="highlight-box">
+            <h3>The Sports Nursery</h3>
+            <p>Our school is a nursery for international talent. We made history by lifting the <b>“SUBROTO CUP” in 1998</b>. We are proud to be the alma mater of Indian National Football Captain, <b>Sunil Chhetri</b>. Our facilities are adopted by the Sports Authority of India (SAI).</p>
+        </div>
+
+        <h3 style="margin-top:40px;">Academic Calendar</h3>
+        <ul>
+            <li><b>Academic Session:</b> 1st April to 31st March</li>
+            <li><b>Summer Vacation:</b> 15th May to 30th June</li>
+            <li><b>Winter Vacation:</b> 29th December to 12th January</li>
+        </ul>
+        
+        <h2 style="text-align:center; color:var(--midnight); margin-top:50px;">“WE BUILD THOSE, WHO BUILD THE NATION”</h2>
     </div>
 
     <footer><p>© 2026 Mamta Modern School | Developed by <b>Swapneil Jha</b></p></footer>
-
 </body>
 </html>

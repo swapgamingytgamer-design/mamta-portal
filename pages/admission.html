@@ -3,133 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admission Inquiry | Mamta Modern School</title>
+    <title>Admissions | Mamta Modern School</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --midnight: #001f3f; --accent: #d4af37; --white: #ffffff; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial Black', sans-serif; }
-        body { background: #f4f7f6; color: #333; overflow-x: hidden; }
-
-        /* HEADER */
-        header { background: var(--white); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #eee; }
-        .h-left img { height: 100px; }
-        .h-center { flex-grow: 1; padding-left: 30px; }
-        .h-center h1 { color: #001f3f; font-size: 2.3rem; margin: 0; }
-        .h-center p { color: var(--accent); font-size: 0.9rem; font-weight: bold; margin-top: 8px; }
-        .h-right { text-align: right; display: flex; flex-direction: column; gap: 6px; min-width: 300px; }
-        .info-txt { font-weight: 900; color: #001f3f; font-size: 1.1rem; display: flex; justify-content: flex-end; align-items: center; }
-        .info-txt i { color: var(--midnight); margin-right: 10px; }
-        .soc-row { display: flex; justify-content: flex-end; gap: 15px; margin-top: 5px; }
-        .soc-row a { font-size: 1.9rem; text-decoration: none; }
-        .fa-facebook { color: #1877F2; } .fa-youtube { color: #FF0000; } .fa-instagram { color: #E4405F; }
-
-        /* NAVIGATION */
-        nav { background: #001f3f; padding: 0 5%; display: flex; justify-content: center; position: sticky; top: 0; z-index: 1000; }
-        nav a { color: white; padding: 18px 25px; text-decoration: none; font-weight: bold; font-size: 0.85rem; text-transform: uppercase; }
-        nav a:hover { color: var(--accent); background: rgba(255,255,255,0.1); }
-
-        /* FORM STYLING */
-        .container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
-        .form-card { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 12px solid #28a745; /* Green for Admission */ }
-        .form-card h2 { color: var(--midnight); margin-bottom: 10px; text-align: center; }
-        .form-card p.intro { text-align: center; font-family: 'Arial', sans-serif; color: #666; margin-bottom: 30px; }
-
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; margin-bottom: 8px; color: var(--midnight); font-size: 0.95rem; font-weight: bold; }
-        .required-star { color: #ff4d4d; }
+        :root { --midnight: #001f3f; --gold: #d4af37; --white: #ffffff; --silver: #f4f7f6; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        header { background: var(--white); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid var(--midnight); }
+        .h-left img { height: 90px; }
+        .h-right-principal { display: flex; align-items: center; gap: 12px; }
+        .h-right-principal img { height: 85px; width: 70px; border: 2px solid var(--gold); border-radius: 8px; object-fit: cover; }
+        nav { background: var(--midnight); display: flex; justify-content: center; position: sticky; top: 0; z-index: 1000; }
+        nav a { color: white; padding: 18px 20px; text-decoration: none; font-weight: bold; font-size: 0.8rem; text-transform: uppercase; }
         
-        .form-group input, .form-group select, .form-group textarea {
-            width: 100%; padding: 14px; border: 2px solid #e1e1e1; border-radius: 10px; font-family: 'Arial', sans-serif; font-size: 1rem; outline: none; transition: 0.3s;
-        }
-        .form-group input:focus { border-color: #28a745; background: #f9fffb; }
+        .form-container { padding: 60px 10%; background: var(--silver); }
+        .form-card { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); max-width: 800px; margin: 0 auto; }
+        .form-card h2 { color: var(--midnight); border-bottom: 3px solid var(--gold); display: inline-block; margin-bottom: 30px; }
         
-        .submit-btn { 
-            background: #28a745; color: white; width: 100%; padding: 18px; border: none; 
-            border-radius: 12px; font-weight: bold; font-size: 1.2rem; cursor: pointer; transition: 0.4s; margin-top: 15px;
-            text-transform: uppercase;
-        }
-        .submit-btn:hover { background: #218838; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(40,167,69,0.3); }
-
-        footer { background: #001f3f; color: white; padding: 40px; text-align: center; margin-top: 60px; }
-        footer b { color: var(--accent); }
+        .input-group { margin-bottom: 20px; }
+        label { display: block; font-weight: bold; margin-bottom: 8px; color: var(--midnight); }
+        input, select, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; }
+        button { background: var(--midnight); color: white; padding: 15px 30px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        button:hover { background: var(--gold); color: var(--midnight); }
+        
+        footer { background: var(--midnight); color: white; text-align: center; padding: 30px; }
     </style>
 </head>
 <body>
     <header>
-        <div class="h-left"><img src="../assets/people/logo.png" onerror="this.src='https://via.placeholder.com/100'"></div>
-        <div class="h-center"><h1>MAMTA MODERN SCHOOL</h1><p>NURTURING EXCELLENCE SINCE 1973</p></div>
-        <div class="h-right">
-            <div class="info-txt"><a href="tel:+911145614501" style="text-decoration:none; color:inherit;"><i class="fa-solid fa-phone"></i>+91-11-45614501</a></div>
-            <div class="info-txt" style="font-size: 0.85rem;"><i class="fa-solid fa-envelope"></i>mamtamodernschool@gmail.com</div>
-            <div class="soc-row">
-                <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            </div>
+        <div class="h-left"><img src="../assets/people/logo.png" onerror="this.src='https://via.placeholder.com/90'"></div>
+        <div class="h-right-principal">
+            <div class="p-info"><b>Ms. Pallavi Sharma</b><small>National Awardee</small></div>
+            <img src="../assets/people/principal.jpg">
         </div>
     </header>
-    
-     <nav>
-    <a href="../index.html">Home</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="circulars.html">Circulars</a>
-    <a href="admission.html">Admissions</a>
-    <a href="complaints.html">Complaints</a>
-    <a href="suppliers.html">Suppliers</a>
-    <a href="policies.html">Policies</a>
-    <a href="about.html">About Us</a>
-    <a href="showcase.html">Showcase</a>
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="circulars.html">Circulars</a>
+        <a href="admission.html" style="color:var(--gold);">Admissions</a>
+        <a href="showcase.html">Showcase</a>
+        <a href="complaints.html">Complaints</a>
     </nav>
 
-    <div class="container">
+    <div class="form-container">
         <div class="form-card">
-            <h2>Admission Inquiry (2026-27)</h2>
-            <p class="intro">Please provide the student's details for admission processing.</p>
-            
+            <h2>Admission Inquiry 2026-27</h2>
             <form action="https://api.web3forms.com/submit" method="POST">
-                <input type="hidden" name="access_key" value="6984aa09-04d4-4a31-98ff-65cb3209cf62">
-                <input type="hidden" name="subject" value="New Admission Inquiry">
-                <input type="hidden" name="from_name" value="School Admission Portal">
-
-                <div class="form-group">
-                    <label>Student Name <span class="required-star">*</span></label>
-                    <input type="text" name="student_name" placeholder="Full name of student" required>
+                <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                <div class="input-group">
+                    <label>Student's Full Name</label>
+                    <input type="text" name="student_name" required>
                 </div>
-
-                <div class="form-group">
-                    <label>Parent/Guardian Email Address <span class="required-star">*</span></label>
-                    <input type="email" name="email" placeholder="example@mail.com" required>
-                </div>
-
-                <div class="form-group">
-                    <label>Contact Number <span class="required-star">*</span></label>
-                    <input type="tel" name="phone" placeholder="10-digit mobile number" pattern="[0-9]{10}" required>
-                </div>
-
-                <div class="form-group">
-                    <label>Seeking Admission for Class <span class="required-star">*</span></label>
-                    <select name="target_class" required>
-                        <option value="">-- Select Class --</option>
-                        <option value="Pre-Primary">Pre-Primary (Nursery/KG)</option>
-                        <option value="Primary">Class 1 - 5</option>
-                        <option value="Middle">Class 6 - 8</option>
-                        <option value="Secondary">Class 9 - 10</option>
-                        <option value="Sr. Secondary">Class 11 - 12</option>
+                <div class="input-group">
+                    <label>Applying for Grade</label>
+                    <select name="grade">
+                        <option>Pre-School (Nursery)</option>
+                        <option>Pre-Primary (Prep)</option>
+                        <option>Grade 1 - 5</option>
+                        <option>Grade 6 - 9</option>
+                        <option>Grade 11</option>
                     </select>
                 </div>
-
-                <div class="form-group">
-                    <label>Additional Information (Optional)</label>
-                    <textarea name="remarks" rows="4" placeholder="Any specific questions regarding admission?"></textarea>
+                <div class="input-group">
+                    <label>Parent/Guardian Mobile</label>
+                    <input type="tel" name="phone" required>
                 </div>
-
-                <input type="checkbox" name="botcheck" style="display: none;">
-
-                <button type="submit" class="submit-btn">Register Interest</button>
+                <div class="input-group">
+                    <label>Additional Remarks</label>
+                    <textarea name="message" rows="4"></textarea>
+                </div>
+                <button type="submit">Submit Inquiry</button>
             </form>
         </div>
     </div>
-
     <footer><p>© 2026 Mamta Modern School | Developed by <b>Swapneil Jha</b></p></footer>
 </body>
 </html>
