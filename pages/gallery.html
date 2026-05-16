@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photo Gallery | Mamta Modern School</title>
+    <title>Annual Function Gallery | Mamta Modern School</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root { --midnight: #001f3f; --gold: #d4af37; --white: #ffffff; --silver: #f4f7f6; --text: #333; }
@@ -23,29 +23,36 @@
 
         /* NAVIGATION */
         nav { background: var(--midnight); display: flex; justify-content: center; position: sticky; top: 0; z-index: 1000; }
-        nav a { color: white; padding: 20px 25px; text-decoration: none; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; }
+        nav a { color: white; padding: 20px 25px; text-decoration: none; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
         nav a:hover { background: var(--gold); color: var(--midnight); }
 
         /* GALLERY CONTENT */
         .gallery-container { padding: 60px 10%; }
         .section-header { text-align: center; margin-bottom: 50px; }
-        .section-header h2 { color: var(--midnight); font-size: 2.5rem; text-transform: uppercase; }
-        .section-header div { width: 60px; height: 4px; background: var(--gold); margin: 15px auto; }
+        .section-header h2 { color: var(--midnight); font-size: 2.5rem; text-transform: uppercase; letter-spacing: 1px; }
+        .section-header p { color: #666; margin-top: 10px; font-weight: 500; }
+        .section-header div { width: 80px; height: 4px; background: var(--gold); margin: 15px auto; }
 
-        /* ALBUM GRID */
-        .album-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; }
-        .album-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.1); cursor: pointer; transition: 0.3s; position: relative; border: 1px solid #eee; }
-        .album-card:hover { transform: translateY(-10px); }
+        /* GRID LAYOUT */
+        .album-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
+        .album-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.08); cursor: pointer; transition: 0.3s; border: 1px solid #eee; }
+        .album-card:hover { transform: translateY(-8px); border-color: var(--gold); }
         
-        .album-img { width: 100%; height: 220px; position: relative; overflow: hidden; }
+        .album-img { width: 100%; height: 200px; overflow: hidden; background: #eee; }
         .album-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
         .album-card:hover .album-img img { transform: scale(1.1); }
         
-        .photo-count { position: absolute; top: 15px; right: 15px; background: rgba(0,31,63,0.85); color: var(--gold); padding: 5px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; }
-        
-        .album-info { padding: 20px; text-align: center; }
-        .album-info h3 { color: var(--midnight); font-size: 1.1rem; text-transform: uppercase; margin-bottom: 8px; }
-        .album-info p { color: #777; font-size: 0.85rem; font-weight: 600; letter-spacing: 1px; }
+        .album-info { padding: 15px; text-align: center; }
+        .album-info h3 { color: var(--midnight); font-size: 1rem; text-transform: uppercase; margin-bottom: 5px; }
+        .album-info p { color: var(--gold); font-size: 0.8rem; font-weight: 700; }
+
+        /* LIGHTBOX MODAL */
+        .lightbox { display: none; position: fixed; z-index: 9999; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); align-items: center; justify-content: center; flex-direction: column; }
+        .lightbox img { max-width: 90%; max-height: 80%; border: 4px solid var(--white); border-radius: 8px; animation: zoomIn 0.3s ease; }
+        #lightbox-caption { color: var(--gold); margin-top: 15px; font-size: 1.2rem; font-weight: 700; text-transform: uppercase; }
+        .close-lightbox { position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; cursor: pointer; }
+
+        @keyframes zoomIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 
         /* FOOTER (Master Design) */
         footer { background: var(--midnight); color: white; padding: 50px 10% 20px 10%; text-align: center; margin-top: 60px; }
@@ -78,7 +85,7 @@
     </div>
 </header>
 
-    <nav>
+<nav>
         <a href="../index.html">Home</a>
         <a href="about.html">About Us</a>
         <a href="gallery.html">Gallery</a>
@@ -92,77 +99,18 @@
 
 <div class="gallery-container">
     <div class="section-header">
-        <h2>School Image Gallery</h2>
+        <h2>Annual Function Highlights</h2>
+        <p>A collection of 44 memorable moments from our grand celebration</p>
         <div></div>
     </div>
 
-    <div class="album-grid">
-        <div class="album-card">
-            <div class="album-img">
-                <span class="photo-count">44 Photos</span>
-                <img src="../assets/gallery/annual_day.jpg" alt="Rhapsody Annual Day" onerror="this.src='https://via.placeholder.com/400x300?text=Annual+Day+Rhapsody'">
-            </div>
-            <div class="album-info">
-                <h3>Rhapsody Annual Day</h3>
-                <p>2024-25 Celebration</p>
-            </div>
-        </div>
+    <div class="album-grid" id="photo-grid"></div>
+</div>
 
-        <div class="album-card">
-            <div class="album-img">
-                <span class="photo-count">23 Photos</span>
-                <img src="../assets/gallery/volleyball.jpg" alt="Sports Meet" onerror="this.src='https://via.placeholder.com/400x300?text=CBSE+Cluster+Volleyball'">
-            </div>
-            <div class="album-info">
-                <h3>CBSE Cluster Sports</h3>
-                <p>Volleyball Tournament</p>
-            </div>
-        </div>
-
-        <div class="album-card">
-            <div class="album-img">
-                <span class="photo-count">30 Photos</span>
-                <img src="../assets/gallery/fete.jpg" alt="School Fete" onerror="this.src='https://via.placeholder.com/400x300?text=Annual+School+Fete'">
-            </div>
-            <div class="album-info">
-                <h3>Annual School Fete</h3>
-                <p>Joy and Festivity</p>
-            </div>
-        </div>
-
-        <div class="album-card">
-            <div class="album-img">
-                <span class="photo-count">15 Photos</span>
-                <img src="../assets/gallery/globe_trot.jpg" alt="Globe Trot" onerror="this.src='https://via.placeholder.com/400x300?text=Let%27s+Globe+Trot'">
-            </div>
-            <div class="album-info">
-                <h3>Let's Globe Trot</h3>
-                <p>Exhibition 2024</p>
-            </div>
-        </div>
-
-        <div class="album-card">
-            <div class="album-img">
-                <span class="photo-count">12 Photos</span>
-                <img src="../assets/gallery/navy_day.jpg" alt="Navy Day" onerror="this.src='https://via.placeholder.com/400x300?text=Indian+Navy+Day'">
-            </div>
-            <div class="album-info">
-                <h3>Indian Navy Day</h3>
-                <p>Patriotic Observance</p>
-            </div>
-        </div>
-
-        <div class="album-card">
-            <div class="album-img">
-                <span class="photo-count">16 Photos</span>
-                <img src="../assets/gallery/caring.jpg" alt="Social Service" onerror="this.src='https://via.placeholder.com/400x300?text=Caring+and+Sharing'">
-            </div>
-            <div class="album-info">
-                <h3>Caring & Sharing</h3>
-                <p>Visit to Apna Ghar</p>
-            </div>
-        </div>
-    </div>
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="close-lightbox">&times;</span>
+    <img id="lightbox-img" src="">
+    <div id="lightbox-caption"></div>
 </div>
 
 <footer>
@@ -170,6 +118,42 @@
     <div class="footer-line"></div>
     <p class="credits">© 2026 Mamta Modern School | Developed by <b>Swapneil Jha</b></p>
 </footer>
+
+<script>
+    const grid = document.getElementById('photo-grid');
+    const totalPhotos = 44;
+
+    // Generate 44 Annual Function photo cards
+    for (let i = 1; i <= totalPhotos; i++) {
+        const photoPath = `../assets/gallery/annual_function_${i}.jpg`;
+        const card = `
+            <div class="album-card" onclick="openLightbox('${photoPath}', 'Annual Function - Moment ${i}')">
+                <div class="album-img">
+                    <img src="${photoPath}" alt="Annual Function ${i}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300?text=Photo+${i}'">
+                </div>
+                <div class="album-info">
+                    <h3>Annual Function</h3>
+                    <p>MOMENT ${i}</p>
+                </div>
+            </div>
+        `;
+        grid.innerHTML += card;
+    }
+
+    // Lightbox Control
+    function openLightbox(src, title) {
+        const lightbox = document.getElementById('lightbox');
+        document.getElementById('lightbox-img').src = src;
+        document.getElementById('lightbox-caption').innerText = title;
+        lightbox.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+        document.getElementById('lightbox').style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+</script>
 
 </body>
 </html>
