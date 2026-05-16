@@ -81,31 +81,31 @@
     <footer><p>© 2026 Mamta Modern School | Developed by <b>Swapneil Jha</b></p></footer>
 
     <script>
-        // LEAVE THIS ARRAY EMPTY [] TO SHOW THE "NO CIRCULAR" MESSAGE
-        // ADD OBJECTS {t: "Title", d: "Date", f: "file.pdf"} TO SHOW CIRCULARS
-        const circulars = []; 
-
-        const listDiv = document.getElementById('circular-list');
-
-        if (circulars.length === 0) {
-            listDiv.innerHTML = `
-                <div class="empty-state">
-                    <i class="fa-solid fa-folder-open"></i>
-                    <h3>No Circulars Available</h3>
-                    <p style="font-family: Arial, sans-serif; color: #777;">Please check back later for the latest updates and school notices.</p>
-                </div>`;
-        } else {
-            circulars.forEach(item => {
-                listDiv.innerHTML += `
-                <div class="item">
-                    <div class="item-info">
-                        <b>${item.t}</b><br>
-                        <small>Posted on: ${item.d}</small>
-                    </div>
-                    <a href="../assets/circulars/${item.f}" class="btn" target="_blank">VIEW PDF</a>
-                </div>`;
-            });
+    // Updated to show ONLY the specific self-transport circular
+    const circulars = [
+        {
+            t: "Cir. No. 002 & 003: Self-Transport Information for Website", 
+            d: "16/05/2026", 
+            f: "cir-no-002-and-003-for-self-transport-cir-for-website.pdf"
         }
-    </script>
+    ];
+
+    const listDiv = document.getElementById('circularList');
+
+    // This will now only loop once and show only your new circular
+    circulars.forEach(cir => {
+        listDiv.innerHTML += `
+            <div class="circular-item">
+                <div class="cir-info">
+                    <h3>${cir.t}</h3>
+                    <p><i class="fa-solid fa-calendar-days"></i> Posted on: ${cir.d}</p>
+                </div>
+                <a href="../assets/circulars/${cir.f}" class="download-btn" target="_blank">
+                    <i class="fa-solid fa-file-pdf"></i> VIEW PDF
+                </a>
+            </div>
+        `;
+    });
+</script>
 </body>
 </html>
