@@ -10,41 +10,45 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial Black', sans-serif; }
         body { background: #f4f7f6; color: #333; overflow-x: hidden; }
 
+        /* HEADER */
         header { background: var(--white); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #eee; }
         .h-left img { height: 100px; }
         .h-center { flex-grow: 1; padding-left: 30px; }
-        .h-center h1 { color: #001f3f; font-size: 2.3rem; margin: 0; line-height: 1; }
+        .h-center h1 { color: #001f3f; font-size: 2.3rem; margin: 0; line-height: 1.1; }
         .h-center p { color: var(--accent); font-size: 0.9rem; font-weight: bold; margin-top: 8px; }
-        
         .h-right { text-align: right; display: flex; flex-direction: column; gap: 6px; min-width: 300px; }
         .info-txt { font-weight: 900; color: #001f3f; font-size: 1.1rem; display: flex; justify-content: flex-end; align-items: center; }
         .info-txt a { text-decoration: none; color: inherit; }
         .info-txt i { color: var(--midnight); margin-right: 10px; font-size: 1.2rem; }
-        
         .soc-row { display: flex; justify-content: flex-end; gap: 15px; margin-top: 5px; }
-        .soc-row a { font-size: 1.9rem; text-decoration: none; }
+        .soc-row a { font-size: 1.9rem; text-decoration: none; transition: 0.3s; }
         .fa-facebook { color: #1877F2; } .fa-youtube { color: #FF0000; } .fa-instagram { color: #E4405F; }
 
+        /* NAVIGATION */
         nav { background: #001f3f; padding: 0 5%; display: flex; justify-content: center; position: sticky; top: 0; z-index: 1000; }
         nav a { color: white; padding: 18px 25px; text-decoration: none; font-weight: bold; font-size: 0.85rem; text-transform: uppercase; }
         nav a:hover { color: var(--accent); background: rgba(255,255,255,0.1); }
 
+        /* SLIDESHOW FEATURE */
         .hero { position: relative; height: 500px; background: #000; overflow: hidden; }
         .slide { position: absolute; inset: 0; opacity: 0; transition: 1s ease-in-out; }
         .slide.active { opacity: 1; }
         .slide img { width: 100%; height: 100%; object-fit: cover; }
 
         .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
-        
-        .location-section { display: flex; gap: 30px; margin-top: 40px; align-items: stretch; }
-        
-        .address-box { flex: 1; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-left: 10px solid var(--midnight); }
-        .address-box h2 { color: var(--midnight); margin-bottom: 20px; font-size: 1.8rem; }
-        .address-details { font-family: 'Arial', sans-serif; line-height: 1.8; color: #444; }
-        .address-details p { margin-bottom: 15px; display: flex; align-items: center; }
-        .address-details i { color: var(--accent); margin-right: 15px; font-size: 1.2rem; min-width: 25px; }
 
-        .map-container { flex: 1.5; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 5px solid white; min-height: 400px; }
+        /* PRINCIPAL MESSAGE FEATURE */
+        .card { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); display: flex; gap: 40px; align-items: center; margin-bottom: 40px; }
+        .prin-img { width: 280px; border-radius: 15px; border: 5px solid #001f3f; }
+
+        /* MAP & ADDRESS SIDE-BY-SIDE */
+        .location-section { display: flex; gap: 30px; align-items: stretch; margin-top: 40px; }
+        .address-box { flex: 1; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-left: 10px solid var(--midnight); }
+        .address-box h2 { color: var(--midnight); margin-bottom: 20px; }
+        .address-details p { font-family: 'Arial', sans-serif; line-height: 1.8; color: #444; margin-bottom: 15px; display: flex; align-items: center; }
+        .address-details i { color: var(--accent); margin-right: 15px; min-width: 25px; }
+
+        .map-box { flex: 1.5; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 5px solid white; min-height: 450px; }
 
         footer { background: #001f3f; color: white; padding: 40px; text-align: center; margin-top: 50px; }
         footer b { color: var(--accent); }
@@ -54,13 +58,14 @@
             .h-center { padding: 15px 0; } 
             .h-right { text-align: center; } 
             .soc-row, .info-txt { justify-content: center; } 
-            .location-section { flex-direction: column; }
+            .card, .location-section { flex-direction: column; }
+            .prin-img { width: 100%; max-width: 300px; }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="h-left"><img src="assets/people/logo.png"></div>
+        <div class="h-left"><img src="assets/people/logo.png" onerror="this.src='https://via.placeholder.com/100'"></div>
         <div class="h-center"><h1>MAMTA MODERN SCHOOL</h1><p>NURTURING EXCELLENCE SINCE 1973</p></div>
         <div class="h-right">
             <div class="info-txt"><a href="tel:+911145614501"><i class="fa-solid fa-phone"></i>+91-11-45614501</a></div>
@@ -90,9 +95,17 @@
     </div>
 
     <div class="container">
+        <div class="card">
+            <img src="assets/people/principal.jpg" class="prin-img" onerror="this.src='https://via.placeholder.com/300x350'">
+            <div>
+                <h2 style="color:#001f3f; margin-bottom:15px; font-size: 1.8rem;">Principal's Message</h2>
+                <p style="font-family: Arial, sans-serif; line-height: 1.6; font-size: 1.1rem; color: #555;">Welcome to Mamta Modern School. We are dedicated to providing a holistic education that empowers students to reach their full potential and become responsible global citizens.</p>
+            </div>
+        </div>
+
         <div class="location-section">
             <div class="address-box">
-                <h2>Contact Us</h2>
+                <h2>Visit Us</h2>
                 <div class="address-details">
                     <p><i class="fa-solid fa-location-dot"></i> H-Block, Vikaspuri, <br>New Delhi - 110018</p>
                     <p><i class="fa-solid fa-phone"></i> +91-11-45614501</p>
@@ -101,11 +114,8 @@
                 </div>
             </div>
 
-            <div class="map-container">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.947230491873!2d77.07366311508262!3d28.631333982415175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d04ea7e9f33af%3A0x6b5b045e7f13904!2sMamta%20Modern%20Sr.%20Sec.%20School!5e0!3m2!1sen!2sin!4v1715850000000!5m2!1sen!2sin" 
-                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
+            <div class="map-box">
+                <iframe src="http://googleusercontent.com/maps.google.com/8" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </div>
@@ -118,7 +128,7 @@
             slides[idx].classList.remove('active'); 
             idx = (idx + 1) % slides.length; 
             slides[idx].classList.add('active'); 
-        }, 4000);
+        }, 1000);
     </script>
 </body>
 </html>
