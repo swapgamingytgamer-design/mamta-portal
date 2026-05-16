@@ -3,108 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mamta Modern School | Masterpiece Redesign</title>
+    <title>Mamta Modern School | Home</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root { --midnight: #001f3f; --gold: #d4af37; --white: #ffffff; --silver: #f4f7f6; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
-        body { background: var(--silver); }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        
+        /* Utility Header */
+        header { background: var(--white); padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid var(--midnight); }
+        .logo-area img { height: 80px; }
+        .contact-links a { text-decoration: none; color: var(--midnight); font-weight: bold; margin-left: 15px; font-size: 0.9rem; }
+        .contact-links i { color: var(--gold); margin-right: 5px; }
+        .header-socials { display: flex; justify-content: flex-end; gap: 15px; margin-top: 5px; }
+        .header-socials a { color: var(--midnight); font-size: 1.2rem; transition: 0.3s; }
+        .header-socials a:hover { color: var(--gold); }
 
-        /* HEADER & PRINCIPAL */
-        header { background: var(--white); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid var(--midnight); }
-        .h-left img { height: 90px; }
-        .h-center { text-align: center; }
-        .h-center h1 { color: var(--midnight); font-size: 1.8rem; letter-spacing: 1px; }
-        .h-right-principal { display: flex; align-items: center; gap: 12px; border-left: 2px solid #eee; padding-left: 15px; }
-        .h-right-principal img { height: 85px; width: 70px; border: 2px solid var(--gold); object-fit: cover; border-radius: 8px; }
-        .p-info b { display: block; font-size: 0.9rem; color: var(--midnight); }
-        .p-info small { font-size: 0.7rem; color: var(--gold); text-transform: uppercase; font-weight: bold; }
-
-        /* TICKER */
-        .ticker { background: var(--gold); color: var(--midnight); padding: 10px; font-weight: bold; overflow: hidden; }
-        .ticker-text { display: inline-block; animation: marquee 25s linear infinite; white-space: nowrap; }
-        @keyframes marquee { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
-
-        /* NAV */
         nav { background: var(--midnight); display: flex; justify-content: center; position: sticky; top: 0; z-index: 1000; }
-        nav a { color: white; padding: 18px 20px; text-decoration: none; font-weight: bold; font-size: 0.8rem; text-transform: uppercase; transition: 0.3s; }
-        nav a:hover { background: var(--gold); color: var(--midnight); }
+        nav a { color: white; padding: 18px 20px; text-decoration: none; font-weight: bold; font-size: 0.8rem; text-transform: uppercase; }
 
-        /* MASTERPIECE SLIDESHOW (NO CUT) */
+        /* SLIDESHOW WITH VIDEO */
         .slideshow-container { width: 100%; height: 550px; background: #000; position: relative; overflow: hidden; }
         .mySlides { display: none; height: 100%; width: 100%; }
-        .mySlides img { width: 100%; height: 100%; object-fit: contain; } 
-        #player { width: 100%; height: 100%; }
-        .cap { position: absolute; bottom: 40px; left: 5%; color: white; background: rgba(0,31,63,0.8); padding: 15px 25px; border-left: 6px solid var(--gold); border-radius: 0 10px 10px 0; }
+        .mySlides img { width: 100%; height: 100%; object-fit: cover; }
+        .video-container { position: relative; width: 100%; height: 100%; padding-bottom: 56.25%; }
+        #player { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
-        footer { background: var(--midnight); color: white; text-align: center; padding: 40px; }
-        footer b { color: var(--gold); }
+        /* FOOTER AREA */
+        .master-footer { background: var(--midnight); color: white; padding: 50px 5% 20px 5%; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .footer-map { height: 200px; border-radius: 10px; overflow: hidden; border: 2px solid var(--gold); margin-top: 10px; }
+        .principal-card { display: flex; align-items: center; gap: 15px; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 10px; border-left: 4px solid var(--gold); }
+        .principal-card img { width: 70px; height: 90px; border-radius: 5px; object-fit: cover; }
+        
+        .bottom-bar { text-align: center; margin-top: 40px; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; }
+        .bottom-bar b { color: var(--gold); }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="h-left"><img src="assets/people/logo.png" onerror="this.src='https://via.placeholder.com/90'"></div>
-    <div class="h-center"><h1>MAMTA MODERN SCHOOL</h1><p style="color:var(--gold); font-weight:bold; font-size:0.8rem;">VIKASPURI, NEW DELHI</p></div>
-    <div class="h-right-principal">
-        <div class="p-info"><b>Ms. Pallavi Sharma</b><small>National Awardee Principal</small></div>
-        <img src="assets/people/principal.jpg" onerror="this.src='https://via.placeholder.com/70x85?text=Principal'">
+    <div class="logo-area"><img src="assets/people/logo.png"></div>
+    <div class="header-contact">
+        <div class="contact-links">
+            <a href="tel:01145614561"><i class="fa-solid fa-phone"></i> 011-45614561</a>
+            <a href="mailto:mamtamodernschool@hotmail.com"><i class="fa-solid fa-envelope"></i> Email Us</a>
+        </div>
+        <div class="header-socials">
+            <a href="https://www.youtube.com/@mamtamordernschoolvikaspuri" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        </div>
     </div>
 </header>
 
-<div class="ticker"><div class="ticker-text">★ CONGRATULATIONS TO PRINCIPAL MS. PALLAVI SHARMA ON NATIONAL TEACHERS AWARD 2024 ★ ADMISSIONS OPEN 2026-27 ★ SCHOOL REOPENS ON JULY 1ST ★</div></div>
-
 <nav>
-    <a href="index.html" style="color:var(--gold);">Home</a>
-    <a href="pages/about.html">About Us</a>
-    <a href="pages/gallery.html">Gallery</a>
-    <a href="pages/circulars.html">Circulars</a>
-    <a href="pages/admission.html">Admissions</a>
-    <a href="pages/creativecanvas.html">Creative Canvas</a>
-    <a href="pages/complaints.html">Complaints</a>
-    <a href="pages/policies.html">Policies</a>
-    <a href="pages/suppliers.html">Suppliers</a>
-</nav>
+        <a href="../index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="policies.html">Policies</a>
+        <a href="suppliers.html">Suppliers</a>
+        <a href="circulars.html">Circulars</a>
+        <a href="admission.html">Admissions</a>
+        <a href="creativecanvas.html">Creative Canvas</a>
+        <a href="complaints.html">Complaints</a>
+    </nav>
 
 <div class="slideshow-container">
-    <div class="mySlides fade"><img src="assets/campus/building.jpg"><div class="cap"><h2>Nurturing the Future</h2><p>Excellence in Education since 1973</p></div></div>
-    <div class="mySlides fade"><div id="player"></div><div class="cap"><h2>National Teachers Award 2024</h2><p>Conferred to our Principal</p></div></div>
-    <div class="mySlides fade"><img src="assets/campus/ground.jpg"><div class="cap"><h2>Home of Champions</h2><p>The Legacy of Subroto Cup</p></div></div>
+    <div class="mySlides">
+        <div id="player"></div>
+    </div>
+
+    <div class="mySlides">
+        <img src="assets/campus/building.jpg" alt="School Building">
+    </div>
+
+    <div class="mySlides">
+        <img src="assets/campus/sport2.jpg" alt="Playground">
+    </div>
+    <div> class="mySlides">
+        <img src="assets/campus/award1.jpg" alt="Library">
+    </div>
+    <div> class="mySlides">
+        <img src="assets/campus/award2.jpg" alt="Lush Green Campus">
+    </div>
+    <div> class="mySlides">
+        <img src="assets/campus/award3.jpg" alt="Award Ceremony">
+    </div>
+    <div> class="mySlides">
+        <img src="assets/campus/award4.jpg" alt="Award Ceremony">
+    </div>
+    <div> class="mySlides">
+        <img src="assets/campus/award5.jpg" alt="Award Ceremony">   
+    </div>
+    <div> class="mySlides">
+        <img src="assets/campus/sports2.jpg" alt="Award Ceremony">
+    </div>
+    <div> class="mySlides">
+        <img src="assets/campus/sports3.jpg" alt="Award Ceremony">
+    </div>
+    <div> class="mySlides">
+        <img src="assets/campus/sports4.jpg" alt="Award Ceremony">
+    </div>
+    <div> class="mySlides">
+        <img src="assets/campus/sports9.jpg" alt="Award Ceremony">
+    </div>
 </div>
 
-<section style="padding: 60px 10%; text-align: center; background: white;">
-    <h2 style="color: var(--midnight); margin-bottom: 20px;">We Build Those, Who Build The Nation</h2>
-    <p style="line-height: 1.8; color: #555;">Welcome to a digital experience designed to keep you connected with the excellence of Mamta Modern School.</p>
-</section>
-
-<footer><p>© 2026 Mamta Modern School | Designed & Developed by <b>Swapneil Jha</b></p></footer>
+<footer class="master-footer">
+    <div class="footer-grid">
+        <div>
+            <h4 style="color:var(--gold); margin-bottom:10px;">CONTACT US</h4>
+            <p style="font-size: 0.9rem;">H-Block, Vikaspuri, New Delhi - 110018</p>
+            <div class="footer-map">
+                <iframe src="http://googleusercontent.com/maps.google.com/2" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+        <div>
+            <h4 style="color:var(--gold); margin-bottom:10px;">OUR LEADERSHIP</h4>
+            <div class="principal-card">
+                <img src="assets/people/principal.jpg">
+                <div>
+                    <b>Ms. Pallavi Sharma</b>
+                    <p style="font-size: 0.8rem; opacity: 0.8;">National Awardee Principal</p>
+                </div>
+            </div>
+            <p style="margin-top:15px; font-size:0.85rem; font-style:italic;">"We build those, who build the nation."</p>
+        </div>
+    </div>
+    <div class="bottom-bar">
+        © 2026 Mamta Modern School | Developed by <b>Swapneil Jha</b>
+    </div>
+</footer>
 
 <script src="https://www.youtube.com/iframe_api"></script>
 <script>
     var player;
+    var slideIndex = 0;
+
     function onYouTubeIframeAPIReady() {
         player = new YT.Player('player', {
-            videoId: 'CiXLm0kgI_U',
-            playerVars: { 'autoplay': 1, 'mute': 1, 'controls': 0, 'loop': 1, 'playlist': 'CiXLm0kgI_U', 'modestbranding': 1 }
+            videoId: 'CiXLm0kgI_U', // Your National Award Video ID
+            playerVars: { 
+                'autoplay': 1, 
+                'mute': 1, 
+                'controls': 0, 
+                'rel': 0, 
+                'showinfo': 0, 
+                'loop': 1, 
+                'playlist': 'CiXLm0kgI_U' 
+            },
+            events: {
+                'onReady': onPlayerReady
+            }
         });
     }
 
-    let slideIndex = 0;
+    function onPlayerReady(event) {
+        showSlides();
+    }
+
     function showSlides() {
         let slides = document.getElementsByClassName("mySlides");
-        for (let i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
         slideIndex++;
         if (slideIndex > slides.length) {slideIndex = 1}
+        
         slides[slideIndex-1].style.display = "block";
+
+        // Logic: If current slide is Video (Slide 1), wait longer (30 seconds)
+        // If current slide is an image, wait 5 seconds.
+        let displayTime = (slideIndex === 1) ? 30000 : 5000; 
         
-        // Video slide (2nd slide) stays for 25 seconds, photos stay for 5 seconds
-        let time = (slideIndex === 2) ? 25000 : 5000; 
-        if (slideIndex === 2 && player && player.playVideo) { player.playVideo(); }
-        else if (player && player.pauseVideo) { player.pauseVideo(); }
-        
-        setTimeout(showSlides, time);
+        setTimeout(showSlides, displayTime);
     }
-    showSlides();
 </script>
+
 </body>
 </html>
