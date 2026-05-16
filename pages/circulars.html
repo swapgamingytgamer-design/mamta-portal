@@ -20,6 +20,7 @@
         .info-txt { font-weight: 900; color: #001f3f; font-size: 1.1rem; font-family: 'Arial', sans-serif; display: flex; justify-content: flex-end; align-items: center; }
         .info-txt a { text-decoration: none; color: inherit; }
         .info-txt i { color: var(--midnight); margin-right: 10px; font-size: 1.2rem; }
+        
         .soc-row { display: flex; justify-content: flex-end; gap: 15px; margin-top: 5px; }
         .soc-row a { font-size: 1.9rem; text-decoration: none; }
         .fa-facebook { color: #1877F2; } .fa-youtube { color: #FF0000; } .fa-instagram { color: #E4405F; }
@@ -29,12 +30,17 @@
         nav a { color: white; padding: 18px 25px; text-decoration: none; font-weight: bold; font-size: 0.85rem; text-transform: uppercase; }
         nav a:hover { color: var(--accent); background: rgba(255,255,255,0.1); }
 
-        /* CIRCULAR LIST */
-        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+        /* CIRCULAR CONTENT */
+        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; min-height: 400px; }
         .item { background: white; padding: 25px; border-radius: 15px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-left: 8px solid var(--midnight); box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
         .item-info b { font-size: 1.1rem; color: var(--midnight); }
         .item-info small { color: #666; font-family: 'Arial', sans-serif; }
         .btn { background: var(--midnight); color: var(--accent); padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; border: 2px solid var(--accent); font-size: 0.8rem; }
+        
+        /* NO CIRCULAR MESSAGE STYLE */
+        .empty-state { text-align: center; padding: 60px 20px; background: white; border-radius: 20px; border: 2px dashed #ccc; }
+        .empty-state i { font-size: 4rem; color: #ccc; margin-bottom: 20px; }
+        .empty-state h3 { color: var(--midnight); margin-bottom: 10px; }
 
         footer { background: #001f3f; color: white; padding: 40px; text-align: center; margin-top: 50px; }
         footer b { color: var(--accent); }
@@ -44,7 +50,7 @@
 </head>
 <body>
     <header>
-        <div class="h-left"><img src="../assets/people/logo.png"></div>
+        <div class="h-left"><img src="../assets/people/logo.png" onerror="this.src='https://via.placeholder.com/100'"></div>
         <div class="h-center"><h1>MAMTA MODERN SCHOOL</h1><p>NURTURING EXCELLENCE SINCE 1973</p></div>
         <div class="h-right">
             <div class="info-txt"><a href="tel:+911145614501"><i class="fa-solid fa-phone"></i>+91-11-45614501</a></div>
@@ -63,30 +69,38 @@
         <a href="suppliers.html">Suppliers</a>
         <a href="policies.html">Policies</a>
     </nav>
-    <div class="container" id="list">
+
+    <div class="container">
         <h2 style="margin-bottom: 30px; color: var(--midnight); border-left: 8px solid var(--accent); padding-left: 15px;">Latest Circulars</h2>
-        </div>
+        <div id="circular-list">
+            </div>
+    </div>
 
     <footer><p>© 2026 Mamta Modern School | Developed by <b>Swapneil Jha</b></p></footer>
 
     <script>
-        // Add your circulars here
-        const data = [
-            {t: "Summer Vacation Schedule 2026", d: "May 15, 2026", f: "summer_break.pdf"},
-            {t: "Uniform Change Notice", d: "April 10, 2026", f: "uniform.pdf"}
-        ];
-        const l = document.getElementById('list');
-        if(data.length === 0) {
-            l.innerHTML += "<p style='text-align:center; padding: 50px;'>No circulars posted yet.</p>";
+        // LEAVE THIS ARRAY EMPTY [] TO SHOW THE "NO CIRCULAR" MESSAGE
+        // ADD OBJECTS {t: "Title", d: "Date", f: "file.pdf"} TO SHOW CIRCULARS
+        const circulars = []; 
+
+        const listDiv = document.getElementById('circular-list');
+
+        if (circulars.length === 0) {
+            listDiv.innerHTML = `
+                <div class="empty-state">
+                    <i class="fa-solid fa-folder-open"></i>
+                    <h3>No Circulars Available</h3>
+                    <p style="font-family: Arial, sans-serif; color: #777;">Please check back later for the latest updates and school notices.</p>
+                </div>`;
         } else {
-            data.forEach(c => {
-                l.innerHTML += `
+            circulars.forEach(item => {
+                listDiv.innerHTML += `
                 <div class="item">
                     <div class="item-info">
-                        <b>${c.t}</b><br>
-                        <small>Posted on: ${c.d}</small>
+                        <b>${item.t}</b><br>
+                        <small>Posted on: ${item.d}</small>
                     </div>
-                    <a href="../assets/circulars/${c.f}" class="btn">VIEW PDF</a>
+                    <a href="../assets/circulars/${item.f}" class="btn" target="_blank">VIEW PDF</a>
                 </div>`;
             });
         }
