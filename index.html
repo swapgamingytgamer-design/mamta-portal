@@ -7,10 +7,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root { --midnight: #001f3f; --accent: #d4af37; --white: #ffffff; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial Black', Gadget, sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial Black', sans-serif; }
         body { background: #f4f7f6; color: #333; overflow-x: hidden; }
 
-        /* UNIFIED HEADER */
         header { background: var(--white); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #eee; }
         .h-left img { height: 100px; }
         .h-center { flex-grow: 1; padding-left: 30px; }
@@ -20,20 +19,14 @@
         .info-txt { font-weight: 900; color: #001f3f; font-size: 1.1rem; font-family: 'Arial', sans-serif; display: flex; justify-content: flex-end; align-items: center; }
         .info-txt a { text-decoration: none; color: inherit; }
         .info-txt i { color: var(--midnight); margin-right: 10px; font-size: 1.2rem; }
-        
         .soc-row { display: flex; justify-content: flex-end; gap: 15px; margin-top: 5px; }
         .soc-row a { font-size: 1.9rem; text-decoration: none; transition: 0.3s; }
-        .fa-facebook { color: #1877F2; } 
-        .fa-youtube { color: #FF0000; } 
-        .fa-instagram { color: #E4405F; }
-        .soc-row a:hover { opacity: 0.7; }
+        .fa-facebook { color: #1877F2; } .fa-youtube { color: #FF0000; } .fa-instagram { color: #E4405F; }
 
-        /* NAV */
         nav { background: #001f3f; padding: 0 5%; display: flex; justify-content: center; position: sticky; top: 0; z-index: 1000; }
         nav a { color: white; padding: 18px 25px; text-decoration: none; font-weight: bold; font-size: 0.85rem; text-transform: uppercase; }
         nav a:hover { color: var(--accent); background: rgba(255,255,255,0.1); }
 
-        /* SLIDESHOW */
         .hero { position: relative; height: 600px; background: #000; overflow: hidden; }
         .slide { position: absolute; inset: 0; opacity: 0; transition: 1s ease-in-out; }
         .slide.active { opacity: 1; }
@@ -42,20 +35,12 @@
         .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
         .card { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); display: flex; gap: 40px; align-items: center; margin-bottom: 40px; }
         .prin-img { width: 300px; border-radius: 15px; border: 5px solid #001f3f; }
-
-        /* MAP SECTION */
-        .map-container { width: 100%; height: 450px; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 5px solid white; }
+        .map-container { width: 100%; height: 450px; border-radius: 20px; overflow: hidden; border: 5px solid white; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
 
         footer { background: #001f3f; color: white; padding: 40px; text-align: center; margin-top: 50px; }
         footer b { color: var(--accent); }
 
-        @media (max-width: 900px) { 
-            header { flex-direction: column; text-align: center; } 
-            .h-center { padding: 15px 0; } 
-            .h-right { text-align: center; } 
-            .soc-row, .info-txt { justify-content: center; } 
-            .card { flex-direction: column; text-align: center; } 
-        }
+        @media (max-width: 900px) { header { flex-direction: column; } .h-center { padding: 15px 0; } .info-txt, .soc-row { justify-content: center; } .card { flex-direction: column; text-align: center; } }
     </style>
 </head>
 <body>
@@ -72,7 +57,6 @@
             </div>
         </div>
     </header>
-    
     <nav>
         <a href="index.html">Home</a>
         <a href="pages/gallery.html">Gallery</a>
@@ -80,7 +64,6 @@
         <a href="pages/suppliers.html">Suppliers</a>
         <a href="pages/policies.html">Policies</a>
     </nav>
-
     <div class="hero">
         <div class="slide active"><img src="assets/events/campus.jpg"></div>
         <div class="slide"><img src="assets/events/sports.jpg"></div>
@@ -90,34 +73,20 @@
         <div class="slide"><img src="assets/events/award4.jpg"></div>
         <div class="slide"><img src="assets/events/award5.jpg"></div>
     </div>
-
     <div class="container">
         <div class="card">
             <img src="assets/people/principal.jpg" class="prin-img">
-            <div>
-                <h2 style="color:#001f3f; margin-bottom:15px;">Principal's Message</h2>
-                <p style="font-family: Arial, sans-serif; line-height: 1.6;">Welcome to Mamta Modern School. We are dedicated to providing a holistic education that empowers students to reach their full potential and become responsible global citizens.</p>
-            </div>
+            <div><h2 style="color:#001f3f; margin-bottom:15px;">Principal's Message</h2><p style="font-family: Arial, sans-serif; line-height: 1.6;">Welcome to Mamta Modern School. We are dedicated to providing a holistic education that empowers students to reach their full potential.</p></div>
         </div>
-
         <h2 style="margin-bottom: 20px; color: var(--midnight);">Find Us On Google Maps</h2>
         <div class="map-container">
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.761842345511!2d77.06941197544078!3d28.636888475661623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d050013b56951%3A0xc07a835a0927702a!2sMamta%20Modern%20Sr.%20Sec.%20School!5e0!3m2!1sen!2sin!4v1712345678901!5m2!1sen!2sin" 
-                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.123456789!2d77.065!3d28.635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d050000000001%3A0x0!2sMamta%20Modern%20Sr.%20Sec.%20School!5e0!3m2!1sen!2sin!4v123456789" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </div>
-
     <footer><p>© 2026 Mamta Modern School | Developed by <b>Swapneil Jha</b></p></footer>
-
     <script>
         let idx = 0; const slides = document.querySelectorAll('.slide');
-        setInterval(() => { 
-            slides[idx].classList.remove('active'); 
-            idx = (idx + 1) % slides.length; 
-            slides[idx].classList.add('active'); 
-        }, 4000);
+        setInterval(() => { slides[idx].classList.remove('active'); idx = (idx + 1) % slides.length; slides[idx].classList.add('active'); }, 4000);
     </script>
 </body>
 </html>
