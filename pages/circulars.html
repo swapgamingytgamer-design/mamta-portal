@@ -10,7 +10,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial Black', sans-serif; }
         body { background: #f4f7f6; color: #333; }
 
-        /* UNIFIED HEADER */
+        /* HEADER */
         header { background: var(--white); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #eee; }
         .h-left img { height: 100px; }
         .h-center { flex-grow: 1; padding-left: 30px; }
@@ -32,20 +32,50 @@
 
         /* CIRCULAR CONTENT */
         .container { max-width: 900px; margin: 40px auto; padding: 0 20px; min-height: 400px; }
-        .item { background: white; padding: 25px; border-radius: 15px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-left: 8px solid var(--midnight); box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        .item-info b { font-size: 1.1rem; color: var(--midnight); }
-        .item-info small { color: #666; font-family: 'Arial', sans-serif; }
-        .btn { background: var(--midnight); color: var(--accent); padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; border: 2px solid var(--accent); font-size: 0.8rem; }
         
-        /* NO CIRCULAR MESSAGE STYLE */
+        /* The Card Style */
+        .item { 
+            background: white; 
+            padding: 25px; 
+            border-radius: 15px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            margin-bottom: 15px; 
+            border-left: 8px solid var(--midnight); 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
+        }
+        .item-info h3 { font-size: 1.1rem; color: var(--midnight); margin-bottom: 5px; }
+        .item-info p { color: #666; font-family: 'Arial', sans-serif; font-size: 0.9rem; }
+        
+        /* The Button Style */
+        .btn { 
+            background: var(--midnight); 
+            color: var(--accent); 
+            padding: 10px 20px; 
+            border-radius: 5px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            border: 2px solid var(--accent); 
+            font-size: 0.8rem; 
+            transition: 0.3s;
+        }
+        .btn:hover { background: var(--accent); color: var(--midnight); }
+        
+        /* Empty State */
         .empty-state { text-align: center; padding: 60px 20px; background: white; border-radius: 20px; border: 2px dashed #ccc; }
         .empty-state i { font-size: 4rem; color: #ccc; margin-bottom: 20px; }
-        .empty-state h3 { color: var(--midnight); margin-bottom: 10px; }
 
         footer { background: #001f3f; color: white; padding: 40px; text-align: center; margin-top: 50px; }
         footer b { color: var(--accent); }
 
-        @media (max-width: 900px) { header { flex-direction: column; text-align: center; } .h-center { padding: 15px 0; } .h-right { text-align: center; } .soc-row, .info-txt { justify-content: center; } .item { flex-direction: column; text-align: center; gap: 15px; } }
+        @media (max-width: 900px) { 
+            header { flex-direction: column; text-align: center; } 
+            .h-center { padding: 15px 0; } 
+            .h-right { text-align: center; } 
+            .soc-row, .info-txt { justify-content: center; } 
+            .item { flex-direction: column; text-align: center; gap: 15px; } 
+        }
     </style>
 </head>
 <body>
@@ -62,52 +92,63 @@
             </div>
         </div>
     </header>
-     <nav>
+    <nav>
     <a href="../index.html">Home</a>
+    <a href="about.html">About Us</a>
     <a href="gallery.html">Gallery</a>
     <a href="circulars.html">Circulars</a>
     <a href="admission.html">Admissions</a>
+    <a href="showcase.html">Showcase</a>
     <a href="complaints.html">Complaints</a>
     <a href="suppliers.html">Suppliers</a>
     <a href="policies.html">Policies</a>
-    <a href="about.html">About Us</a>
-    <a href="showcase.html">Showcase</a>
     </nav>
     
- <div class="container">
+    <div class="container">
         <h2 style="margin-bottom: 30px; color: var(--midnight); border-left: 8px solid var(--accent); padding-left: 15px;">Latest Circulars</h2>
-        <div id="circular-list">
-            </div>
+        
+        <div id="circular-list"></div>
     </div>
 
     <footer><p>© 2026 Mamta Modern School | Developed by <b>Swapneil Jha</b></p></footer>
 
     <script>
-    // Updated to show ONLY the specific self-transport circular
-    const circulars = [
-        {
-            t: "Cir. No. 002 & 003: Self-Transport Information for Website", 
-            d: "16/05/2026", 
-            f: "cir-no-002-and-003-for-self-transport-cir-for-website.pdf"
+        // Your Data
+        const circulars = [
+            {
+                t: "Cir. No. 002 & 003: Self-Transport Information for Website", 
+                d: "16/05/2026", 
+                f: "cir-no-002-and-003-for-self-transport-cir-for-website.pdf"
+            }
+        ];
+
+        // 1. Get the correct ID from the HTML
+        const listDiv = document.getElementById('circular-list');
+
+        // 2. Check if there are any circulars to show
+        if (circulars.length === 0) {
+            listDiv.innerHTML = `
+                <div class="empty-state">
+                    <i class="fa-solid fa-folder-open"></i>
+                    <h3>No Circulars Available</h3>
+                    <p>Please check back later for updates.</p>
+                </div>`;
+        } else {
+            // 3. Loop through and add them using the CSS classes from the style tag
+            circulars.forEach(cir => {
+                listDiv.innerHTML += `
+                    <div class="item">
+                        <div class="item-info">
+                            <h3>${cir.t}</h3>
+                            <p><i class="fa-solid fa-calendar-days"></i> Posted on: ${cir.d}</p>
+                        </div>
+                        <a href="../assets/circulars/${cir.f}" class="btn" target="_blank">
+                            <i class="fa-solid fa-file-pdf"></i> VIEW PDF
+                        </a>
+                    </div>
+                `;
+            });
         }
-    ];
-
-    const listDiv = document.getElementById('circularList');
-
-    // This will now only loop once and show only your new circular
-    circulars.forEach(cir => {
-        listDiv.innerHTML += `
-            <div class="circular-item">
-                <div class="cir-info">
-                    <h3>${cir.t}</h3>
-                    <p><i class="fa-solid fa-calendar-days"></i> Posted on: ${cir.d}</p>
-                </div>
-                <a href="../assets/circulars/${cir.f}" class="download-btn" target="_blank">
-                    <i class="fa-solid fa-file-pdf"></i> VIEW PDF
-                </a>
-            </div>
-        `;
-    });
-</script>
+    </script>
 </body>
 </html>
