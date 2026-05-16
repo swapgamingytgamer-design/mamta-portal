@@ -6,29 +6,43 @@
     <title>Suppliers | Mamta Modern School</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* CSS IS IDENTICAL */
         :root { --midnight: #001f3f; --accent: #d4af37; --white: #ffffff; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial Black', sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial Black', Gadget, sans-serif; }
         body { background: #f4f7f6; color: #333; }
+
+        /* UNIFIED HEADER */
         header { background: var(--white); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #eee; }
         .h-left img { height: 100px; }
         .h-center { flex-grow: 1; padding-left: 30px; }
-        .h-center h1 { color: #001f3f; font-size: 2.3rem; margin: 0; }
-        .h-center p { color: var(--accent); font-size: 0.9rem; font-weight: bold; margin-top: 8px; }
+        .h-center h1 { color: #001f3f; font-size: 2.3rem; margin: 0; line-height: 1; text-align: left; }
+        .h-center p { color: var(--accent); font-size: 0.9rem; font-weight: bold; margin-top: 8px; text-align: left; }
         .h-right { text-align: right; display: flex; flex-direction: column; gap: 4px; min-width: 280px; }
         .info-txt { font-weight: 900; color: #001f3f; font-size: 1.1rem; font-family: 'Arial', sans-serif; }
         .soc-row { display: flex; justify-content: flex-end; gap: 15px; margin-top: 5px; }
         .soc-row a { font-size: 1.9rem; text-decoration: none; }
         .fa-facebook { color: #1877F2; } .fa-youtube { color: #FF0000; } .fa-instagram { color: #E4405F; }
+
+        /* UNIFIED NAV */
         nav { background: #001f3f; padding: 0 5%; display: flex; justify-content: center; position: sticky; top: 0; z-index: 1000; }
         nav a { color: white; padding: 18px 25px; text-decoration: none; font-weight: bold; font-size: 0.85rem; text-transform: uppercase; }
         nav a:hover { color: var(--accent); background: rgba(255,255,255,0.1); }
 
-        .container { max-width: 1100px; margin: 40px auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 0 5%; }
-        .box { background: white; padding: 30px; border-radius: 15px; text-align: center; border: 1px solid #ddd; }
-        .box h3 { color: var(--midnight); margin-bottom: 10px; }
-        .call-btn { display: inline-block; background: var(--midnight); color: var(--accent); padding: 12px 25px; border-radius: 5px; text-decoration: none; font-weight: bold; border: 2px solid var(--accent); margin-top: 15px; }
-        footer { background: #001f3f; color: white; padding: 40px; text-align: center; }
+        /* SUPPLIER GRID */
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        .sup-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px; }
+        .sup-card { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border-top: 5px solid var(--midnight); display: flex; flex-direction: column; justify-content: space-between; }
+        
+        .gst-tag { color: var(--accent); font-size: 0.75rem; font-weight: 900; text-transform: uppercase; margin-bottom: 10px; display: block; }
+        .sup-card h3 { color: var(--midnight); font-size: 1.4rem; margin-bottom: 10px; line-height: 1.2; }
+        .sup-card p { font-family: 'Arial', sans-serif; font-size: 0.9rem; color: #555; margin-bottom: 20px; min-height: 40px; }
+        
+        .call-btn { background: var(--midnight); color: var(--accent); padding: 12px; border-radius: 10px; text-decoration: none; font-weight: bold; text-align: center; border: 2px solid var(--accent); transition: 0.3s; }
+        .call-btn:hover { background: var(--accent); color: var(--midnight); }
+
+        footer { background: #001f3f; color: white; padding: 40px; text-align: center; margin-top: 50px; }
+        footer b { color: var(--accent); }
+
+        @media (max-width: 900px) { header { flex-direction: column; text-align: center; } .h-center { padding: 15px 0; } .h-right { text-align: center; } .soc-row { justify-content: center; } }
     </style>
 </head>
 <body>
@@ -39,23 +53,72 @@
             <div class="info-txt">+91-11-45614501</div>
             <div class="info-txt" style="font-size: 0.85rem;">mamtamodernschool@gmail.com</div>
             <div class="soc-row">
-                <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.facebook.com/MamtaModernSeniorSecondarySchoolVikasPuri/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.youtube.com/@MamtaModernSchoolVikasPuri" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://www.instagram.com/mamtamodernschool/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
             </div>
         </div>
     </header>
-   <nav>
-    <a href="index.html">Home</a>
-    <a href="pages/gallery.html">Gallery</a>
-    <a href="pages/circulars.html">Circulars</a>
-    <a href="pages/suppliers.html">Suppliers</a>
-    <a href="pages/policies.html">Policies</a>
-</nav>
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="circulars.html">Circulars</a>
+        <a href="suppliers.html">Suppliers</a>
+        <a href="policies.html">Policies</a>
+    </nav>
+
     <div class="container">
-        <div class="box"><h3>Design X Knitwears</h3><p>Authorized Uniform Supplier</p><a href="tel:01145614501" class="call-btn">Call Now</a></div>
-        <div class="box"><h3>Shilpi Prakashan</h3><p>Books & Stationery</p><a href="tel:9350520688" class="call-btn">Call Now</a></div>
+        <h2 style="margin-bottom: 30px; color: var(--midnight); border-left: 8px solid var(--accent); padding-left: 15px;">Authorized Vendors</h2>
+        <div class="sup-grid">
+            
+            <div class="sup-card">
+                <div>
+                    <span class="gst-tag">GST: 07ACVPM5786A1Z5</span>
+                    <h3>DESIGN X KNITWEARS</h3>
+                    <p>A-42/3 Mayapuri Industrial Area Phase-1, New Delhi-110064</p>
+                </div>
+                <a href="tel:07947143622" class="call-btn"><i class="fa-solid fa-phone"></i> 07947143622</a>
+            </div>
+
+            <div class="sup-card">
+                <div>
+                    <span class="gst-tag">Uniform Specialist</span>
+                    <h3>UNIFORM SELLECTION</h3>
+                    <p>Hari Nagar, New Delhi-110064</p>
+                </div>
+                <a href="tel:07947110334" class="call-btn"><i class="fa-solid fa-phone"></i> 07947110334</a>
+            </div>
+
+            <div class="sup-card">
+                <div>
+                    <span class="gst-tag">Apparel Vendor</span>
+                    <h3>AHUJA GARMENTS</h3>
+                    <p>Vikaspuri, New Delhi-110018</p>
+                </div>
+                <a href="tel:07947108633" class="call-btn"><i class="fa-solid fa-phone"></i> 07947108633</a>
+            </div>
+
+            <div class="sup-card">
+                <div>
+                    <span class="gst-tag">Books & Stationery</span>
+                    <h3>SHILPI PRAKASHAN</h3>
+                    <p>Vikaspuri, New Delhi-110018</p>
+                </div>
+                <a href="tel:9350520688" class="call-btn"><i class="fa-solid fa-phone"></i> 93505 20688</a>
+            </div>
+
+            <div class="sup-card">
+                <div>
+                    <span class="gst-tag">Book Depot</span>
+                    <h3>HELLO BOOK DEPOT</h3>
+                    <p>Vikaspuri, New Delhi-110018</p>
+                </div>
+                <a href="tel:0794751173" class="call-btn"><i class="fa-solid fa-phone"></i> 0794751173</a>
+            </div>
+
+        </div>
     </div>
+
     <footer><p>© 2026 Mamta Modern School | Developed by <b>Swapneil Jha</b></p></footer>
 </body>
 </html>
