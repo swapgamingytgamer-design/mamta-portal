@@ -22,9 +22,59 @@
         .branch-logo { height: 40px; width: 40px; border-radius: 50%; border: 2px solid var(--gold); cursor: pointer; }
 
         /* NAVIGATION */
-        nav { background: var(--midnight); display: flex; justify-content: center; position: sticky; top: 0; z-index: 1000; }
-        nav a { color: white; padding: 20px 25px; text-decoration: none; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; }
-        nav a:hover { background: var(--gold); color: var(--midnight); }
+        /* 1. THE NAVIGATION BAR CONTAINER */
+nav {
+    background: #001f3f; /* Midnight Blue */
+    display: flex;
+    justify-content: center; /* Centered on Desktop */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    
+    /* THE MOBILE FIX: These lines allow horizontal scrolling */
+    overflow-x: auto; 
+    white-space: nowrap; 
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    scrollbar-width: none; /* Hides scrollbar on Firefox */
+}
+
+/* Hides scrollbar on Chrome/Safari to keep it clean */
+nav::-webkit-scrollbar {
+    display: none;
+}
+
+/* 2. THE NAVIGATION LINKS */
+nav a {
+    color: #ffffff;
+    padding: 18px 25px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    display: inline-block; /* Essential for the horizontal scroll */
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+/* 3. HOVER & ACTIVE STATE */
+nav a:hover {
+    background: rgba(212, 175, 55, 0.1); /* Light Gold hint */
+    color: #d4af37; /* Gold text */
+    border-bottom: 3px solid #d4af37; /* Gold underline */
+}
+
+/* 4. MOBILE ADJUSTMENTS */
+@media (max-width: 768px) {
+    nav {
+        justify-content: flex-start; /* Align to left so user knows to swipe */
+        padding-left: 10px;
+    }
+    
+    nav a {
+        padding: 15px 20px;
+        font-size: 0.8rem; /* Slightly smaller text for mobile */
+    }
+}
 
         /* CIRCULAR CONTENT */
         .circular-container { padding: 60px 10%; min-height: 70vh; }
