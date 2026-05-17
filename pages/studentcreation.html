@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Creation Portal | Mamta Modern School</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --midnight: #001f3f; --gold: #d4af37; --white: #ffffff; --silver: #f4f7f6; --text: #333; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background: var(--white); color: var(--text); }
+        header { background: white; padding: 10px 6%; display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid var(--midnight); }
+        .logo-main img { height: 80px; }
+        .header-center h1 { color: var(--midnight); font-size: 1.8rem; text-transform: uppercase; text-align: center; }
+        nav { background: var(--midnight); display: flex; justify-content: center; position: sticky; top: 0; z-index: 1000; overflow-x: auto; }
+        nav a { color: white; padding: 15px 20px; text-decoration: none; font-weight: 600; font-size: 0.8rem; text-transform: uppercase; }
+        @media (max-width: 768px) {
+            nav { display: grid; grid-template-columns: repeat(3, 1fr); }
+            nav a { font-size: 0.6rem; padding: 10px 5px; text-align: center; border: 1px solid rgba(255,255,255,0.1); }
+        }
+        .main-container { padding: 40px 5%; text-align: center; }
+        .form-card { max-width: 600px; margin: 20px auto; background: var(--silver); padding: 30px; border-radius: 15px; border-top: 5px solid var(--gold); text-align: left; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; font-weight: 700; margin-bottom: 5px; color: var(--midnight); }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
+        .submit-btn { width: 100%; background: var(--midnight); color: white; padding: 15px; border: none; border-radius: 5px; font-weight: 800; cursor: pointer; }
+        footer { background: var(--midnight); color: white; padding: 30px; text-align: center; margin-top: 40px; }
+        .credits b { color: var(--gold); }
+    </style>
+</head>
+<body>
+<header>
+    <div class="logo-main"><img src="../assets/people/logo.png" alt="Logo"></div>
+    <div class="header-center"><h1>MAMTA MODERN SCHOOL</h1></div>
+</header>
+<nav>
+    <a href="../index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="studentcreation.html">Students Creation</a>
+    <a href="complaints.html">Complaints</a>
+</nav>
+<div class="main-container">
+    <h2>Student Creation Portal</h2>
+    <div class="form-card">
+        <form id="submissionForm">
+            <input type="hidden" name="access_key" value="6984aa09-04d4-4a31-98ff-65cb3209cf62">
+            <div class="form-group">
+                <label>Student Name</label>
+                <input type="text" name="name" required>
+            </div>
+            <div class="form-group">
+                <label>Category</label>
+                <select id="category" name="category" onchange="toggleForm()" required>
+                    <option value="Poem">Poem</option>
+                    <option value="Photography">Photography/Drawing</option>
+                </select>
+            </div>
+            <div id="textPart" class="form-group">
+                <label>Your Text</label>
+                <textarea name="message" rows="6"></textarea>
+            </div>
+            <div id="imagePart" class="form-group" style="display:none;">
+                <label>Upload Image</label>
+                <input type="file" name="attachment" accept="image/*">
+            </div>
+            <button type="submit" class="submit-btn" id="submitBtn">SUBMIT WORK</button>
+        </form>
+    </div>
+</div>
+<footer>
+    <p>© 2026 Mamta Modern School | Developed by <b>Swapneil Jha</b></p>
+</footer>
+<script>
+function toggleForm() {
+    const type = document.getElementById('category').value;
+    document.getElementById('textPart').style.display = (type === 'Poem') ? 'block' : 'none';
+    document.getElementById('imagePart').style.display = (type === 'Poem') ? 'none' : 'block';
+}
+document.getElementById('submissionForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    const type = document.getElementById('category').value;
+    btn.innerHTML = "SENDING..."; btn.disabled = true;
+
+    let url = (type === 'Poem') ? 'https://api.web3forms.com/submit' : 'https://formspree.io/f/fcd483366f41363f3283fdb45916f17a';
+
+    fetch(url, { method: 'POST', body: new FormData(this), headers: {'Accept': 'application/json'} })
+    .then(res => { if(res.ok) { alert("Success!"); this.reset(); toggleForm(); } else { alert("Failed."); } })
+    .finally(() => { btn.innerHTML = "SUBMIT WORK"; btn.disabled = false; });
+});
+</script>
+</body>
+</html>
