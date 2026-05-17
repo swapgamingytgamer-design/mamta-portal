@@ -22,77 +22,60 @@
         .branch-logo { height: 40px; width: 40px; border-radius: 50%; border: 2px solid var(--gold); }
 
         /* NAVIGATION */
-        /* 1. THE NAVIGATION BAR CONTAINER */
-nav {
-    background: #001f3f; /* Midnight Blue */
-    display: flex;
-    justify-content: center; /* Centered on Desktop */
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    
-    /* THE MOBILE FIX: These lines allow horizontal scrolling */
-    overflow-x: auto; 
-    white-space: nowrap; 
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-    scrollbar-width: none; /* Hides scrollbar on Firefox */
-}
+        nav {
+            background: #001f3f;
+            display: flex;
+            justify-content: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            overflow-x: auto; 
+            white-space: nowrap; 
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
 
-/* Hides scrollbar on Chrome/Safari to keep it clean */
-nav::-webkit-scrollbar {
-    display: none;
-}
+        nav::-webkit-scrollbar { display: none; }
 
-/* 2. THE NAVIGATION LINKS */
-nav a {
-    color: #ffffff;
-    padding: 18px 25px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    display: inline-block; /* Essential for the horizontal scroll */
-    transition: all 0.3s ease;
-    border-bottom: 3px solid transparent;
-}
+        nav a {
+            color: #ffffff;
+            padding: 18px 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
 
-/* 3. HOVER & ACTIVE STATE */
-nav a:hover {
-    background: rgba(212, 175, 55, 0.1); /* Light Gold hint */
-    color: #d4af37; /* Gold text */
-    border-bottom: 3px solid #d4af37; /* Gold underline */
-}
+        nav a:hover {
+            background: rgba(212, 175, 55, 0.1);
+            color: #d4af37;
+            border-bottom: 3px solid #d4af37;
+        }
 
-/* 4. MOBILE ADJUSTMENTS */
-@media (max-width: 768px) {
-    nav {
-        display: grid !important; /* Overrides the desktop flex layout */
-        grid-template-columns: repeat(4, 1fr); /* 4 columns */
-        grid-template-rows: auto auto; /* 2 rows */
-        gap: 2px;
-        padding: 5px;
-        background: #001f3f;
-    }
-
-    nav a {
-        font-size: 0.65rem !important; /* Smaller text to fit 4 buttons */
-        padding: 12px 2px !important;
-        text-align: center;
-        border: 1px solid rgba(255,255,255,0.1);
-        white-space: normal; /* Allows text to wrap if the word is long */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-    }
-}
-@media (max-width: 768px) {
-    .responsive-video {
-        width: 100% !important;
-        height: auto !important;
-        object-fit: cover; /* Ensures it fills the space without stretching */
-    }
-}
+        @media (max-width: 768px) {
+            nav {
+                display: grid !important;
+                grid-template-columns: repeat(4, 1fr);
+                grid-template-rows: auto auto;
+                gap: 2px;
+                padding: 5px;
+                background: #001f3f;
+            }
+            nav a {
+                font-size: 0.65rem !important;
+                padding: 12px 2px !important;
+                text-align: center;
+                border: 1px solid rgba(255,255,255,0.1);
+                white-space: normal;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+            }
+        }
 
         /* FORM CONTAINER */
         .submission-section { padding: 60px 10%; background: var(--white); }
@@ -102,59 +85,21 @@ nav a:hover {
         .section-header p { color: #666; font-style: italic; }
 
         .canvas-form { max-width: 700px; margin: 0 auto; background: var(--silver); padding: 40px; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); border-top: 8px solid var(--gold); }
-        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
         .form-group { margin-bottom: 20px; }
         .form-group label { display: block; font-weight: 700; color: var(--midnight); margin-bottom: 8px; font-size: 0.9rem; text-transform: uppercase; }
         .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 1rem; }
-        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--midnight); outline: none; }
-         
-        input[type="file"] {
-    background: white;
-    padding: 20px;
-    border: 2px dashed #001f3f; /* Blue dashed border looks like a "drop zone" */
-    cursor: pointer;
-}
-
-input[type="file"]:hover {
-    background: #f0f4f8;
-    border-color: #d4af37;
-}
+        
+        input[type="file"] { background: white; padding: 20px; border: 2px dashed #001f3f; cursor: pointer; }
+        input[type="file"]:hover { background: #f0f4f8; border-color: #d4af37; }
 
         .submit-btn { width: 100%; background: var(--midnight); color: white; padding: 18px; border: none; border-radius: 10px; font-weight: 800; font-size: 1.1rem; cursor: pointer; transition: 0.3s; text-transform: uppercase; letter-spacing: 2px; }
         .submit-btn:hover { background: var(--gold); color: var(--midnight); transform: translateY(-3px); }
 
-        /* FOOTER (Master Design) */
         footer { background: var(--midnight); color: white; padding: 50px 10% 20px 10%; text-align: center; margin-top: 60px; }
         .footer-line { width: 100%; height: 1px; background: rgba(255,255,255,0.1); margin: 30px 0; }
         .credits { font-size: 0.9rem; color: #aaa; }
         .credits b { color: var(--gold); }
-
-        @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
     </style>
-    <script>
-function toggleForm() {
-    const selection = document.getElementById('submissionType').value;
-    const textSection = document.getElementById('textInputArea');
-    const imageSection = document.getElementById('imageUploadArea');
-    
-    // Check if the user selected an image-based category
-    if (selection === 'Photography' || selection === 'Drawing') {
-        textSection.style.display = 'none';      // Hide text box
-        imageSection.style.display = 'block';    // Show upload button
-        
-        // Make image required, text not required
-        imageSection.querySelector('input').required = true;
-        textSection.querySelector('textarea').required = false;
-    } else {
-        textSection.style.display = 'block';     // Show text box
-        imageSection.style.display = 'none';     // Hide upload button
-        
-        // Make text required, image not required
-        textSection.querySelector('textarea').required = true;
-        imageSection.querySelector('input').required = false;
-    }
-}
-</script>
 </head>
 <body>
 
@@ -171,92 +116,131 @@ function toggleForm() {
         </div>
         <div class="social-row">
             <a href="https://www.youtube.com/@mamtamordernschoolvikaspuri" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-            <a href="https://www.presidencyinternationalschool.com" target="_blank">
-                <img src="assets/people/branch_logo.png" alt="Branch" class="branch-logo" onerror="this.src='assets/people/logo.png'">
-            </a>
             <a href="https://www.facebook.com/MamtaModernSeniorSecondarySchoolVikasPuri" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/mamtamodernschool/" title="Instagram" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.instagram.com/mamtamodernschool/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
         </div>
     </div>
 </header>
 
 <nav>
-        <a href="../index.html">Home</a>
-        <a href="about.html">About Us</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="policies.html">Policies</a>
-        <a href="suppliers.html">Suppliers</a>
-        <a href="circulars.html">Circulars</a>
-        <a href="admission.html">Admissions</a>
-        <a href="creativecanvas.html">Students Creation</a>
-        <a href="complaints.html">Complaints</a>
+    <a href="../index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="policies.html">Policies</a>
+    <a href="suppliers.html">Suppliers</a>
+    <a href="circulars.html">Circulars</a>
+    <a href="admission.html">Admissions</a>
+    <a href="creativecanvas.html">Students Creation</a>
+    <a href="complaints.html">Complaints</a>
 </nav>
 
-
 <section class="submission-section">
-    <h2>Creative Canvas</h2>
-    <p>Submit your Poems, Stories, or Digital Art!</p>
+    <div class="section-header">
+        <h2>Creative Canvas</h2>
+        <div></div>
+        <p>Submit your Poems, Stories, or Digital Art!</p>
+    </div>
 
-    <form id="creativeForm" class="styled-form" action="YOUR_FORMSPREE_URL" method="POST" enctype="multipart/form-data">
-        
-        <div class="form-group">
-            <label>Student Name</label>
-            <input type="text" name="name" required>
-        </div>
+    <div class="canvas-form">
+        <form id="creativeForm" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="access_key" value="6984aa09-04d4-4a31-98ff-65cb3209cf62">
+            
+            <div class="form-group">
+                <label>Student Name *</label>
+                <input type="text" name="name" required>
+            </div>
 
-        <div class="form-group">
-            <label for="submissionType">Submission Category</label>
-            <select id="submissionType" name="category" onchange="toggleForm()" required>
-                <option value="Poem">Poem</option>
-                <option value="Story">Story</option>
-                <option value="Photography">Photography / Art</option>
-                <option value="Drawing">Drawing (Scanned/Photo)</option>
-            </select>
-        </div>
+            <div class="form-group">
+                <label>Work Title *</label>
+                <input type="text" name="work_title" placeholder="Give your work a title" required>
+            </div>
 
-        <div id="textInputArea" class="form-group">
-            <label>Your Text Content</label>
-            <textarea name="message" rows="10" placeholder="Write your poem or story here..."></textarea>
-        </div>
+            <div class="form-group">
+                <label for="submissionType">Submission Category *</label>
+                <select id="submissionType" name="category" onchange="toggleForm()" required>
+                    <option value="" disabled selected>Select Category</option>
+                    <option value="Poem">Poem</option>
+                    <option value="Story">Short Story</option>
+                    <option value="Photography">Photography</option>
+                    <option value="Drawing">Painting / Sketching</option>
+                </select>
+            </div>
 
-        <div id="imageUploadArea" class="form-group" style="display: none;">
-            <label>Upload Your Work (Image/Photo)</label>
-            <input type="file" name="upload" accept="image/*">
-            <p style="font-size: 0.8rem; color: #666;">Supported formats: JPG, PNG, WEBP</p>
-        </div>
+            <div id="textInputArea" class="form-group">
+                <label>Your Creative Work (Text)</label>
+                <textarea id="messageBox" name="message" rows="10" placeholder="Write your poem or story here..."></textarea>
+            </div>
 
-        <button type="submit" class="submit-btn">Submit Work</button>
-    </form>
+            <div id="imageUploadArea" class="form-group" style="display: none;">
+                <label>Upload Your Work (Image)</label>
+                <input type="file" id="fileInput" name="attachment" accept="image/*">
+            </div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">Submit Work</button>
+        </form>
+    </div>
 </section>
-
-        <div class="form-group">
-            <label>Submission Category *</label>
-            <select name="category" required>
-                <option value="" disabled selected>Select Category</option>
-                <option value="Painting/Sketching">Painting/Sketching</option>
-                <option value="Poem">Poem</option>
-                <option value="Short Story">Short Story</option>
-                <option value="Digital Art">Digital Art</option>
-                <option value="Photography">Photography</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label>Work Title *</label>
-            <input type="text" name="work_title" placeholder="Give your work a title" required>
-        </div>
-
-        
-
-        <button type="submit" class="submit-btn">Submit to Creative Cell</button>
-    </form>
-</div>
 
 <footer>
     <p>H-Block, Vikaspuri, New Delhi - 110018 | Phone: 011-45614561</p>
     <div class="footer-line"></div>
     <p class="credits">© 2026 Mamta Modern School | Developed by <b>Swapneil Jha</b></p>
 </footer>
+
+<script>
+// 1. DYNAMIC FORM SWITCHER
+function toggleForm() {
+    const selection = document.getElementById('submissionType').value;
+    const textSection = document.getElementById('textInputArea');
+    const imageSection = document.getElementById('imageUploadArea');
+    const msg = document.getElementById('messageBox');
+    const file = document.getElementById('fileInput');
+    
+    if (selection === 'Photography' || selection === 'Drawing') {
+        textSection.style.display = 'none';
+        imageSection.style.display = 'block';
+        file.required = true;
+        msg.required = false;
+    } else {
+        textSection.style.display = 'block';
+        imageSection.style.display = 'none';
+        file.required = false;
+        msg.required = true;
+    }
+}
+
+// 2. THE 405 ERROR FIX (FOR GITHUB PAGES)
+const form = document.getElementById('creativeForm');
+form.addEventListener('submit', function(e) {
+    e.preventDefault(); // STOPS THE 405 ERROR
+    
+    const formData = new FormData(form);
+    const btn = document.getElementById('submitBtn');
+    btn.innerHTML = "UPLOADING...";
+    btn.disabled = true;
+
+    fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+    })
+    .then(async (response) => {
+        if (response.status == 200) {
+            alert("Success! Your creation has been sent to the school.");
+            form.reset();
+            toggleForm(); // Reset visibility
+        } else {
+            alert("Error: " + response.statusText);
+        }
+    })
+    .catch(error => {
+        alert("Submission Failed. Check internet.");
+    })
+    .finally(() => {
+        btn.innerHTML = "SUBMIT WORK";
+        btn.disabled = false;
+    });
+});
+</script>
 
 </body>
 </html>
