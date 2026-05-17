@@ -89,6 +89,18 @@ nav a:hover {
         .form-group label { display: block; font-weight: 700; color: var(--midnight); margin-bottom: 8px; font-size: 0.9rem; text-transform: uppercase; }
         .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 1rem; }
         .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--midnight); outline: none; }
+         
+        input[type="file"] {
+    background: white;
+    padding: 20px;
+    border: 2px dashed #001f3f; /* Blue dashed border looks like a "drop zone" */
+    cursor: pointer;
+}
+
+input[type="file"]:hover {
+    background: #f0f4f8;
+    border-color: #d4af37;
+}
 
         .submit-btn { width: 100%; background: var(--midnight); color: white; padding: 18px; border: none; border-radius: 10px; font-weight: 800; font-size: 1.1rem; cursor: pointer; transition: 0.3s; text-transform: uppercase; letter-spacing: 2px; }
         .submit-btn:hover { background: var(--gold); color: var(--midnight); transform: translateY(-3px); }
@@ -101,6 +113,30 @@ nav a:hover {
 
         @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
     </style>
+    <script>
+function toggleForm() {
+    const selection = document.getElementById('submissionType').value;
+    const textSection = document.getElementById('textInputArea');
+    const imageSection = document.getElementById('imageUploadArea');
+    
+    // Check if the user selected an image-based category
+    if (selection === 'Photography' || selection === 'Drawing') {
+        textSection.style.display = 'none';      // Hide text box
+        imageSection.style.display = 'block';    // Show upload button
+        
+        // Make image required, text not required
+        imageSection.querySelector('input').required = true;
+        textSection.querySelector('textarea').required = false;
+    } else {
+        textSection.style.display = 'block';     // Show text box
+        imageSection.style.display = 'none';     // Hide upload button
+        
+        // Make text required, image not required
+        textSection.querySelector('textarea').required = true;
+        imageSection.querySelector('input').required = false;
+    }
+}
+</script>
 </head>
 <body>
 
@@ -139,27 +175,41 @@ nav a:hover {
 </nav>
 
 
-<div class="submission-section">
-    <div class="section-header">
-        <h2>Creative Canvas Submission</h2>
-        <p>Showcase your talent. Submit your art, poems, or stories below.</p>
-        <div></div>
-    </div>
+<section class="submission-section">
+    <h2>Creative Canvas</h2>
+    <p>Submit your Poems, Stories, or Digital Art!</p>
 
-    <form action="https://api.web3forms.com/submit" method="POST" class="canvas-form">
-        <input type="hidden" name="access_key" value="6984aa09-04d4-4a31-98ff-65cb3209cf62">
-        <input type="hidden" name="subject" value="New Creative Canvas Entry">
-
-        <div class="form-row">
-            <div class="form-group">
-                <label>Student Name *</label>
-                <input type="text" name="student_name" placeholder="Full Name" required>
-            </div>
-            <div class="form-group">
-                <label>Class & Section *</label>
-                <input type="text" name="class_section" placeholder="e.g. VII-A" required>
-            </div>
+    <form id="creativeForm" class="styled-form" action="YOUR_FORMSPREE_URL" method="POST" enctype="multipart/form-data">
+        
+        <div class="form-group">
+            <label>Student Name</label>
+            <input type="text" name="name" required>
         </div>
+
+        <div class="form-group">
+            <label for="submissionType">Submission Category</label>
+            <select id="submissionType" name="category" onchange="toggleForm()" required>
+                <option value="Poem">Poem</option>
+                <option value="Story">Story</option>
+                <option value="Photography">Photography / Art</option>
+                <option value="Drawing">Drawing (Scanned/Photo)</option>
+            </select>
+        </div>
+
+        <div id="textInputArea" class="form-group">
+            <label>Your Text Content</label>
+            <textarea name="message" rows="10" placeholder="Write your poem or story here..."></textarea>
+        </div>
+
+        <div id="imageUploadArea" class="form-group" style="display: none;">
+            <label>Upload Your Work (Image/Photo)</label>
+            <input type="file" name="upload" accept="image/*">
+            <p style="font-size: 0.8rem; color: #666;">Supported formats: JPG, PNG, WEBP</p>
+        </div>
+
+        <button type="submit" class="submit-btn">Submit Work</button>
+    </form>
+</section>
 
         <div class="form-group">
             <label>Submission Category *</label>
