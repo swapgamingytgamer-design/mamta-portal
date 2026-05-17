@@ -66,18 +66,39 @@ nav a:hover {
     border-bottom: 3px solid #d4af37; /* Gold underline */
 }
 
+
 /* 4. MOBILE ADJUSTMENTS */
+/* This ONLY triggers on phones and small tablets */
 @media (max-width: 768px) {
     nav {
-        justify-content: flex-start; /* Align to left so user knows to swipe */
-        padding-left: 10px;
+        display: grid !important; /* Overrides the desktop flex layout */
+        grid-template-columns: repeat(4, 1fr); /* 4 columns */
+        grid-template-rows: auto auto; /* 2 rows */
+        gap: 2px;
+        padding: 5px;
+        background: #001f3f;
     }
-    
+
     nav a {
-        padding: 15px 20px;
-        font-size: 0.8rem; /* Slightly smaller text for mobile */
+        font-size: 0.65rem !important; /* Smaller text to fit 4 buttons */
+        padding: 12px 2px !important;
+        text-align: center;
+        border: 1px solid rgba(255,255,255,0.1);
+        white-space: normal; /* Allows text to wrap if the word is long */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
     }
 }
+@media (max-width: 768px) {
+    .responsive-video {
+        width: 100% !important;
+        height: auto !important;
+        object-fit: cover; /* Ensures it fills the space without stretching */
+    }
+}
+
 
         /* ADMISSION CONTENT */
         .admission-container { padding: 60px 10%; background: var(--white); }
@@ -148,7 +169,7 @@ nav a:hover {
         <a href="suppliers.html">Suppliers</a>
         <a href="circulars.html">Circulars</a>
         <a href="admission.html">Admissions</a>
-        <a href="creativecanvas.html">Poem Submission</a>
+        <a href="creativecanvas.html">Students Creation</a>
         <a href="complaints.html">Complaints</a>
     </nav>
 
